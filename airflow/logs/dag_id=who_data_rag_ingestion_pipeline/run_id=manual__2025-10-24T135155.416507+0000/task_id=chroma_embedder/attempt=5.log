@@ -1,0 +1,949 @@
+[2025-10-24T17:08:02.353+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: who_data_rag_ingestion_pipeline.chroma_embedder manual__2025-10-24T13:51:55.416507+00:00 [queued]>
+[2025-10-24T17:08:02.373+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: who_data_rag_ingestion_pipeline.chroma_embedder manual__2025-10-24T13:51:55.416507+00:00 [queued]>
+[2025-10-24T17:08:02.374+0000] {taskinstance.py:2170} INFO - Starting attempt 5 of 5
+[2025-10-24T17:08:02.406+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): chroma_embedder> on 2025-10-24 13:51:55.416507+00:00
+[2025-10-24T17:08:02.420+0000] {standard_task_runner.py:60} INFO - Started process 9940 to run task
+[2025-10-24T17:08:02.427+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'who_data_rag_ingestion_pipeline', 'chroma_embedder', 'manual__2025-10-24T13:51:55.416507+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/ingest.py', '--cfg-path', '/tmp/tmpizj3v90x']
+[2025-10-24T17:08:02.429+0000] {standard_task_runner.py:88} INFO - Job 11: Subtask chroma_embedder
+[2025-10-24T17:08:02.468+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-10-24T17:08:02.590+0000] {task_command.py:423} INFO - Running <TaskInstance: who_data_rag_ingestion_pipeline.chroma_embedder manual__2025-10-24T13:51:55.416507+00:00 [running]> on host 6427600991b4
+[2025-10-24T17:08:02.899+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='who_data_rag_ingestion_pipeline' AIRFLOW_CTX_TASK_ID='chroma_embedder' AIRFLOW_CTX_EXECUTION_DATE='2025-10-24T13:51:55.416507+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-24T13:51:55.416507+00:00'
+[2025-10-24T17:08:02.917+0000] {data_processor.py:186} INFO - Embedding only updated or new topic documents into Chroma...
+[2025-10-24T17:08:02.919+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/app/chroma_db_files/chroma.sqlite
+[2025-10-24T17:08:05.982+0000] {s3_utils.py:60} WARNING - S3 object not found: app/chroma_db_files/chroma.sqlite
+[2025-10-24T17:08:05.988+0000] {data_processor.py:197} INFO - S3 doesn't have chromadb file, creating new chromadb
+[2025-10-24T17:08:06.078+0000] {posthog.py:22} INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2025-10-24T17:08:08.337+0000] {s3_utils.py:82} INFO - Successfully loaded data
+[2025-10-24T17:08:08.342+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/abortion.json
+[2025-10-24T17:08:09.501+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/abortion.json
+[2025-10-24T17:08:09.508+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/abortion.json...
+[2025-10-24T17:08:21.036+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/abortion.json.
+[2025-10-24T17:08:21.037+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/abuse_of_older_people.json
+[2025-10-24T17:08:22.410+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/abuse_of_older_people.json
+[2025-10-24T17:08:22.414+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/abuse_of_older_people.json...
+[2025-10-24T17:08:31.468+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/abuse_of_older_people.json.
+[2025-10-24T17:08:31.469+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/adolescent_and_young_adult_health.json
+[2025-10-24T17:08:32.686+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/adolescent_and_young_adult_health.json
+[2025-10-24T17:08:32.692+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/adolescent_and_young_adult_health.json...
+[2025-10-24T17:08:40.384+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/adolescent_and_young_adult_health.json.
+[2025-10-24T17:08:40.386+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/adolescent_pregnancy.json
+[2025-10-24T17:08:41.584+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/adolescent_pregnancy.json
+[2025-10-24T17:08:41.595+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/adolescent_pregnancy.json...
+[2025-10-24T17:08:49.694+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/adolescent_pregnancy.json.
+[2025-10-24T17:08:49.695+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/ageing_and_health.json
+[2025-10-24T17:08:50.847+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/ageing_and_health.json
+[2025-10-24T17:08:50.858+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/ageing_and_health.json...
+[2025-10-24T17:08:59.337+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/ageing_and_health.json.
+[2025-10-24T17:08:59.339+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/alcohol.json
+[2025-10-24T17:09:00.487+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/alcohol.json
+[2025-10-24T17:09:00.496+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/alcohol.json...
+[2025-10-24T17:09:08.142+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/alcohol.json.
+[2025-10-24T17:09:08.143+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/ambient_(outdoor)_air_pollution.json
+[2025-10-24T17:09:09.360+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/ambient_(outdoor)_air_pollution.json
+[2025-10-24T17:09:09.365+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/ambient_(outdoor)_air_pollution.json...
+[2025-10-24T17:09:16.363+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/ambient_(outdoor)_air_pollution.json.
+[2025-10-24T17:09:16.365+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/anaemia.json
+[2025-10-24T17:09:17.442+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/anaemia.json
+[2025-10-24T17:09:17.453+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/anaemia.json...
+[2025-10-24T17:09:31.215+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/anaemia.json.
+[2025-10-24T17:09:31.216+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/animal_bites.json
+[2025-10-24T17:09:32.469+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/animal_bites.json
+[2025-10-24T17:09:32.477+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/animal_bites.json...
+[2025-10-24T17:09:44.839+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/animal_bites.json.
+[2025-10-24T17:09:44.840+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/antimicrobial_resistance.json
+[2025-10-24T17:09:45.915+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/antimicrobial_resistance.json
+[2025-10-24T17:09:45.929+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/antimicrobial_resistance.json...
+[2025-10-24T17:09:58.345+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/antimicrobial_resistance.json.
+[2025-10-24T17:09:58.346+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/anxiety_disorders.json
+[2025-10-24T17:09:59.262+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/anxiety_disorders.json
+[2025-10-24T17:09:59.271+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/anxiety_disorders.json...
+[2025-10-24T17:10:06.085+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/anxiety_disorders.json.
+[2025-10-24T17:10:06.086+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/arsenic.json
+[2025-10-24T17:10:07.391+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/arsenic.json
+[2025-10-24T17:10:07.397+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/arsenic.json...
+[2025-10-24T17:10:17.816+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/arsenic.json.
+[2025-10-24T17:10:17.817+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/asbestos.json
+[2025-10-24T17:10:19.119+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/asbestos.json
+[2025-10-24T17:10:19.123+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/asbestos.json...
+[2025-10-24T17:10:27.496+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/asbestos.json.
+[2025-10-24T17:10:27.497+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/assistive_technology.json
+[2025-10-24T17:10:28.451+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/assistive_technology.json
+[2025-10-24T17:10:28.458+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/assistive_technology.json...
+[2025-10-24T17:10:32.561+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/assistive_technology.json.
+[2025-10-24T17:10:32.563+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/asthma.json
+[2025-10-24T17:10:33.731+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/asthma.json
+[2025-10-24T17:10:33.740+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/asthma.json...
+[2025-10-24T17:10:41.789+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/asthma.json.
+[2025-10-24T17:10:41.790+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/autism.json
+[2025-10-24T17:10:42.653+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/autism.json
+[2025-10-24T17:10:42.657+0000] {data_processor.py:243} INFO - Embedding 3 new chunks from processed/autism.json...
+[2025-10-24T17:10:44.915+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/autism.json.
+[2025-10-24T17:10:44.917+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/bacterial_vaginosis.json
+[2025-10-24T17:10:45.929+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/bacterial_vaginosis.json
+[2025-10-24T17:10:45.939+0000] {data_processor.py:243} INFO - Embedding 13 new chunks from processed/bacterial_vaginosis.json...
+[2025-10-24T17:10:48.853+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/bacterial_vaginosis.json.
+[2025-10-24T17:10:48.855+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/biodiversity.json
+[2025-10-24T17:10:49.775+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/biodiversity.json
+[2025-10-24T17:10:49.781+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/biodiversity.json...
+[2025-10-24T17:10:58.464+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/biodiversity.json.
+[2025-10-24T17:10:58.469+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/bipolar_disorder.json
+[2025-10-24T17:10:59.493+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/bipolar_disorder.json
+[2025-10-24T17:10:59.498+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/bipolar_disorder.json...
+[2025-10-24T17:11:08.927+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/bipolar_disorder.json.
+[2025-10-24T17:11:08.928+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/blindness_and_vision_impairment.json
+[2025-10-24T17:11:09.980+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/blindness_and_vision_impairment.json
+[2025-10-24T17:11:09.986+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/blindness_and_vision_impairment.json...
+[2025-10-24T17:11:21.394+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/blindness_and_vision_impairment.json.
+[2025-10-24T17:11:21.395+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/blood_safety_and_availability.json
+[2025-10-24T17:11:22.336+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/blood_safety_and_availability.json
+[2025-10-24T17:11:22.345+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/blood_safety_and_availability.json...
+[2025-10-24T17:11:35.421+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/blood_safety_and_availability.json.
+[2025-10-24T17:11:35.423+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/botulism.json
+[2025-10-24T17:11:36.403+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/botulism.json
+[2025-10-24T17:11:36.417+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/botulism.json...
+[2025-10-24T17:11:47.525+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/botulism.json.
+[2025-10-24T17:11:47.526+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/breast_cancer.json
+[2025-10-24T17:11:48.649+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/breast_cancer.json
+[2025-10-24T17:11:48.653+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/breast_cancer.json...
+[2025-10-24T17:11:57.949+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/breast_cancer.json.
+[2025-10-24T17:11:57.950+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/brucellosis.json
+[2025-10-24T17:11:59.008+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/brucellosis.json
+[2025-10-24T17:11:59.014+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/brucellosis.json...
+[2025-10-24T17:12:02.904+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/brucellosis.json.
+[2025-10-24T17:12:02.905+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/burns.json
+[2025-10-24T17:12:03.953+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/burns.json
+[2025-10-24T17:12:03.961+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/burns.json...
+[2025-10-24T17:12:16.782+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/burns.json.
+[2025-10-24T17:12:16.783+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/buruli_ulcer_(mycobacterium_ulcerans_infection).json
+[2025-10-24T17:12:17.945+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/buruli_ulcer_(mycobacterium_ulcerans_infection).json
+[2025-10-24T17:12:17.951+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/buruli_ulcer_(mycobacterium_ulcerans_infection).json...
+[2025-10-24T17:12:29.009+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/buruli_ulcer_(mycobacterium_ulcerans_infection).json.
+[2025-10-24T17:12:29.010+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/campylobacter.json
+[2025-10-24T17:12:30.011+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/campylobacter.json
+[2025-10-24T17:12:30.016+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/campylobacter.json...
+[2025-10-24T17:12:38.534+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/campylobacter.json.
+[2025-10-24T17:12:38.536+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/cancer.json
+[2025-10-24T17:12:39.579+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/cancer.json
+[2025-10-24T17:12:39.583+0000] {data_processor.py:243} INFO - Embedding 25 new chunks from processed/cancer.json...
+[2025-10-24T17:12:52.184+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/cancer.json.
+[2025-10-24T17:12:52.185+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/cardiovascular_diseases_(cvds).json
+[2025-10-24T17:12:53.128+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/cardiovascular_diseases_(cvds).json
+[2025-10-24T17:12:53.137+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/cardiovascular_diseases_(cvds).json...
+[2025-10-24T17:13:01.695+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/cardiovascular_diseases_(cvds).json.
+[2025-10-24T17:13:01.696+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/cervical_cancer.json
+[2025-10-24T17:13:02.703+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/cervical_cancer.json
+[2025-10-24T17:13:02.711+0000] {data_processor.py:243} INFO - Embedding 11 new chunks from processed/cervical_cancer.json...
+[2025-10-24T17:13:11.633+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/cervical_cancer.json.
+[2025-10-24T17:13:11.635+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/chagas_disease_(also_known_as_american_trypanosomiasis).json
+[2025-10-24T17:13:12.481+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/chagas_disease_(also_known_as_american_trypanosomiasis).json
+[2025-10-24T17:13:12.485+0000] {data_processor.py:243} INFO - Embedding 15 new chunks from processed/chagas_disease_(also_known_as_american_trypanosomiasis).json...
+[2025-10-24T17:13:23.377+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/chagas_disease_(also_known_as_american_trypanosomiasis).json.
+[2025-10-24T17:13:23.378+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/chikungunya.json
+[2025-10-24T17:13:24.380+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/chikungunya.json
+[2025-10-24T17:13:24.392+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/chikungunya.json...
+[2025-10-24T17:13:38.156+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/chikungunya.json.
+[2025-10-24T17:13:38.157+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/child_maltreatment.json
+[2025-10-24T17:13:39.066+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/child_maltreatment.json
+[2025-10-24T17:13:39.070+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/child_maltreatment.json...
+[2025-10-24T17:13:47.602+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/child_maltreatment.json.
+[2025-10-24T17:13:47.603+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/child_mortality_(under_5_years).json
+[2025-10-24T17:13:48.638+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/child_mortality_(under_5_years).json
+[2025-10-24T17:13:48.648+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/child_mortality_(under_5_years).json...
+[2025-10-24T17:13:56.044+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/child_mortality_(under_5_years).json.
+[2025-10-24T17:13:56.048+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/childhood_cancer.json
+[2025-10-24T17:13:57.240+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/childhood_cancer.json
+[2025-10-24T17:13:57.245+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/childhood_cancer.json...
+[2025-10-24T17:14:04.810+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/childhood_cancer.json.
+[2025-10-24T17:14:04.811+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/chlamydia.json
+[2025-10-24T17:14:06.024+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/chlamydia.json
+[2025-10-24T17:14:06.030+0000] {data_processor.py:243} INFO - Embedding 19 new chunks from processed/chlamydia.json...
+[2025-10-24T17:14:21.196+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/chlamydia.json.
+[2025-10-24T17:14:21.197+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/cholera.json
+[2025-10-24T17:14:22.950+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/cholera.json
+[2025-10-24T17:14:22.958+0000] {data_processor.py:243} INFO - Embedding 32 new chunks from processed/cholera.json...
+[2025-10-24T17:14:43.438+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/cholera.json.
+[2025-10-24T17:14:43.440+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/chromoblastomycosis.json
+[2025-10-24T17:14:44.392+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/chromoblastomycosis.json
+[2025-10-24T17:14:44.396+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/chromoblastomycosis.json...
+[2025-10-24T17:14:49.428+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/chromoblastomycosis.json.
+[2025-10-24T17:14:49.429+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/chronic_obstructive_pulmonary_disease_(copd).json
+[2025-10-24T17:14:50.363+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/chronic_obstructive_pulmonary_disease_(copd).json
+[2025-10-24T17:14:50.370+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/chronic_obstructive_pulmonary_disease_(copd).json...
+[2025-10-24T17:14:57.859+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/chronic_obstructive_pulmonary_disease_(copd).json.
+[2025-10-24T17:14:57.860+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/civil_registration_and_vital_statistics.json
+[2025-10-24T17:14:58.823+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/civil_registration_and_vital_statistics.json
+[2025-10-24T17:14:58.832+0000] {data_processor.py:243} INFO - Embedding 8 new chunks from processed/civil_registration_and_vital_statistics.json...
+[2025-10-24T17:15:08.946+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/civil_registration_and_vital_statistics.json.
+[2025-10-24T17:15:08.950+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/climate_change.json
+[2025-10-24T17:15:10.033+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/climate_change.json
+[2025-10-24T17:15:10.037+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/climate_change.json...
+[2025-10-24T17:15:20.521+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/climate_change.json.
+[2025-10-24T17:15:20.523+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/colorectal_cancer.json
+[2025-10-24T17:15:21.533+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/colorectal_cancer.json
+[2025-10-24T17:15:21.537+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/colorectal_cancer.json...
+[2025-10-24T17:15:32.813+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/colorectal_cancer.json.
+[2025-10-24T17:15:32.815+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/commercial_determinants_of_health.json
+[2025-10-24T17:15:33.758+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/commercial_determinants_of_health.json
+[2025-10-24T17:15:33.764+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/commercial_determinants_of_health.json...
+[2025-10-24T17:15:45.029+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/commercial_determinants_of_health.json.
+[2025-10-24T17:15:45.030+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/community-based_health_insurance.json
+[2025-10-24T17:15:46.136+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/community-based_health_insurance.json
+[2025-10-24T17:15:46.142+0000] {data_processor.py:243} INFO - Embedding 7 new chunks from processed/community-based_health_insurance.json...
+[2025-10-24T17:15:51.970+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/community-based_health_insurance.json.
+[2025-10-24T17:15:51.972+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/condoms.json
+[2025-10-24T17:15:52.946+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/condoms.json
+[2025-10-24T17:15:52.955+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/condoms.json...
+[2025-10-24T17:16:00.065+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/condoms.json.
+[2025-10-24T17:16:00.066+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/congenital_disorders.json
+[2025-10-24T17:16:00.967+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/congenital_disorders.json
+[2025-10-24T17:16:00.973+0000] {data_processor.py:243} INFO - Embedding 8 new chunks from processed/congenital_disorders.json...
+[2025-10-24T17:16:07.631+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/congenital_disorders.json.
+[2025-10-24T17:16:07.632+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/coronavirus_disease_(covid-19).json
+[2025-10-24T17:16:08.827+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/coronavirus_disease_(covid-19).json
+[2025-10-24T17:16:08.832+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/coronavirus_disease_(covid-19).json...
+[2025-10-24T17:16:16.305+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/coronavirus_disease_(covid-19).json.
+[2025-10-24T17:16:16.306+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/corporal_punishment_of_children_and_health.json
+[2025-10-24T17:16:17.492+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/corporal_punishment_of_children_and_health.json
+[2025-10-24T17:16:17.496+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/corporal_punishment_of_children_and_health.json...
+[2025-10-24T17:16:25.691+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/corporal_punishment_of_children_and_health.json.
+[2025-10-24T17:16:25.692+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/crimean-congo_haemorrhagic_fever.json
+[2025-10-24T17:16:26.679+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/crimean-congo_haemorrhagic_fever.json
+[2025-10-24T17:16:26.700+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/crimean-congo_haemorrhagic_fever.json...
+[2025-10-24T17:16:40.851+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/crimean-congo_haemorrhagic_fever.json.
+[2025-10-24T17:16:40.852+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/deafness_and_hearing_loss.json
+[2025-10-24T17:16:41.942+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/deafness_and_hearing_loss.json
+[2025-10-24T17:16:41.954+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/deafness_and_hearing_loss.json...
+[2025-10-24T17:16:48.119+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/deafness_and_hearing_loss.json.
+[2025-10-24T17:16:48.121+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/deliberate_events.json
+[2025-10-24T17:16:49.196+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/deliberate_events.json
+[2025-10-24T17:16:49.201+0000] {data_processor.py:243} INFO - Embedding 8 new chunks from processed/deliberate_events.json...
+[2025-10-24T17:16:55.094+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/deliberate_events.json.
+[2025-10-24T17:16:55.095+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/dementia.json
+[2025-10-24T17:16:56.058+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/dementia.json
+[2025-10-24T17:16:56.064+0000] {data_processor.py:243} INFO - Embedding 17 new chunks from processed/dementia.json...
+[2025-10-24T17:17:02.081+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/dementia.json.
+[2025-10-24T17:17:02.082+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/dengue.json
+[2025-10-24T17:17:03.069+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/dengue.json
+[2025-10-24T17:17:03.077+0000] {data_processor.py:243} INFO - Embedding 11 new chunks from processed/dengue.json...
+[2025-10-24T17:17:12.378+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/dengue.json.
+[2025-10-24T17:17:12.379+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/depressive_disorder_(depression).json
+[2025-10-24T17:17:13.500+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/depressive_disorder_(depression).json
+[2025-10-24T17:17:13.510+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/depressive_disorder_(depression).json...
+[2025-10-24T17:17:19.654+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/depressive_disorder_(depression).json.
+[2025-10-24T17:17:19.656+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/diabetes.json
+[2025-10-24T17:17:20.828+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/diabetes.json
+[2025-10-24T17:17:20.848+0000] {data_processor.py:243} INFO - Embedding 21 new chunks from processed/diabetes.json...
+[2025-10-24T17:17:28.853+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/diabetes.json.
+[2025-10-24T17:17:28.856+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/diarrhoeal_disease.json
+[2025-10-24T17:17:29.930+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/diarrhoeal_disease.json
+[2025-10-24T17:17:29.947+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/diarrhoeal_disease.json...
+[2025-10-24T17:17:40.450+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/diarrhoeal_disease.json.
+[2025-10-24T17:17:40.451+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/dioxins.json
+[2025-10-24T17:17:41.454+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/dioxins.json
+[2025-10-24T17:17:41.458+0000] {data_processor.py:243} INFO - Embedding 17 new chunks from processed/dioxins.json...
+[2025-10-24T17:17:55.523+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/dioxins.json.
+[2025-10-24T17:17:55.525+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/diphtheria.json
+[2025-10-24T17:17:56.487+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/diphtheria.json
+[2025-10-24T17:17:56.493+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/diphtheria.json...
+[2025-10-24T17:18:02.471+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/diphtheria.json.
+[2025-10-24T17:18:02.472+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/disability.json
+[2025-10-24T17:18:03.435+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/disability.json
+[2025-10-24T17:18:03.443+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/disability.json...
+[2025-10-24T17:18:10.193+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/disability.json.
+[2025-10-24T17:18:10.194+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/dracunculiasis_(guinea-worm_disease).json
+[2025-10-24T17:18:11.371+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/dracunculiasis_(guinea-worm_disease).json
+[2025-10-24T17:18:11.376+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/dracunculiasis_(guinea-worm_disease).json...
+[2025-10-24T17:18:17.946+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/dracunculiasis_(guinea-worm_disease).json.
+[2025-10-24T17:18:17.948+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/drinking-water.json
+[2025-10-24T17:18:18.897+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/drinking-water.json
+[2025-10-24T17:18:18.901+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/drinking-water.json...
+[2025-10-24T17:18:29.108+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/drinking-water.json.
+[2025-10-24T17:18:29.109+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/drowning.json
+[2025-10-24T17:18:30.150+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/drowning.json
+[2025-10-24T17:18:30.157+0000] {data_processor.py:243} INFO - Embedding 8 new chunks from processed/drowning.json...
+[2025-10-24T17:18:36.140+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/drowning.json.
+[2025-10-24T17:18:36.141+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/e._coli.json
+[2025-10-24T17:18:37.209+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/e._coli.json
+[2025-10-24T17:18:37.224+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/e._coli.json...
+[2025-10-24T17:18:46.645+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/e._coli.json.
+[2025-10-24T17:18:46.646+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/ebola_disease.json
+[2025-10-24T17:18:47.743+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/ebola_disease.json
+[2025-10-24T17:18:47.755+0000] {data_processor.py:243} INFO - Embedding 21 new chunks from processed/ebola_disease.json...
+[2025-10-24T17:18:58.045+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/ebola_disease.json.
+[2025-10-24T17:18:58.046+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/echinococcosis.json
+[2025-10-24T17:18:58.985+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/echinococcosis.json
+[2025-10-24T17:18:58.990+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/echinococcosis.json...
+[2025-10-24T17:19:14.226+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/echinococcosis.json.
+[2025-10-24T17:19:14.227+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/el_niño_southern_oscillation_(enso).json
+[2025-10-24T17:19:15.261+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/el_niño_southern_oscillation_(enso).json
+[2025-10-24T17:19:15.265+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/el_niño_southern_oscillation_(enso).json...
+[2025-10-24T17:19:23.318+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/el_niño_southern_oscillation_(enso).json.
+[2025-10-24T17:19:23.320+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/electricity_in_health-care_facilities.json
+[2025-10-24T17:19:24.341+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/electricity_in_health-care_facilities.json
+[2025-10-24T17:19:24.356+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/electricity_in_health-care_facilities.json...
+[2025-10-24T17:19:33.416+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/electricity_in_health-care_facilities.json.
+[2025-10-24T17:19:33.418+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/electronic_waste_(e-waste).json
+[2025-10-24T17:19:34.656+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/electronic_waste_(e-waste).json
+[2025-10-24T17:19:34.661+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/electronic_waste_(e-waste).json...
+[2025-10-24T17:19:48.083+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/electronic_waste_(e-waste).json.
+[2025-10-24T17:19:48.085+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/emergency_contraception.json
+[2025-10-24T17:19:49.135+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/emergency_contraception.json
+[2025-10-24T17:19:49.141+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/emergency_contraception.json...
+[2025-10-24T17:20:05.502+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/emergency_contraception.json.
+[2025-10-24T17:20:05.503+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/endometriosis.json
+[2025-10-24T17:20:06.702+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/endometriosis.json
+[2025-10-24T17:20:06.717+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/endometriosis.json...
+[2025-10-24T17:20:19.316+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/endometriosis.json.
+[2025-10-24T17:20:19.318+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/epilepsy.json
+[2025-10-24T17:20:20.357+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/epilepsy.json
+[2025-10-24T17:20:20.373+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/epilepsy.json...
+[2025-10-24T17:20:31.403+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/epilepsy.json.
+[2025-10-24T17:20:31.404+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/essential_medicines.json
+[2025-10-24T17:20:32.536+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/essential_medicines.json
+[2025-10-24T17:20:32.540+0000] {data_processor.py:243} INFO - Embedding 17 new chunks from processed/essential_medicines.json...
+[2025-10-24T17:20:47.642+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/essential_medicines.json.
+[2025-10-24T17:20:47.643+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/falls.json
+[2025-10-24T17:20:48.962+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/falls.json
+[2025-10-24T17:20:48.967+0000] {data_processor.py:243} INFO - Embedding 8 new chunks from processed/falls.json...
+[2025-10-24T17:20:54.293+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/falls.json.
+[2025-10-24T17:20:54.294+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/family_planningcontraception_methods.json
+[2025-10-24T17:20:55.290+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/family_planningcontraception_methods.json
+[2025-10-24T17:20:55.300+0000] {data_processor.py:243} INFO - Embedding 11 new chunks from processed/family_planningcontraception_methods.json...
+[2025-10-24T17:20:59.866+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/family_planningcontraception_methods.json.
+[2025-10-24T17:20:59.867+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/female_genital_mutilation.json
+[2025-10-24T17:21:00.785+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/female_genital_mutilation.json
+[2025-10-24T17:21:00.790+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/female_genital_mutilation.json...
+[2025-10-24T17:21:07.769+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/female_genital_mutilation.json.
+[2025-10-24T17:21:07.770+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/food_additives.json
+[2025-10-24T17:21:08.844+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/food_additives.json
+[2025-10-24T17:21:08.849+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/food_additives.json...
+[2025-10-24T17:21:20.222+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/food_additives.json.
+[2025-10-24T17:21:20.224+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/food_safety.json
+[2025-10-24T17:21:21.437+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/food_safety.json
+[2025-10-24T17:21:21.442+0000] {data_processor.py:243} INFO - Embedding 1 new chunks from processed/food_safety.json...
+[2025-10-24T17:21:22.442+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/food_safety.json.
+[2025-10-24T17:21:22.444+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/foodborne_trematode_infections.json
+[2025-10-24T17:21:23.470+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/foodborne_trematode_infections.json
+[2025-10-24T17:21:23.476+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/foodborne_trematode_infections.json...
+[2025-10-24T17:21:31.990+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/foodborne_trematode_infections.json.
+[2025-10-24T17:21:31.993+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/fragility_fractures.json
+[2025-10-24T17:21:33.315+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/fragility_fractures.json
+[2025-10-24T17:21:33.319+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/fragility_fractures.json...
+[2025-10-24T17:21:48.412+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/fragility_fractures.json.
+[2025-10-24T17:21:48.413+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/free_health_care_policies.json
+[2025-10-24T17:21:49.548+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/free_health_care_policies.json
+[2025-10-24T17:21:49.554+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/free_health_care_policies.json...
+[2025-10-24T17:21:55.232+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/free_health_care_policies.json.
+[2025-10-24T17:21:55.233+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/gambling.json
+[2025-10-24T17:21:56.589+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/gambling.json
+[2025-10-24T17:21:56.593+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/gambling.json...
+[2025-10-24T17:22:13.467+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/gambling.json.
+[2025-10-24T17:22:13.468+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/gonorrhoea_(neisseria_gonorrhoeae_infection).json
+[2025-10-24T17:22:14.577+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/gonorrhoea_(neisseria_gonorrhoeae_infection).json
+[2025-10-24T17:22:14.581+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/gonorrhoea_(neisseria_gonorrhoeae_infection).json...
+[2025-10-24T17:22:23.887+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/gonorrhoea_(neisseria_gonorrhoeae_infection).json.
+[2025-10-24T17:22:23.889+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/guillain–barré_syndrome.json
+[2025-10-24T17:22:24.888+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/guillain–barré_syndrome.json
+[2025-10-24T17:22:24.898+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/guillain–barré_syndrome.json...
+[2025-10-24T17:22:29.928+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/guillain–barré_syndrome.json.
+[2025-10-24T17:22:29.929+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/health-care_waste.json
+[2025-10-24T17:22:31.001+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/health-care_waste.json
+[2025-10-24T17:22:31.008+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/health-care_waste.json...
+[2025-10-24T17:22:43.968+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/health-care_waste.json.
+[2025-10-24T17:22:43.969+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/health_literacy.json
+[2025-10-24T17:22:45.177+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/health_literacy.json
+[2025-10-24T17:22:45.181+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/health_literacy.json...
+[2025-10-24T17:22:51.470+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/health_literacy.json.
+[2025-10-24T17:22:51.471+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/healthy_diet.json
+[2025-10-24T17:22:52.480+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/healthy_diet.json
+[2025-10-24T17:22:52.486+0000] {data_processor.py:243} INFO - Embedding 8 new chunks from processed/healthy_diet.json...
+[2025-10-24T17:22:59.307+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/healthy_diet.json.
+[2025-10-24T17:22:59.308+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/heat_and_health.json
+[2025-10-24T17:23:00.349+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/heat_and_health.json
+[2025-10-24T17:23:00.359+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/heat_and_health.json...
+[2025-10-24T17:23:09.337+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/heat_and_health.json.
+[2025-10-24T17:23:09.339+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/hepatitis_a.json
+[2025-10-24T17:23:10.444+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/hepatitis_a.json
+[2025-10-24T17:23:10.449+0000] {data_processor.py:243} INFO - Embedding 2 new chunks from processed/hepatitis_a.json...
+[2025-10-24T17:23:12.204+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/hepatitis_a.json.
+[2025-10-24T17:23:12.205+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/hepatitis_b.json
+[2025-10-24T17:23:13.119+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/hepatitis_b.json
+[2025-10-24T17:23:13.124+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/hepatitis_b.json...
+[2025-10-24T17:23:22.165+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/hepatitis_b.json.
+[2025-10-24T17:23:22.166+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/hepatitis_c.json
+[2025-10-24T17:23:23.406+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/hepatitis_c.json
+[2025-10-24T17:23:23.411+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/hepatitis_c.json...
+[2025-10-24T17:23:39.469+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/hepatitis_c.json.
+[2025-10-24T17:23:39.471+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/hepatitis_d.json
+[2025-10-24T17:23:40.774+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/hepatitis_d.json
+[2025-10-24T17:23:40.780+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/hepatitis_d.json...
+[2025-10-24T17:23:50.652+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/hepatitis_d.json.
+[2025-10-24T17:23:50.654+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/hepatitis_e.json
+[2025-10-24T17:23:51.666+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/hepatitis_e.json
+[2025-10-24T17:23:51.671+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/hepatitis_e.json...
+[2025-10-24T17:24:02.644+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/hepatitis_e.json.
+[2025-10-24T17:24:02.645+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/herpes_simplex_virus.json
+[2025-10-24T17:24:03.548+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/herpes_simplex_virus.json
+[2025-10-24T17:24:03.553+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/herpes_simplex_virus.json...
+[2025-10-24T17:24:14.985+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/herpes_simplex_virus.json.
+[2025-10-24T17:24:14.987+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/hiv_and_aids.json
+[2025-10-24T17:24:16.074+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/hiv_and_aids.json
+[2025-10-24T17:24:16.084+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/hiv_and_aids.json...
+[2025-10-24T17:24:24.837+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/hiv_and_aids.json.
+[2025-10-24T17:24:24.839+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/hiv_drug_resistance.json
+[2025-10-24T17:24:25.774+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/hiv_drug_resistance.json
+[2025-10-24T17:24:25.783+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/hiv_drug_resistance.json...
+[2025-10-24T17:24:39.386+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/hiv_drug_resistance.json.
+[2025-10-24T17:24:39.387+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/household_air_pollution.json
+[2025-10-24T17:24:40.347+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/household_air_pollution.json
+[2025-10-24T17:24:40.357+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/household_air_pollution.json...
+[2025-10-24T17:24:51.200+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/household_air_pollution.json.
+[2025-10-24T17:24:51.201+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/human_papillomavirus_and_cancer.json
+[2025-10-24T17:24:52.263+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/human_papillomavirus_and_cancer.json
+[2025-10-24T17:24:52.273+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/human_papillomavirus_and_cancer.json...
+[2025-10-24T17:25:03.813+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/human_papillomavirus_and_cancer.json.
+[2025-10-24T17:25:03.816+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/human_rights.json
+[2025-10-24T17:25:04.809+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/human_rights.json
+[2025-10-24T17:25:04.814+0000] {data_processor.py:243} INFO - Embedding 15 new chunks from processed/human_rights.json...
+[2025-10-24T17:25:15.935+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/human_rights.json.
+[2025-10-24T17:25:15.936+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/human_t-lymphotropic_virus_type_1.json
+[2025-10-24T17:25:17.083+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/human_t-lymphotropic_virus_type_1.json
+[2025-10-24T17:25:17.089+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/human_t-lymphotropic_virus_type_1.json...
+[2025-10-24T17:25:23.493+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/human_t-lymphotropic_virus_type_1.json.
+[2025-10-24T17:25:23.494+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/hypertension.json
+[2025-10-24T17:25:24.417+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/hypertension.json
+[2025-10-24T17:25:24.423+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/hypertension.json...
+[2025-10-24T17:25:32.872+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/hypertension.json.
+[2025-10-24T17:25:32.873+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/icd-11.json
+[2025-10-24T17:25:33.752+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/icd-11.json
+[2025-10-24T17:25:33.757+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/icd-11.json...
+[2025-10-24T17:25:44.435+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/icd-11.json.
+[2025-10-24T17:25:44.437+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/immunization_coverage.json
+[2025-10-24T17:25:45.401+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/immunization_coverage.json
+[2025-10-24T17:25:45.412+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/immunization_coverage.json...
+[2025-10-24T17:25:53.257+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/immunization_coverage.json.
+[2025-10-24T17:25:53.258+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/infant_and_young_child_feeding.json
+[2025-10-24T17:25:54.403+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/infant_and_young_child_feeding.json
+[2025-10-24T17:25:54.413+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/infant_and_young_child_feeding.json...
+[2025-10-24T17:26:04.648+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/infant_and_young_child_feeding.json.
+[2025-10-24T17:26:04.649+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/infertility.json
+[2025-10-24T17:26:05.579+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/infertility.json
+[2025-10-24T17:26:05.585+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/infertility.json...
+[2025-10-24T17:26:15.175+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/infertility.json.
+[2025-10-24T17:26:15.176+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/influenza_(avian_and_other_zoonotic).json
+[2025-10-24T17:26:16.238+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/influenza_(avian_and_other_zoonotic).json
+[2025-10-24T17:26:16.245+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/influenza_(avian_and_other_zoonotic).json...
+[2025-10-24T17:26:28.597+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/influenza_(avian_and_other_zoonotic).json.
+[2025-10-24T17:26:28.598+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/influenza_(seasonal).json
+[2025-10-24T17:26:29.893+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/influenza_(seasonal).json
+[2025-10-24T17:26:29.898+0000] {data_processor.py:243} INFO - Embedding 19 new chunks from processed/influenza_(seasonal).json...
+[2025-10-24T17:26:39.210+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/influenza_(seasonal).json.
+[2025-10-24T17:26:39.212+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/injuries_and_violence.json
+[2025-10-24T17:26:40.450+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/injuries_and_violence.json
+[2025-10-24T17:26:40.460+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/injuries_and_violence.json...
+[2025-10-24T17:26:51.830+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/injuries_and_violence.json.
+[2025-10-24T17:26:51.831+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/ionizing_radiation_and_health_effects.json
+[2025-10-24T17:26:53.093+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/ionizing_radiation_and_health_effects.json
+[2025-10-24T17:26:53.097+0000] {data_processor.py:243} INFO - Embedding 6 new chunks from processed/ionizing_radiation_and_health_effects.json...
+[2025-10-24T17:26:57.879+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/ionizing_radiation_and_health_effects.json.
+[2025-10-24T17:26:57.880+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/japanese_encephalitis.json
+[2025-10-24T17:26:58.916+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/japanese_encephalitis.json
+[2025-10-24T17:26:58.926+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/japanese_encephalitis.json...
+[2025-10-24T17:27:07.545+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/japanese_encephalitis.json.
+[2025-10-24T17:27:07.546+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/lassa_fever.json
+[2025-10-24T17:27:09.279+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/lassa_fever.json
+[2025-10-24T17:27:09.284+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/lassa_fever.json...
+[2025-10-24T17:27:19.672+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/lassa_fever.json.
+[2025-10-24T17:27:19.673+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/lead_poisoning.json
+[2025-10-24T17:27:20.858+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/lead_poisoning.json
+[2025-10-24T17:27:20.865+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/lead_poisoning.json...
+[2025-10-24T17:27:26.588+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/lead_poisoning.json.
+[2025-10-24T17:27:26.590+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/legionellosis.json
+[2025-10-24T17:27:28.423+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/legionellosis.json
+[2025-10-24T17:27:28.436+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/legionellosis.json...
+[2025-10-24T17:27:40.261+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/legionellosis.json.
+[2025-10-24T17:27:40.263+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/leishmaniasis.json
+[2025-10-24T17:27:41.506+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/leishmaniasis.json
+[2025-10-24T17:27:41.512+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/leishmaniasis.json...
+[2025-10-24T17:27:49.134+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/leishmaniasis.json.
+[2025-10-24T17:27:49.135+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/leprosy.json
+[2025-10-24T17:27:50.147+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/leprosy.json
+[2025-10-24T17:27:50.160+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/leprosy.json...
+[2025-10-24T17:27:56.668+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/leprosy.json.
+[2025-10-24T17:27:56.670+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/listeriosis.json
+[2025-10-24T17:27:57.655+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/listeriosis.json
+[2025-10-24T17:27:57.661+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/listeriosis.json...
+[2025-10-24T17:28:07.126+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/listeriosis.json.
+[2025-10-24T17:28:07.128+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/low_back_pain.json
+[2025-10-24T17:28:08.096+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/low_back_pain.json
+[2025-10-24T17:28:08.102+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/low_back_pain.json...
+[2025-10-24T17:28:15.615+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/low_back_pain.json.
+[2025-10-24T17:28:15.616+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/lung_cancer.json
+[2025-10-24T17:28:16.564+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/lung_cancer.json
+[2025-10-24T17:28:16.571+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/lung_cancer.json...
+[2025-10-24T17:28:29.514+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/lung_cancer.json.
+[2025-10-24T17:28:29.516+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/lymphatic_filariasis.json
+[2025-10-24T17:28:30.665+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/lymphatic_filariasis.json
+[2025-10-24T17:28:30.676+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/lymphatic_filariasis.json...
+[2025-10-24T17:28:43.110+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/lymphatic_filariasis.json.
+[2025-10-24T17:28:43.111+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/malaria.json
+[2025-10-24T17:28:44.255+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/malaria.json
+[2025-10-24T17:28:44.265+0000] {data_processor.py:243} INFO - Embedding 21 new chunks from processed/malaria.json...
+[2025-10-24T17:29:00.528+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/malaria.json.
+[2025-10-24T17:29:00.530+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/malnutrition.json
+[2025-10-24T17:29:01.667+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/malnutrition.json
+[2025-10-24T17:29:01.674+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/malnutrition.json...
+[2025-10-24T17:29:09.949+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/malnutrition.json.
+[2025-10-24T17:29:09.950+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/marburg_virus_disease.json
+[2025-10-24T17:29:11.445+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/marburg_virus_disease.json
+[2025-10-24T17:29:11.451+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/marburg_virus_disease.json...
+[2025-10-24T17:29:23.350+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/marburg_virus_disease.json.
+[2025-10-24T17:29:23.352+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/maternal_mortality.json
+[2025-10-24T17:29:24.372+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/maternal_mortality.json
+[2025-10-24T17:29:24.377+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/maternal_mortality.json...
+[2025-10-24T17:29:36.949+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/maternal_mortality.json.
+[2025-10-24T17:29:36.950+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/measles.json
+[2025-10-24T17:29:38.150+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/measles.json
+[2025-10-24T17:29:38.155+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/measles.json...
+[2025-10-24T17:29:50.761+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/measles.json.
+[2025-10-24T17:29:50.761+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/meningitis.json
+[2025-10-24T17:29:51.622+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/meningitis.json
+[2025-10-24T17:29:51.625+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/meningitis.json...
+[2025-10-24T17:30:04.060+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/meningitis.json.
+[2025-10-24T17:30:04.061+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/menopause.json
+[2025-10-24T17:30:04.992+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/menopause.json
+[2025-10-24T17:30:04.997+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/menopause.json...
+[2025-10-24T17:30:10.611+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/menopause.json.
+[2025-10-24T17:30:10.611+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/mental_disorders.json
+[2025-10-24T17:30:11.486+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/mental_disorders.json
+[2025-10-24T17:30:11.491+0000] {data_processor.py:243} INFO - Embedding 24 new chunks from processed/mental_disorders.json...
+[2025-10-24T17:30:24.697+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/mental_disorders.json.
+[2025-10-24T17:30:24.698+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/mental_health.json
+[2025-10-24T17:30:25.572+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/mental_health.json
+[2025-10-24T17:30:25.576+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/mental_health.json...
+[2025-10-24T17:30:28.767+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/mental_health.json.
+[2025-10-24T17:30:28.768+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/mental_health_at_work.json
+[2025-10-24T17:30:29.615+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/mental_health_at_work.json
+[2025-10-24T17:30:29.619+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/mental_health_at_work.json...
+[2025-10-24T17:30:36.386+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/mental_health_at_work.json.
+[2025-10-24T17:30:36.387+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/mental_health_in_emergencies.json
+[2025-10-24T17:30:37.413+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/mental_health_in_emergencies.json
+[2025-10-24T17:30:37.420+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/mental_health_in_emergencies.json...
+[2025-10-24T17:30:43.404+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/mental_health_in_emergencies.json.
+[2025-10-24T17:30:43.405+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/mental_health_of_adolescents.json
+[2025-10-24T17:30:44.275+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/mental_health_of_adolescents.json
+[2025-10-24T17:30:44.281+0000] {data_processor.py:243} INFO - Embedding 24 new chunks from processed/mental_health_of_adolescents.json...
+[2025-10-24T17:30:52.129+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/mental_health_of_adolescents.json.
+[2025-10-24T17:30:52.130+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/mental_health_of_older_adults.json
+[2025-10-24T17:30:53.024+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/mental_health_of_older_adults.json
+[2025-10-24T17:30:53.029+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/mental_health_of_older_adults.json...
+[2025-10-24T17:30:59.957+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/mental_health_of_older_adults.json.
+[2025-10-24T17:30:59.957+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/mercury.json
+[2025-10-24T17:31:00.848+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/mercury.json
+[2025-10-24T17:31:00.851+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/mercury.json...
+[2025-10-24T17:31:08.400+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/mercury.json.
+[2025-10-24T17:31:08.401+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json
+[2025-10-24T17:31:09.273+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json
+[2025-10-24T17:31:09.277+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json...
+[2025-10-24T17:31:15.373+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json.
+[2025-10-24T17:31:15.374+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/migraine_and_other_headache_disorders.json
+[2025-10-24T17:31:16.298+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/migraine_and_other_headache_disorders.json
+[2025-10-24T17:31:16.302+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/migraine_and_other_headache_disorders.json...
+[2025-10-24T17:31:24.971+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/migraine_and_other_headache_disorders.json.
+[2025-10-24T17:31:24.972+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/millennium_development_goals_(mdgs).json
+[2025-10-24T17:31:25.857+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/millennium_development_goals_(mdgs).json
+[2025-10-24T17:31:25.861+0000] {data_processor.py:243} INFO - Embedding 6 new chunks from processed/millennium_development_goals_(mdgs).json...
+[2025-10-24T17:31:29.052+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/millennium_development_goals_(mdgs).json.
+[2025-10-24T17:31:29.053+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/mpox.json
+[2025-10-24T17:31:29.935+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/mpox.json
+[2025-10-24T17:31:29.940+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/mpox.json...
+[2025-10-24T17:31:40.336+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/mpox.json.
+[2025-10-24T17:31:40.336+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/multi-drug_resistant_gonorrhoea.json
+[2025-10-24T17:31:41.226+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/multi-drug_resistant_gonorrhoea.json
+[2025-10-24T17:31:41.232+0000] {data_processor.py:243} INFO - Embedding 13 new chunks from processed/multi-drug_resistant_gonorrhoea.json...
+[2025-10-24T17:31:48.056+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/multi-drug_resistant_gonorrhoea.json.
+[2025-10-24T17:31:48.057+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/multiple_sclerosis.json
+[2025-10-24T17:31:48.964+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/multiple_sclerosis.json
+[2025-10-24T17:31:48.967+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/multiple_sclerosis.json...
+[2025-10-24T17:31:53.781+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/multiple_sclerosis.json.
+[2025-10-24T17:31:53.781+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/musculoskeletal_health.json
+[2025-10-24T17:31:54.779+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/musculoskeletal_health.json
+[2025-10-24T17:31:54.787+0000] {data_processor.py:243} INFO - Embedding 4 new chunks from processed/musculoskeletal_health.json...
+[2025-10-24T17:31:56.506+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/musculoskeletal_health.json.
+[2025-10-24T17:31:56.508+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/mycetoma.json
+[2025-10-24T17:31:57.436+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/mycetoma.json
+[2025-10-24T17:31:57.439+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/mycetoma.json...
+[2025-10-24T17:32:04.895+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/mycetoma.json.
+[2025-10-24T17:32:04.896+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/mycotoxins.json
+[2025-10-24T17:32:05.764+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/mycotoxins.json
+[2025-10-24T17:32:05.769+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/mycotoxins.json...
+[2025-10-24T17:32:10.870+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/mycotoxins.json.
+[2025-10-24T17:32:10.871+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/natural_toxins_in_food.json
+[2025-10-24T17:32:11.830+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/natural_toxins_in_food.json
+[2025-10-24T17:32:11.835+0000] {data_processor.py:243} INFO - Embedding 6 new chunks from processed/natural_toxins_in_food.json...
+[2025-10-24T17:32:14.622+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/natural_toxins_in_food.json.
+[2025-10-24T17:32:14.623+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/newborn_mortality.json
+[2025-10-24T17:32:15.497+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/newborn_mortality.json
+[2025-10-24T17:32:15.504+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/newborn_mortality.json...
+[2025-10-24T17:32:21.881+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/newborn_mortality.json.
+[2025-10-24T17:32:21.882+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/newborns:_improving_survival_and_well-being.json
+[2025-10-24T17:32:22.817+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/newborns:_improving_survival_and_well-being.json
+[2025-10-24T17:32:22.823+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/newborns:_improving_survival_and_well-being.json...
+[2025-10-24T17:32:28.348+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/newborns:_improving_survival_and_well-being.json.
+[2025-10-24T17:32:28.349+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/nipah_virus.json
+[2025-10-24T17:32:29.204+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/nipah_virus.json
+[2025-10-24T17:32:29.208+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/nipah_virus.json...
+[2025-10-24T17:32:41.875+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/nipah_virus.json.
+[2025-10-24T17:32:41.876+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/noma.json
+[2025-10-24T17:32:42.733+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/noma.json
+[2025-10-24T17:32:42.737+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/noma.json...
+[2025-10-24T17:32:51.474+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/noma.json.
+[2025-10-24T17:32:51.474+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/noncommunicable_diseases.json
+[2025-10-24T17:32:52.404+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/noncommunicable_diseases.json
+[2025-10-24T17:32:52.408+0000] {data_processor.py:243} INFO - Embedding 13 new chunks from processed/noncommunicable_diseases.json...
+[2025-10-24T17:32:54.885+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/noncommunicable_diseases.json.
+[2025-10-24T17:32:54.886+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/nursing_and_midwifery.json
+[2025-10-24T17:32:55.812+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/nursing_and_midwifery.json
+[2025-10-24T17:32:55.817+0000] {data_processor.py:243} INFO - Embedding 4 new chunks from processed/nursing_and_midwifery.json...
+[2025-10-24T17:32:58.002+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/nursing_and_midwifery.json.
+[2025-10-24T17:32:58.002+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/obesity_and_overweight.json
+[2025-10-24T17:32:58.861+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/obesity_and_overweight.json
+[2025-10-24T17:32:58.866+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/obesity_and_overweight.json...
+[2025-10-24T17:33:07.573+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/obesity_and_overweight.json.
+[2025-10-24T17:33:07.574+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/occupational_health:_health_workers.json
+[2025-10-24T17:33:08.436+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/occupational_health:_health_workers.json
+[2025-10-24T17:33:08.443+0000] {data_processor.py:243} INFO - Embedding 8 new chunks from processed/occupational_health:_health_workers.json...
+[2025-10-24T17:33:12.501+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/occupational_health:_health_workers.json.
+[2025-10-24T17:33:12.501+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/older_children_and_young_adolescent_mortality_(5_to_14_years).json
+[2025-10-24T17:33:13.757+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/older_children_and_young_adolescent_mortality_(5_to_14_years).json
+[2025-10-24T17:33:13.760+0000] {data_processor.py:243} INFO - Embedding 2 new chunks from processed/older_children_and_young_adolescent_mortality_(5_to_14_years).json...
+[2025-10-24T17:33:14.971+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/older_children_and_young_adolescent_mortality_(5_to_14_years).json.
+[2025-10-24T17:33:14.972+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/onchocerciasis.json
+[2025-10-24T17:33:15.885+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/onchocerciasis.json
+[2025-10-24T17:33:15.889+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/onchocerciasis.json...
+[2025-10-24T17:33:22.195+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/onchocerciasis.json.
+[2025-10-24T17:33:22.195+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/one_health.json
+[2025-10-24T17:33:23.046+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/one_health.json
+[2025-10-24T17:33:23.052+0000] {data_processor.py:243} INFO - Embedding 8 new chunks from processed/one_health.json...
+[2025-10-24T17:33:26.243+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/one_health.json.
+[2025-10-24T17:33:26.244+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/opioid_overdose.json
+[2025-10-24T17:33:27.166+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/opioid_overdose.json
+[2025-10-24T17:33:27.169+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/opioid_overdose.json...
+[2025-10-24T17:33:36.253+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/opioid_overdose.json.
+[2025-10-24T17:33:36.254+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/oral_health.json
+[2025-10-24T17:33:37.174+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/oral_health.json
+[2025-10-24T17:33:37.180+0000] {data_processor.py:243} INFO - Embedding 28 new chunks from processed/oral_health.json...
+[2025-10-24T17:33:52.478+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/oral_health.json.
+[2025-10-24T17:33:52.479+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/oropouche_virus_disease.json
+[2025-10-24T17:33:53.377+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/oropouche_virus_disease.json
+[2025-10-24T17:33:53.381+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/oropouche_virus_disease.json...
+[2025-10-24T17:34:05.324+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/oropouche_virus_disease.json.
+[2025-10-24T17:34:05.325+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/osteoarthritis.json
+[2025-10-24T17:34:06.218+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/osteoarthritis.json
+[2025-10-24T17:34:06.225+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/osteoarthritis.json...
+[2025-10-24T17:34:11.710+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/osteoarthritis.json.
+[2025-10-24T17:34:11.710+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/palliative_care.json
+[2025-10-24T17:34:12.507+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/palliative_care.json
+[2025-10-24T17:34:12.519+0000] {data_processor.py:243} INFO - Embedding 8 new chunks from processed/palliative_care.json...
+[2025-10-24T17:34:16.460+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/palliative_care.json.
+[2025-10-24T17:34:16.461+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/parkinson_disease.json
+[2025-10-24T17:34:17.316+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/parkinson_disease.json
+[2025-10-24T17:34:17.326+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/parkinson_disease.json...
+[2025-10-24T17:34:20.325+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/parkinson_disease.json.
+[2025-10-24T17:34:20.326+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/patient_safety.json
+[2025-10-24T17:34:21.246+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/patient_safety.json
+[2025-10-24T17:34:21.250+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/patient_safety.json...
+[2025-10-24T17:34:26.814+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/patient_safety.json.
+[2025-10-24T17:34:26.815+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/pesticide_residues_in_food.json
+[2025-10-24T17:34:28.275+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/pesticide_residues_in_food.json
+[2025-10-24T17:34:28.279+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/pesticide_residues_in_food.json...
+[2025-10-24T17:34:34.465+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/pesticide_residues_in_food.json.
+[2025-10-24T17:34:34.466+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/physical_activity.json
+[2025-10-24T17:34:35.335+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/physical_activity.json
+[2025-10-24T17:34:35.338+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/physical_activity.json...
+[2025-10-24T17:34:40.995+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/physical_activity.json.
+[2025-10-24T17:34:40.995+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/plague.json
+[2025-10-24T17:34:41.866+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/plague.json
+[2025-10-24T17:34:41.870+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/plague.json...
+[2025-10-24T17:34:52.383+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/plague.json.
+[2025-10-24T17:34:52.384+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/pneumonia_in_children.json
+[2025-10-24T17:34:53.271+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/pneumonia_in_children.json
+[2025-10-24T17:34:53.275+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/pneumonia_in_children.json...
+[2025-10-24T17:34:57.546+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/pneumonia_in_children.json.
+[2025-10-24T17:34:57.547+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/podoconiosis_(non-filarial_lymphoedema).json
+[2025-10-24T17:34:58.644+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/podoconiosis_(non-filarial_lymphoedema).json
+[2025-10-24T17:34:58.650+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/podoconiosis_(non-filarial_lymphoedema).json...
+[2025-10-24T17:35:03.813+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/podoconiosis_(non-filarial_lymphoedema).json.
+[2025-10-24T17:35:03.814+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/poliomyelitis.json
+[2025-10-24T17:35:04.671+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/poliomyelitis.json
+[2025-10-24T17:35:04.674+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/poliomyelitis.json...
+[2025-10-24T17:35:08.861+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/poliomyelitis.json.
+[2025-10-24T17:35:08.862+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/polycystic_ovary_syndrome.json
+[2025-10-24T17:35:09.921+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/polycystic_ovary_syndrome.json
+[2025-10-24T17:35:09.925+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/polycystic_ovary_syndrome.json...
+[2025-10-24T17:35:14.453+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/polycystic_ovary_syndrome.json.
+[2025-10-24T17:35:14.454+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/post-traumatic_stress_disorder.json
+[2025-10-24T17:35:15.555+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/post-traumatic_stress_disorder.json
+[2025-10-24T17:35:15.558+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/post-traumatic_stress_disorder.json...
+[2025-10-24T17:35:24.919+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/post-traumatic_stress_disorder.json.
+[2025-10-24T17:35:24.920+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/post_covid-19_condition_(long_covid).json
+[2025-10-24T17:35:25.855+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/post_covid-19_condition_(long_covid).json
+[2025-10-24T17:35:25.859+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/post_covid-19_condition_(long_covid).json...
+[2025-10-24T17:35:39.114+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/post_covid-19_condition_(long_covid).json.
+[2025-10-24T17:35:39.115+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/pre-eclampsia.json
+[2025-10-24T17:35:40.090+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/pre-eclampsia.json
+[2025-10-24T17:35:40.093+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/pre-eclampsia.json...
+[2025-10-24T17:35:44.001+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/pre-eclampsia.json.
+[2025-10-24T17:35:44.001+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/prequalification_of_medicines_by_who.json
+[2025-10-24T17:35:44.835+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/prequalification_of_medicines_by_who.json
+[2025-10-24T17:35:44.838+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/prequalification_of_medicines_by_who.json...
+[2025-10-24T17:35:51.714+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/prequalification_of_medicines_by_who.json.
+[2025-10-24T17:35:51.715+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/preterm_birth.json
+[2025-10-24T17:35:53.100+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/preterm_birth.json
+[2025-10-24T17:35:53.103+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/preterm_birth.json...
+[2025-10-24T17:36:01.481+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/preterm_birth.json.
+[2025-10-24T17:36:01.482+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/primary_health_care.json
+[2025-10-24T17:36:02.352+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/primary_health_care.json
+[2025-10-24T17:36:02.355+0000] {data_processor.py:243} INFO - Embedding 8 new chunks from processed/primary_health_care.json...
+[2025-10-24T17:36:07.089+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/primary_health_care.json.
+[2025-10-24T17:36:07.090+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/protecting_workers'_health.json
+[2025-10-24T17:36:08.075+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/protecting_workers'_health.json
+[2025-10-24T17:36:08.079+0000] {data_processor.py:243} INFO - Embedding 7 new chunks from processed/protecting_workers'_health.json...
+[2025-10-24T17:36:11.738+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/protecting_workers'_health.json.
+[2025-10-24T17:36:11.739+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/quality_health_services.json
+[2025-10-24T17:36:12.651+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/quality_health_services.json
+[2025-10-24T17:36:12.656+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/quality_health_services.json...
+[2025-10-24T17:36:18.533+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/quality_health_services.json.
+[2025-10-24T17:36:18.534+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/rabies.json
+[2025-10-24T17:36:19.471+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/rabies.json
+[2025-10-24T17:36:19.474+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/rabies.json...
+[2025-10-24T17:36:28.870+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/rabies.json.
+[2025-10-24T17:36:28.871+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/radon.json
+[2025-10-24T17:36:29.784+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/radon.json
+[2025-10-24T17:36:29.788+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/radon.json...
+[2025-10-24T17:36:40.091+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/radon.json.
+[2025-10-24T17:36:40.091+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/refugee_and_migrant_health.json
+[2025-10-24T17:36:40.955+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/refugee_and_migrant_health.json
+[2025-10-24T17:36:40.960+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/refugee_and_migrant_health.json...
+[2025-10-24T17:36:51.794+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/refugee_and_migrant_health.json.
+[2025-10-24T17:36:51.795+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/refugee_and_migrant_mental_health.json
+[2025-10-24T17:36:52.754+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/refugee_and_migrant_mental_health.json
+[2025-10-24T17:36:52.759+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/refugee_and_migrant_mental_health.json...
+[2025-10-24T17:36:57.393+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/refugee_and_migrant_mental_health.json.
+[2025-10-24T17:36:57.394+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/rehabilitation.json
+[2025-10-24T17:36:58.275+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/rehabilitation.json
+[2025-10-24T17:36:58.279+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/rehabilitation.json...
+[2025-10-24T17:37:06.181+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/rehabilitation.json.
+[2025-10-24T17:37:06.182+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/respiratory_syncytial_virus_(rsv).json
+[2025-10-24T17:37:07.033+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/respiratory_syncytial_virus_(rsv).json
+[2025-10-24T17:37:07.038+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/respiratory_syncytial_virus_(rsv).json...
+[2025-10-24T17:37:15.665+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/respiratory_syncytial_virus_(rsv).json.
+[2025-10-24T17:37:15.666+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/rheumatic_heart_disease.json
+[2025-10-24T17:37:16.529+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/rheumatic_heart_disease.json
+[2025-10-24T17:37:16.532+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/rheumatic_heart_disease.json...
+[2025-10-24T17:37:23.169+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/rheumatic_heart_disease.json.
+[2025-10-24T17:37:23.170+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/rheumatoid_arthritis.json
+[2025-10-24T17:37:24.186+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/rheumatoid_arthritis.json
+[2025-10-24T17:37:24.196+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/rheumatoid_arthritis.json...
+[2025-10-24T17:37:32.030+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/rheumatoid_arthritis.json.
+[2025-10-24T17:37:32.031+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/rift_valley_fever.json
+[2025-10-24T17:37:32.971+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/rift_valley_fever.json
+[2025-10-24T17:37:32.976+0000] {data_processor.py:243} INFO - Embedding 1 new chunks from processed/rift_valley_fever.json...
+[2025-10-24T17:37:33.632+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/rift_valley_fever.json.
+[2025-10-24T17:37:33.632+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/ringworm_(tinea).json
+[2025-10-24T17:37:34.646+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/ringworm_(tinea).json
+[2025-10-24T17:37:34.660+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/ringworm_(tinea).json...
+[2025-10-24T17:37:39.926+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/ringworm_(tinea).json.
+[2025-10-24T17:37:39.927+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/road_traffic_injuries.json
+[2025-10-24T17:37:40.844+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/road_traffic_injuries.json
+[2025-10-24T17:37:40.848+0000] {data_processor.py:243} INFO - Embedding 11 new chunks from processed/road_traffic_injuries.json...
+[2025-10-24T17:37:49.807+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/road_traffic_injuries.json.
+[2025-10-24T17:37:49.809+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/rubella.json
+[2025-10-24T17:37:50.795+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/rubella.json
+[2025-10-24T17:37:50.812+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/rubella.json...
+[2025-10-24T17:37:56.159+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/rubella.json.
+[2025-10-24T17:37:56.160+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/salmonella_(non-typhoidal).json
+[2025-10-24T17:37:57.088+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/salmonella_(non-typhoidal).json
+[2025-10-24T17:37:57.091+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/salmonella_(non-typhoidal).json...
+[2025-10-24T17:38:06.890+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/salmonella_(non-typhoidal).json.
+[2025-10-24T17:38:06.892+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/sand_and_dust_storms.json
+[2025-10-24T17:38:07.818+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/sand_and_dust_storms.json
+[2025-10-24T17:38:07.825+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/sand_and_dust_storms.json...
+[2025-10-24T17:38:13.051+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/sand_and_dust_storms.json.
+[2025-10-24T17:38:13.052+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/sanitation.json
+[2025-10-24T17:38:14.054+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/sanitation.json
+[2025-10-24T17:38:14.058+0000] {data_processor.py:243} INFO - Embedding 11 new chunks from processed/sanitation.json...
+[2025-10-24T17:38:20.441+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/sanitation.json.
+[2025-10-24T17:38:20.442+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/scabies.json
+[2025-10-24T17:38:21.380+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/scabies.json
+[2025-10-24T17:38:21.383+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/scabies.json...
+[2025-10-24T17:38:33.337+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/scabies.json.
+[2025-10-24T17:38:33.338+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/schistosomiasis.json
+[2025-10-24T17:38:34.249+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/schistosomiasis.json
+[2025-10-24T17:38:34.256+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/schistosomiasis.json...
+[2025-10-24T17:38:42.630+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/schistosomiasis.json.
+[2025-10-24T17:38:42.631+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/schizophrenia.json
+[2025-10-24T17:38:43.518+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/schizophrenia.json
+[2025-10-24T17:38:43.521+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/schizophrenia.json...
+[2025-10-24T17:38:52.489+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/schizophrenia.json.
+[2025-10-24T17:38:52.490+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/self-care_for_health_and_well-being.json
+[2025-10-24T17:38:53.365+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/self-care_for_health_and_well-being.json
+[2025-10-24T17:38:53.372+0000] {data_processor.py:243} INFO - Embedding 2 new chunks from processed/self-care_for_health_and_well-being.json...
+[2025-10-24T17:38:54.446+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/self-care_for_health_and_well-being.json.
+[2025-10-24T17:38:54.447+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/sepsis.json
+[2025-10-24T17:38:55.335+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/sepsis.json
+[2025-10-24T17:38:55.339+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/sepsis.json...
+[2025-10-24T17:39:04.973+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/sepsis.json.
+[2025-10-24T17:39:04.973+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/sexually_transmitted_infections_(stis).json
+[2025-10-24T17:39:06.011+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/sexually_transmitted_infections_(stis).json
+[2025-10-24T17:39:06.025+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/sexually_transmitted_infections_(stis).json...
+[2025-10-24T17:39:13.294+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/sexually_transmitted_infections_(stis).json.
+[2025-10-24T17:39:13.295+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/shingles_(herpes_zoster).json
+[2025-10-24T17:39:14.158+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/shingles_(herpes_zoster).json
+[2025-10-24T17:39:14.161+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/shingles_(herpes_zoster).json...
+[2025-10-24T17:39:19.354+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/shingles_(herpes_zoster).json.
+[2025-10-24T17:39:19.355+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/sickle-cell_disease.json
+[2025-10-24T17:39:20.207+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/sickle-cell_disease.json
+[2025-10-24T17:39:20.211+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/sickle-cell_disease.json...
+[2025-10-24T17:39:27.912+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/sickle-cell_disease.json.
+[2025-10-24T17:39:27.913+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/snakebite_envenoming.json
+[2025-10-24T17:39:28.844+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/snakebite_envenoming.json
+[2025-10-24T17:39:28.849+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/snakebite_envenoming.json...
+[2025-10-24T17:39:36.433+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/snakebite_envenoming.json.
+[2025-10-24T17:39:36.433+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/social_determinants_of_health.json
+[2025-10-24T17:39:37.690+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/social_determinants_of_health.json
+[2025-10-24T17:39:37.702+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/social_determinants_of_health.json...
+[2025-10-24T17:39:44.627+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/social_determinants_of_health.json.
+[2025-10-24T17:39:44.628+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/sodium_reduction.json
+[2025-10-24T17:39:45.560+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/sodium_reduction.json
+[2025-10-24T17:39:45.565+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/sodium_reduction.json...
+[2025-10-24T17:39:55.848+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/sodium_reduction.json.
+[2025-10-24T17:39:55.850+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/soil-transmitted_helminth_infections.json
+[2025-10-24T17:39:56.818+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/soil-transmitted_helminth_infections.json
+[2025-10-24T17:39:56.823+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/soil-transmitted_helminth_infections.json...
+[2025-10-24T17:40:08.612+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/soil-transmitted_helminth_infections.json.
+[2025-10-24T17:40:08.612+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/spinal_cord_injury.json
+[2025-10-24T17:40:09.503+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/spinal_cord_injury.json
+[2025-10-24T17:40:09.506+0000] {data_processor.py:243} INFO - Embedding 17 new chunks from processed/spinal_cord_injury.json...
+[2025-10-24T17:40:15.782+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/spinal_cord_injury.json.
+[2025-10-24T17:40:15.783+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/sporotrichosis.json
+[2025-10-24T17:40:16.658+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/sporotrichosis.json
+[2025-10-24T17:40:16.672+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/sporotrichosis.json...
+[2025-10-24T17:40:21.855+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/sporotrichosis.json.
+[2025-10-24T17:40:21.856+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/substandard_and_falsified_medical_products.json
+[2025-10-24T17:40:22.808+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/substandard_and_falsified_medical_products.json
+[2025-10-24T17:40:22.812+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/substandard_and_falsified_medical_products.json...
+[2025-10-24T17:40:29.264+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/substandard_and_falsified_medical_products.json.
+[2025-10-24T17:40:29.265+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/sugars_and_dental_caries.json
+[2025-10-24T17:40:30.103+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/sugars_and_dental_caries.json
+[2025-10-24T17:40:30.107+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/sugars_and_dental_caries.json...
+[2025-10-24T17:40:35.331+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/sugars_and_dental_caries.json.
+[2025-10-24T17:40:35.332+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/suicide.json
+[2025-10-24T17:40:36.156+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/suicide.json
+[2025-10-24T17:40:36.161+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/suicide.json...
+[2025-10-24T17:40:42.295+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/suicide.json.
+[2025-10-24T17:40:42.297+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/syphilis.json
+[2025-10-24T17:40:43.198+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/syphilis.json
+[2025-10-24T17:40:43.201+0000] {data_processor.py:243} INFO - Embedding 16 new chunks from processed/syphilis.json...
+[2025-10-24T17:40:50.998+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/syphilis.json.
+[2025-10-24T17:40:50.998+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/taeniasiscysticercosis.json
+[2025-10-24T17:40:51.934+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/taeniasiscysticercosis.json
+[2025-10-24T17:40:51.941+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/taeniasiscysticercosis.json...
+[2025-10-24T17:41:00.018+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/taeniasiscysticercosis.json.
+[2025-10-24T17:41:00.019+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/tetanus.json
+[2025-10-24T17:41:01.106+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/tetanus.json
+[2025-10-24T17:41:01.114+0000] {data_processor.py:243} INFO - Embedding 4 new chunks from processed/tetanus.json...
+[2025-10-24T17:41:02.910+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/tetanus.json.
+[2025-10-24T17:41:02.911+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/the_top_10_causes_of_death.json
+[2025-10-24T17:41:03.781+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/the_top_10_causes_of_death.json
+[2025-10-24T17:41:03.789+0000] {data_processor.py:243} INFO - Embedding 7 new chunks from processed/the_top_10_causes_of_death.json...
+[2025-10-24T17:41:07.053+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/the_top_10_causes_of_death.json.
+[2025-10-24T17:41:07.054+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/tobacco.json
+[2025-10-24T17:41:07.929+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/tobacco.json
+[2025-10-24T17:41:07.933+0000] {data_processor.py:243} INFO - Embedding 6 new chunks from processed/tobacco.json...
+[2025-10-24T17:41:12.013+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/tobacco.json.
+[2025-10-24T17:41:12.014+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/trachoma.json
+[2025-10-24T17:41:13.045+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/trachoma.json
+[2025-10-24T17:41:13.049+0000] {data_processor.py:243} INFO - Embedding 1 new chunks from processed/trachoma.json...
+[2025-10-24T17:41:13.615+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/trachoma.json.
+[2025-10-24T17:41:13.615+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/trans_fat.json
+[2025-10-24T17:41:14.543+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/trans_fat.json
+[2025-10-24T17:41:14.545+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/trans_fat.json...
+[2025-10-24T17:41:18.551+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/trans_fat.json.
+[2025-10-24T17:41:18.552+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/trichomoniasis.json
+[2025-10-24T17:41:19.443+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/trichomoniasis.json
+[2025-10-24T17:41:19.447+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/trichomoniasis.json...
+[2025-10-24T17:41:23.525+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/trichomoniasis.json.
+[2025-10-24T17:41:23.527+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/trypanosomiasis,_human_african_(sleeping_sickness).json
+[2025-10-24T17:41:24.485+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/trypanosomiasis,_human_african_(sleeping_sickness).json
+[2025-10-24T17:41:24.488+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/trypanosomiasis,_human_african_(sleeping_sickness).json...
+[2025-10-24T17:41:33.441+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/trypanosomiasis,_human_african_(sleeping_sickness).json.
+[2025-10-24T17:41:33.441+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/tuberculosis.json
+[2025-10-24T17:41:34.288+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/tuberculosis.json
+[2025-10-24T17:41:34.291+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/tuberculosis.json...
+[2025-10-24T17:41:42.807+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/tuberculosis.json.
+[2025-10-24T17:41:42.808+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/tungiasis.json
+[2025-10-24T17:41:43.636+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/tungiasis.json
+[2025-10-24T17:41:43.639+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/tungiasis.json...
+[2025-10-24T17:41:50.551+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/tungiasis.json.
+[2025-10-24T17:41:50.552+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/typhoid.json
+[2025-10-24T17:41:51.515+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/typhoid.json
+[2025-10-24T17:41:51.518+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/typhoid.json...
+[2025-10-24T17:41:57.638+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/typhoid.json.
+[2025-10-24T17:41:57.639+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/ultraviolet_radiation.json
+[2025-10-24T17:41:58.499+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/ultraviolet_radiation.json
+[2025-10-24T17:41:58.502+0000] {data_processor.py:243} INFO - Embedding 12 new chunks from processed/ultraviolet_radiation.json...
+[2025-10-24T17:42:05.447+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/ultraviolet_radiation.json.
+[2025-10-24T17:42:05.448+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/universal_health_coverage_(uhc).json
+[2025-10-24T17:42:06.304+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/universal_health_coverage_(uhc).json
+[2025-10-24T17:42:06.307+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/universal_health_coverage_(uhc).json...
+[2025-10-24T17:42:11.507+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/universal_health_coverage_(uhc).json.
+[2025-10-24T17:42:11.508+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/urban_health.json
+[2025-10-24T17:42:12.460+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/urban_health.json
+[2025-10-24T17:42:12.465+0000] {data_processor.py:243} INFO - Embedding 13 new chunks from processed/urban_health.json...
+[2025-10-24T17:42:15.236+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/urban_health.json.
+[2025-10-24T17:42:15.237+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/vector-borne_diseases.json
+[2025-10-24T17:42:16.125+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/vector-borne_diseases.json
+[2025-10-24T17:42:16.130+0000] {data_processor.py:243} INFO - Embedding 9 new chunks from processed/vector-borne_diseases.json...
+[2025-10-24T17:42:22.834+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/vector-borne_diseases.json.
+[2025-10-24T17:42:22.836+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/violence_against_children.json
+[2025-10-24T17:42:23.760+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/violence_against_children.json
+[2025-10-24T17:42:23.763+0000] {data_processor.py:243} INFO - Embedding 14 new chunks from processed/violence_against_children.json...
+[2025-10-24T17:42:29.527+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/violence_against_children.json.
+[2025-10-24T17:42:29.528+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/violence_against_women.json
+[2025-10-24T17:42:30.390+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/violence_against_women.json
+[2025-10-24T17:42:30.394+0000] {data_processor.py:243} INFO - Embedding 20 new chunks from processed/violence_against_women.json...
+[2025-10-24T17:42:41.303+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/violence_against_women.json.
+[2025-10-24T17:42:41.303+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/west_nile_virus.json
+[2025-10-24T17:42:42.196+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/west_nile_virus.json
+[2025-10-24T17:42:42.200+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/west_nile_virus.json...
+[2025-10-24T17:42:51.798+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/west_nile_virus.json.
+[2025-10-24T17:42:51.799+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/white_phosphorus.json
+[2025-10-24T17:42:52.665+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/white_phosphorus.json
+[2025-10-24T17:42:52.670+0000] {data_processor.py:243} INFO - Embedding 11 new chunks from processed/white_phosphorus.json...
+[2025-10-24T17:42:58.671+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/white_phosphorus.json.
+[2025-10-24T17:42:58.672+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/yaws.json
+[2025-10-24T17:42:59.669+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/yaws.json
+[2025-10-24T17:42:59.673+0000] {data_processor.py:243} INFO - Embedding 18 new chunks from processed/yaws.json...
+[2025-10-24T17:43:08.633+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/yaws.json.
+[2025-10-24T17:43:08.634+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/yellow_fever.json
+[2025-10-24T17:43:09.524+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/yellow_fever.json
+[2025-10-24T17:43:09.529+0000] {data_processor.py:243} INFO - Embedding 13 new chunks from processed/yellow_fever.json...
+[2025-10-24T17:43:15.895+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/yellow_fever.json.
+[2025-10-24T17:43:15.896+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/youth_violence.json
+[2025-10-24T17:43:16.818+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/youth_violence.json
+[2025-10-24T17:43:16.821+0000] {data_processor.py:243} INFO - Embedding 10 new chunks from processed/youth_violence.json...
+[2025-10-24T17:43:22.165+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/youth_violence.json.
+[2025-10-24T17:43:22.166+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/zika_virus.json
+[2025-10-24T17:43:23.087+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/zika_virus.json
+[2025-10-24T17:43:23.094+0000] {data_processor.py:243} INFO - Embedding 22 new chunks from processed/zika_virus.json...
+[2025-10-24T17:43:31.963+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/zika_virus.json.
+[2025-10-24T17:43:31.964+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/processed/zoonoses.json
+[2025-10-24T17:43:32.906+0000] {s3_utils.py:56} INFO - Successfully downloaded processed/zoonoses.json
+[2025-10-24T17:43:32.909+0000] {data_processor.py:243} INFO - Embedding 2 new chunks from processed/zoonoses.json...
+[2025-10-24T17:43:34.669+0000] {data_processor.py:257} INFO - Inserted batch 0-100 for processed/zoonoses.json.
+[2025-10-24T17:43:34.671+0000] {data_processor.py:266} ERROR - Failed to persist ChromaDB or upload to S3: [Errno 2] No such file or directory: 'app/chroma_db_files/chroma.sqlite'
+[2025-10-24T17:43:34.672+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-10-24T17:43:34.690+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=who_data_rag_ingestion_pipeline, task_id=chroma_embedder, execution_date=20251024T135155, start_date=20251024T170802, end_date=20251024T174334
+[2025-10-24T17:43:34.830+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-10-24T17:43:34.874+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

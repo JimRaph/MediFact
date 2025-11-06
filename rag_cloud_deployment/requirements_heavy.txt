@@ -1,0 +1,11 @@
+# torch
+# transformers
+# bitsandbytes
+# sentence-transformers
+# accelerate
+
+torch==2.9.0
+transformers
+bitsandbytes
+sentence-transformers
+accelerate

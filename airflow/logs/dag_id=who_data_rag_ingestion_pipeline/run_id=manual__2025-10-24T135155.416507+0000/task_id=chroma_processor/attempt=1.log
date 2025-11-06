@@ -1,0 +1,1178 @@
+[2025-10-24T14:14:48.308+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: who_data_rag_ingestion_pipeline.chroma_processor manual__2025-10-24T13:51:55.416507+00:00 [queued]>
+[2025-10-24T14:14:48.328+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: who_data_rag_ingestion_pipeline.chroma_processor manual__2025-10-24T13:51:55.416507+00:00 [queued]>
+[2025-10-24T14:14:48.330+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-10-24T14:14:48.356+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): chroma_processor> on 2025-10-24 13:51:55.416507+00:00
+[2025-10-24T14:14:48.370+0000] {standard_task_runner.py:60} INFO - Started process 1373 to run task
+[2025-10-24T14:14:48.377+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'who_data_rag_ingestion_pipeline', 'chroma_processor', 'manual__2025-10-24T13:51:55.416507+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/ingest.py', '--cfg-path', '/tmp/tmp75_3z7nl']
+[2025-10-24T14:14:48.379+0000] {standard_task_runner.py:88} INFO - Job 6: Subtask chroma_processor
+[2025-10-24T14:14:48.415+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-10-24T14:14:48.514+0000] {task_command.py:423} INFO - Running <TaskInstance: who_data_rag_ingestion_pipeline.chroma_processor manual__2025-10-24T13:51:55.416507+00:00 [running]> on host 6427600991b4
+[2025-10-24T14:14:48.749+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='who_data_rag_ingestion_pipeline' AIRFLOW_CTX_TASK_ID='chroma_processor' AIRFLOW_CTX_EXECUTION_DATE='2025-10-24T13:51:55.416507+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-24T13:51:55.416507+00:00'
+[2025-10-24T14:14:48.754+0000] {data_processor.py:142} INFO - Processing changed raw_content/ files into chunks...
+[2025-10-24T14:14:50.943+0000] {s3_utils.py:82} INFO - Successfully loaded data
+[2025-10-24T14:14:50.947+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/abortion.json
+[2025-10-24T14:14:51.954+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/abortion.json
+[2025-10-24T14:14:52.024+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/abortion.json
+[2025-10-24T14:14:53.666+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/abortion.json
+[2025-10-24T14:14:53.679+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for abortion.
+[2025-10-24T14:14:53.686+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/abuse_of_older_people.json
+[2025-10-24T14:14:54.741+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/abuse_of_older_people.json
+[2025-10-24T14:14:54.781+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/abuse_of_older_people.json
+[2025-10-24T14:14:56.390+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/abuse_of_older_people.json
+[2025-10-24T14:14:56.401+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for abuse_of_older_people.
+[2025-10-24T14:14:56.404+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/adolescent_and_young_adult_health.json
+[2025-10-24T14:14:57.618+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/adolescent_and_young_adult_health.json
+[2025-10-24T14:14:57.679+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/adolescent_and_young_adult_health.json
+[2025-10-24T14:14:59.235+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/adolescent_and_young_adult_health.json
+[2025-10-24T14:14:59.239+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for adolescent_and_young_adult_health.
+[2025-10-24T14:14:59.241+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/adolescent_pregnancy.json
+[2025-10-24T14:15:00.254+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/adolescent_pregnancy.json
+[2025-10-24T14:15:00.275+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/adolescent_pregnancy.json
+[2025-10-24T14:15:01.788+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/adolescent_pregnancy.json
+[2025-10-24T14:15:01.792+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for adolescent_pregnancy.
+[2025-10-24T14:15:01.794+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ageing_and_health.json
+[2025-10-24T14:15:02.783+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ageing_and_health.json
+[2025-10-24T14:15:02.819+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/ageing_and_health.json
+[2025-10-24T14:15:04.150+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/ageing_and_health.json
+[2025-10-24T14:15:04.163+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for ageing_and_health.
+[2025-10-24T14:15:04.169+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/alcohol.json
+[2025-10-24T14:15:05.254+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/alcohol.json
+[2025-10-24T14:15:05.334+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/alcohol.json
+[2025-10-24T14:15:06.677+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/alcohol.json
+[2025-10-24T14:15:06.681+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for alcohol.
+[2025-10-24T14:15:06.683+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ambient_(outdoor)_air_pollution.json
+[2025-10-24T14:15:07.694+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ambient_(outdoor)_air_pollution.json
+[2025-10-24T14:15:07.744+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/ambient_(outdoor)_air_pollution.json
+[2025-10-24T14:15:09.112+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/ambient_(outdoor)_air_pollution.json
+[2025-10-24T14:15:09.117+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for ambient_(outdoor)_air_pollution.
+[2025-10-24T14:15:09.120+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/anaemia.json
+[2025-10-24T14:15:10.452+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/anaemia.json
+[2025-10-24T14:15:10.477+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/anaemia.json
+[2025-10-24T14:15:11.774+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/anaemia.json
+[2025-10-24T14:15:11.778+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for anaemia.
+[2025-10-24T14:15:11.780+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/animal_bites.json
+[2025-10-24T14:15:12.798+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/animal_bites.json
+[2025-10-24T14:15:12.836+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/animal_bites.json
+[2025-10-24T14:15:14.352+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/animal_bites.json
+[2025-10-24T14:15:14.356+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for animal_bites.
+[2025-10-24T14:15:14.358+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/antimicrobial_resistance.json
+[2025-10-24T14:15:15.355+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/antimicrobial_resistance.json
+[2025-10-24T14:15:15.378+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/antimicrobial_resistance.json
+[2025-10-24T14:15:16.884+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/antimicrobial_resistance.json
+[2025-10-24T14:15:16.887+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for antimicrobial_resistance.
+[2025-10-24T14:15:16.889+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/anxiety_disorders.json
+[2025-10-24T14:15:17.831+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/anxiety_disorders.json
+[2025-10-24T14:15:17.871+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/anxiety_disorders.json
+[2025-10-24T14:15:19.196+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/anxiety_disorders.json
+[2025-10-24T14:15:19.210+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for anxiety_disorders.
+[2025-10-24T14:15:19.216+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/arsenic.json
+[2025-10-24T14:15:20.564+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/arsenic.json
+[2025-10-24T14:15:20.584+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/arsenic.json
+[2025-10-24T14:15:21.896+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/arsenic.json
+[2025-10-24T14:15:21.908+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for arsenic.
+[2025-10-24T14:15:21.915+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/asbestos.json
+[2025-10-24T14:15:23.032+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/asbestos.json
+[2025-10-24T14:15:23.068+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/asbestos.json
+[2025-10-24T14:15:24.547+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/asbestos.json
+[2025-10-24T14:15:24.551+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for asbestos.
+[2025-10-24T14:15:24.554+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/assistive_technology.json
+[2025-10-24T14:15:25.586+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/assistive_technology.json
+[2025-10-24T14:15:25.603+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/assistive_technology.json
+[2025-10-24T14:15:26.806+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/assistive_technology.json
+[2025-10-24T14:15:26.818+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for assistive_technology.
+[2025-10-24T14:15:26.824+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/asthma.json
+[2025-10-24T14:15:27.845+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/asthma.json
+[2025-10-24T14:15:27.869+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/asthma.json
+[2025-10-24T14:15:29.341+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/asthma.json
+[2025-10-24T14:15:29.344+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for asthma.
+[2025-10-24T14:15:29.346+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/autism.json
+[2025-10-24T14:15:30.552+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/autism.json
+[2025-10-24T14:15:30.573+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/autism.json
+[2025-10-24T14:15:31.832+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/autism.json
+[2025-10-24T14:15:31.837+0000] {data_processor.py:182} INFO - Processed and uploaded 3 chunks for autism.
+[2025-10-24T14:15:31.838+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/bacterial_vaginosis.json
+[2025-10-24T14:15:32.839+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/bacterial_vaginosis.json
+[2025-10-24T14:15:32.889+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/bacterial_vaginosis.json
+[2025-10-24T14:15:35.270+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/bacterial_vaginosis.json
+[2025-10-24T14:15:35.303+0000] {data_processor.py:182} INFO - Processed and uploaded 13 chunks for bacterial_vaginosis.
+[2025-10-24T14:15:35.306+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/biodiversity.json
+[2025-10-24T14:15:38.830+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/biodiversity.json
+[2025-10-24T14:15:38.847+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/biodiversity.json
+[2025-10-24T14:15:40.413+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/biodiversity.json
+[2025-10-24T14:15:40.417+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for biodiversity.
+[2025-10-24T14:15:40.420+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/bipolar_disorder.json
+[2025-10-24T14:15:41.664+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/bipolar_disorder.json
+[2025-10-24T14:15:41.692+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/bipolar_disorder.json
+[2025-10-24T14:15:43.068+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/bipolar_disorder.json
+[2025-10-24T14:15:43.074+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for bipolar_disorder.
+[2025-10-24T14:15:43.077+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/blindness_and_vision_impairment.json
+[2025-10-24T14:15:44.256+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/blindness_and_vision_impairment.json
+[2025-10-24T14:15:44.280+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/blindness_and_vision_impairment.json
+[2025-10-24T14:15:45.643+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/blindness_and_vision_impairment.json
+[2025-10-24T14:15:45.647+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for blindness_and_vision_impairment.
+[2025-10-24T14:15:45.649+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/blood_safety_and_availability.json
+[2025-10-24T14:15:47.014+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/blood_safety_and_availability.json
+[2025-10-24T14:15:47.041+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/blood_safety_and_availability.json
+[2025-10-24T14:15:48.659+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/blood_safety_and_availability.json
+[2025-10-24T14:15:48.677+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for blood_safety_and_availability.
+[2025-10-24T14:15:48.687+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/botulism.json
+[2025-10-24T14:15:49.960+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/botulism.json
+[2025-10-24T14:15:50.063+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/botulism.json
+[2025-10-24T14:15:51.721+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/botulism.json
+[2025-10-24T14:15:51.734+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for botulism.
+[2025-10-24T14:15:51.740+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/breast_cancer.json
+[2025-10-24T14:15:52.836+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/breast_cancer.json
+[2025-10-24T14:15:52.854+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/breast_cancer.json
+[2025-10-24T14:15:54.468+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/breast_cancer.json
+[2025-10-24T14:15:54.481+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for breast_cancer.
+[2025-10-24T14:15:54.488+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/brucellosis.json
+[2025-10-24T14:15:55.709+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/brucellosis.json
+[2025-10-24T14:15:55.763+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/brucellosis.json
+[2025-10-24T14:15:57.310+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/brucellosis.json
+[2025-10-24T14:15:57.314+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for brucellosis.
+[2025-10-24T14:15:57.317+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/burns.json
+[2025-10-24T14:15:58.491+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/burns.json
+[2025-10-24T14:15:58.518+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/burns.json
+[2025-10-24T14:16:00.158+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/burns.json
+[2025-10-24T14:16:00.162+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for burns.
+[2025-10-24T14:16:00.165+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/buruli_ulcer_(mycobacterium_ulcerans_infection).json
+[2025-10-24T14:16:01.821+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/buruli_ulcer_(mycobacterium_ulcerans_infection).json
+[2025-10-24T14:16:01.848+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/buruli_ulcer_(mycobacterium_ulcerans_infection).json
+[2025-10-24T14:16:03.221+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/buruli_ulcer_(mycobacterium_ulcerans_infection).json
+[2025-10-24T14:16:03.225+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for buruli_ulcer_(mycobacterium_ulcerans_infection).
+[2025-10-24T14:16:03.228+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/campylobacter.json
+[2025-10-24T14:16:04.709+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/campylobacter.json
+[2025-10-24T14:16:04.786+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/campylobacter.json
+[2025-10-24T14:16:06.320+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/campylobacter.json
+[2025-10-24T14:16:06.326+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for campylobacter.
+[2025-10-24T14:16:06.328+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/cancer.json
+[2025-10-24T14:16:07.617+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/cancer.json
+[2025-10-24T14:16:07.677+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/cancer.json
+[2025-10-24T14:16:28.920+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/cancer.json
+[2025-10-24T14:16:28.931+0000] {data_processor.py:182} INFO - Processed and uploaded 25 chunks for cancer.
+[2025-10-24T14:16:28.939+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/candidiasis_(yeast_infection).json
+[2025-10-24T14:17:20.918+0000] {s3_utils.py:65} ERROR - An unexpected error occurred during download: Connection was closed before we received a valid response from endpoint URL: "https://whofactsheet.s3.amazonaws.com/raw_content/candidiasis_%28yeast_infection%29.json".
+[2025-10-24T14:17:20.920+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/cardiovascular_diseases_(cvds).json
+[2025-10-24T14:17:37.574+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/cardiovascular_diseases_(cvds).json
+[2025-10-24T14:17:37.609+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/cardiovascular_diseases_(cvds).json
+[2025-10-24T14:17:39.213+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/cardiovascular_diseases_(cvds).json
+[2025-10-24T14:17:39.223+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for cardiovascular_diseases_(cvds).
+[2025-10-24T14:17:39.226+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/cervical_cancer.json
+[2025-10-24T14:17:40.380+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/cervical_cancer.json
+[2025-10-24T14:17:40.410+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/cervical_cancer.json
+[2025-10-24T14:17:41.749+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/cervical_cancer.json
+[2025-10-24T14:17:41.759+0000] {data_processor.py:182} INFO - Processed and uploaded 11 chunks for cervical_cancer.
+[2025-10-24T14:17:41.762+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/chagas_disease_(also_known_as_american_trypanosomiasis).json
+[2025-10-24T14:17:43.028+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/chagas_disease_(also_known_as_american_trypanosomiasis).json
+[2025-10-24T14:17:43.099+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/chagas_disease_(also_known_as_american_trypanosomiasis).json
+[2025-10-24T14:17:44.649+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/chagas_disease_(also_known_as_american_trypanosomiasis).json
+[2025-10-24T14:17:44.653+0000] {data_processor.py:182} INFO - Processed and uploaded 15 chunks for chagas_disease_(also_known_as_american_trypanosomiasis).
+[2025-10-24T14:17:44.655+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/chikungunya.json
+[2025-10-24T14:17:45.828+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/chikungunya.json
+[2025-10-24T14:17:45.858+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/chikungunya.json
+[2025-10-24T14:17:47.083+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/chikungunya.json
+[2025-10-24T14:17:47.087+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for chikungunya.
+[2025-10-24T14:17:47.089+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/child_maltreatment.json
+[2025-10-24T14:17:48.375+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/child_maltreatment.json
+[2025-10-24T14:17:48.395+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/child_maltreatment.json
+[2025-10-24T14:17:49.675+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/child_maltreatment.json
+[2025-10-24T14:17:49.679+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for child_maltreatment.
+[2025-10-24T14:17:49.682+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/child_mortality_(under_5_years).json
+[2025-10-24T14:17:50.811+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/child_mortality_(under_5_years).json
+[2025-10-24T14:17:50.842+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/child_mortality_(under_5_years).json
+[2025-10-24T14:17:52.234+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/child_mortality_(under_5_years).json
+[2025-10-24T14:17:52.238+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for child_mortality_(under_5_years).
+[2025-10-24T14:17:52.240+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/childhood_cancer.json
+[2025-10-24T14:17:53.201+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/childhood_cancer.json
+[2025-10-24T14:17:53.223+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/childhood_cancer.json
+[2025-10-24T14:17:54.541+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/childhood_cancer.json
+[2025-10-24T14:17:54.551+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for childhood_cancer.
+[2025-10-24T14:17:54.554+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/chlamydia.json
+[2025-10-24T14:17:56.027+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/chlamydia.json
+[2025-10-24T14:17:56.092+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/chlamydia.json
+[2025-10-24T14:17:57.836+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/chlamydia.json
+[2025-10-24T14:17:57.841+0000] {data_processor.py:182} INFO - Processed and uploaded 19 chunks for chlamydia.
+[2025-10-24T14:17:57.843+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/cholera.json
+[2025-10-24T14:17:58.868+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/cholera.json
+[2025-10-24T14:17:58.893+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/cholera.json
+[2025-10-24T14:18:00.645+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/cholera.json
+[2025-10-24T14:18:00.652+0000] {data_processor.py:182} INFO - Processed and uploaded 32 chunks for cholera.
+[2025-10-24T14:18:00.656+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/chromoblastomycosis.json
+[2025-10-24T14:18:01.678+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/chromoblastomycosis.json
+[2025-10-24T14:18:01.718+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/chromoblastomycosis.json
+[2025-10-24T14:18:03.028+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/chromoblastomycosis.json
+[2025-10-24T14:18:03.033+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for chromoblastomycosis.
+[2025-10-24T14:18:03.035+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/chronic_obstructive_pulmonary_disease_(copd).json
+[2025-10-24T14:18:03.976+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/chronic_obstructive_pulmonary_disease_(copd).json
+[2025-10-24T14:18:03.996+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/chronic_obstructive_pulmonary_disease_(copd).json
+[2025-10-24T14:18:05.347+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/chronic_obstructive_pulmonary_disease_(copd).json
+[2025-10-24T14:18:05.353+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for chronic_obstructive_pulmonary_disease_(copd).
+[2025-10-24T14:18:05.355+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/civil_registration_and_vital_statistics.json
+[2025-10-24T14:18:06.478+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/civil_registration_and_vital_statistics.json
+[2025-10-24T14:18:06.495+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/civil_registration_and_vital_statistics.json
+[2025-10-24T14:18:07.714+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/civil_registration_and_vital_statistics.json
+[2025-10-24T14:18:07.719+0000] {data_processor.py:182} INFO - Processed and uploaded 8 chunks for civil_registration_and_vital_statistics.
+[2025-10-24T14:18:07.723+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/climate_change.json
+[2025-10-24T14:18:09.163+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/climate_change.json
+[2025-10-24T14:18:09.179+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/climate_change.json
+[2025-10-24T14:18:10.301+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/climate_change.json
+[2025-10-24T14:18:10.304+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for climate_change.
+[2025-10-24T14:18:10.307+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/colorectal_cancer.json
+[2025-10-24T14:18:11.305+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/colorectal_cancer.json
+[2025-10-24T14:18:11.339+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/colorectal_cancer.json
+[2025-10-24T14:18:12.599+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/colorectal_cancer.json
+[2025-10-24T14:18:12.604+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for colorectal_cancer.
+[2025-10-24T14:18:12.607+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/commercial_determinants_of_health.json
+[2025-10-24T14:18:13.526+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/commercial_determinants_of_health.json
+[2025-10-24T14:18:13.545+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/commercial_determinants_of_health.json
+[2025-10-24T14:18:15.097+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/commercial_determinants_of_health.json
+[2025-10-24T14:18:15.106+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for commercial_determinants_of_health.
+[2025-10-24T14:18:15.111+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/community-based_health_insurance.json
+[2025-10-24T14:18:16.114+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/community-based_health_insurance.json
+[2025-10-24T14:18:16.141+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/community-based_health_insurance.json
+[2025-10-24T14:18:17.444+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/community-based_health_insurance.json
+[2025-10-24T14:18:17.457+0000] {data_processor.py:182} INFO - Processed and uploaded 7 chunks for community-based_health_insurance.
+[2025-10-24T14:18:17.461+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/condoms.json
+[2025-10-24T14:18:18.601+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/condoms.json
+[2025-10-24T14:18:18.618+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/condoms.json
+[2025-10-24T14:18:19.878+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/condoms.json
+[2025-10-24T14:18:19.889+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for condoms.
+[2025-10-24T14:18:19.896+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/congenital_disorders.json
+[2025-10-24T14:18:21.238+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/congenital_disorders.json
+[2025-10-24T14:18:21.258+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/congenital_disorders.json
+[2025-10-24T14:18:22.422+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/congenital_disorders.json
+[2025-10-24T14:18:22.425+0000] {data_processor.py:182} INFO - Processed and uploaded 8 chunks for congenital_disorders.
+[2025-10-24T14:18:22.427+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/coronavirus_disease_(covid-19).json
+[2025-10-24T14:18:23.470+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/coronavirus_disease_(covid-19).json
+[2025-10-24T14:18:23.487+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/coronavirus_disease_(covid-19).json
+[2025-10-24T14:18:24.895+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/coronavirus_disease_(covid-19).json
+[2025-10-24T14:18:24.900+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for coronavirus_disease_(covid-19).
+[2025-10-24T14:18:24.902+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/corporal_punishment_of_children_and_health.json
+[2025-10-24T14:18:26.018+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/corporal_punishment_of_children_and_health.json
+[2025-10-24T14:18:26.036+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/corporal_punishment_of_children_and_health.json
+[2025-10-24T14:18:27.285+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/corporal_punishment_of_children_and_health.json
+[2025-10-24T14:18:27.293+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for corporal_punishment_of_children_and_health.
+[2025-10-24T14:18:27.301+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/crimean-congo_haemorrhagic_fever.json
+[2025-10-24T14:18:28.305+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/crimean-congo_haemorrhagic_fever.json
+[2025-10-24T14:18:28.353+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/crimean-congo_haemorrhagic_fever.json
+[2025-10-24T14:18:29.797+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/crimean-congo_haemorrhagic_fever.json
+[2025-10-24T14:18:29.812+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for crimean-congo_haemorrhagic_fever.
+[2025-10-24T14:18:29.818+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/deafness_and_hearing_loss.json
+[2025-10-24T14:18:30.812+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/deafness_and_hearing_loss.json
+[2025-10-24T14:18:30.854+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/deafness_and_hearing_loss.json
+[2025-10-24T14:18:32.393+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/deafness_and_hearing_loss.json
+[2025-10-24T14:18:32.408+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for deafness_and_hearing_loss.
+[2025-10-24T14:18:32.414+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/deliberate_events.json
+[2025-10-24T14:18:33.355+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/deliberate_events.json
+[2025-10-24T14:18:33.384+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/deliberate_events.json
+[2025-10-24T14:18:34.818+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/deliberate_events.json
+[2025-10-24T14:18:34.827+0000] {data_processor.py:182} INFO - Processed and uploaded 8 chunks for deliberate_events.
+[2025-10-24T14:18:34.832+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/dementia.json
+[2025-10-24T14:18:35.951+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/dementia.json
+[2025-10-24T14:18:35.996+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/dementia.json
+[2025-10-24T14:18:37.273+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/dementia.json
+[2025-10-24T14:18:37.277+0000] {data_processor.py:182} INFO - Processed and uploaded 17 chunks for dementia.
+[2025-10-24T14:18:37.279+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/dengue.json
+[2025-10-24T14:18:38.771+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/dengue.json
+[2025-10-24T14:18:38.804+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/dengue.json
+[2025-10-24T14:18:40.023+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/dengue.json
+[2025-10-24T14:18:40.027+0000] {data_processor.py:182} INFO - Processed and uploaded 11 chunks for dengue.
+[2025-10-24T14:18:40.029+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/depressive_disorder_(depression).json
+[2025-10-24T14:18:41.069+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/depressive_disorder_(depression).json
+[2025-10-24T14:18:41.092+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/depressive_disorder_(depression).json
+[2025-10-24T14:18:42.349+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/depressive_disorder_(depression).json
+[2025-10-24T14:18:42.365+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for depressive_disorder_(depression).
+[2025-10-24T14:18:42.371+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/diabetes.json
+[2025-10-24T14:18:43.518+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/diabetes.json
+[2025-10-24T14:18:43.558+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/diabetes.json
+[2025-10-24T14:18:44.914+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/diabetes.json
+[2025-10-24T14:18:44.926+0000] {data_processor.py:182} INFO - Processed and uploaded 21 chunks for diabetes.
+[2025-10-24T14:18:44.930+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/diarrhoeal_disease.json
+[2025-10-24T14:18:45.962+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/diarrhoeal_disease.json
+[2025-10-24T14:18:46.013+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/diarrhoeal_disease.json
+[2025-10-24T14:18:47.392+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/diarrhoeal_disease.json
+[2025-10-24T14:18:47.396+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for diarrhoeal_disease.
+[2025-10-24T14:18:47.399+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/dioxins.json
+[2025-10-24T14:18:48.530+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/dioxins.json
+[2025-10-24T14:18:48.542+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/dioxins.json
+[2025-10-24T14:18:50.150+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/dioxins.json
+[2025-10-24T14:18:50.155+0000] {data_processor.py:182} INFO - Processed and uploaded 17 chunks for dioxins.
+[2025-10-24T14:18:50.157+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/diphtheria.json
+[2025-10-24T14:18:51.206+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/diphtheria.json
+[2025-10-24T14:18:51.228+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/diphtheria.json
+[2025-10-24T14:18:52.418+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/diphtheria.json
+[2025-10-24T14:18:52.422+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for diphtheria.
+[2025-10-24T14:18:52.424+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/disability.json
+[2025-10-24T14:18:53.419+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/disability.json
+[2025-10-24T14:18:53.440+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/disability.json
+[2025-10-24T14:18:54.690+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/disability.json
+[2025-10-24T14:18:54.694+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for disability.
+[2025-10-24T14:18:54.697+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/dracunculiasis_(guinea-worm_disease).json
+[2025-10-24T14:18:55.797+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/dracunculiasis_(guinea-worm_disease).json
+[2025-10-24T14:18:55.814+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/dracunculiasis_(guinea-worm_disease).json
+[2025-10-24T14:18:57.602+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/dracunculiasis_(guinea-worm_disease).json
+[2025-10-24T14:18:57.614+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for dracunculiasis_(guinea-worm_disease).
+[2025-10-24T14:18:57.619+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/drinking-water.json
+[2025-10-24T14:18:58.645+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/drinking-water.json
+[2025-10-24T14:18:58.668+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/drinking-water.json
+[2025-10-24T14:19:00.080+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/drinking-water.json
+[2025-10-24T14:19:00.083+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for drinking-water.
+[2025-10-24T14:19:00.085+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/drowning.json
+[2025-10-24T14:19:01.104+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/drowning.json
+[2025-10-24T14:19:01.124+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/drowning.json
+[2025-10-24T14:19:02.410+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/drowning.json
+[2025-10-24T14:19:02.415+0000] {data_processor.py:182} INFO - Processed and uploaded 8 chunks for drowning.
+[2025-10-24T14:19:02.418+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/e._coli.json
+[2025-10-24T14:19:03.386+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/e._coli.json
+[2025-10-24T14:19:03.406+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/e._coli.json
+[2025-10-24T14:19:04.696+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/e._coli.json
+[2025-10-24T14:19:04.700+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for e._coli.
+[2025-10-24T14:19:04.702+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ebola_disease.json
+[2025-10-24T14:19:05.662+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ebola_disease.json
+[2025-10-24T14:19:05.689+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/ebola_disease.json
+[2025-10-24T14:19:07.283+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/ebola_disease.json
+[2025-10-24T14:19:07.289+0000] {data_processor.py:182} INFO - Processed and uploaded 21 chunks for ebola_disease.
+[2025-10-24T14:19:07.293+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/echinococcosis.json
+[2025-10-24T14:19:08.374+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/echinococcosis.json
+[2025-10-24T14:19:08.438+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/echinococcosis.json
+[2025-10-24T14:19:09.913+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/echinococcosis.json
+[2025-10-24T14:19:09.917+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for echinococcosis.
+[2025-10-24T14:19:09.919+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/el_niño_southern_oscillation_(enso).json
+[2025-10-24T14:19:11.185+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/el_niño_southern_oscillation_(enso).json
+[2025-10-24T14:19:11.211+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/el_niño_southern_oscillation_(enso).json
+[2025-10-24T14:19:12.789+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/el_niño_southern_oscillation_(enso).json
+[2025-10-24T14:19:12.795+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for el_niño_southern_oscillation_(enso).
+[2025-10-24T14:19:12.798+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/electricity_in_health-care_facilities.json
+[2025-10-24T14:19:13.802+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/electricity_in_health-care_facilities.json
+[2025-10-24T14:19:13.816+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/electricity_in_health-care_facilities.json
+[2025-10-24T14:19:15.233+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/electricity_in_health-care_facilities.json
+[2025-10-24T14:19:15.244+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for electricity_in_health-care_facilities.
+[2025-10-24T14:19:15.249+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/electronic_waste_(e-waste).json
+[2025-10-24T14:19:16.216+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/electronic_waste_(e-waste).json
+[2025-10-24T14:19:16.246+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/electronic_waste_(e-waste).json
+[2025-10-24T14:19:18.135+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/electronic_waste_(e-waste).json
+[2025-10-24T14:19:18.138+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for electronic_waste_(e-waste).
+[2025-10-24T14:19:18.139+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/emergency_contraception.json
+[2025-10-24T14:19:19.181+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/emergency_contraception.json
+[2025-10-24T14:19:19.263+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/emergency_contraception.json
+[2025-10-24T14:19:21.098+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/emergency_contraception.json
+[2025-10-24T14:19:21.102+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for emergency_contraception.
+[2025-10-24T14:19:21.105+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/endometriosis.json
+[2025-10-24T14:19:22.028+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/endometriosis.json
+[2025-10-24T14:19:22.064+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/endometriosis.json
+[2025-10-24T14:19:23.403+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/endometriosis.json
+[2025-10-24T14:19:23.406+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for endometriosis.
+[2025-10-24T14:19:23.408+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/epilepsy.json
+[2025-10-24T14:19:24.367+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/epilepsy.json
+[2025-10-24T14:19:24.381+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/epilepsy.json
+[2025-10-24T14:19:25.809+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/epilepsy.json
+[2025-10-24T14:19:25.815+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for epilepsy.
+[2025-10-24T14:19:25.818+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/essential_medicines.json
+[2025-10-24T14:19:26.678+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/essential_medicines.json
+[2025-10-24T14:19:26.700+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/essential_medicines.json
+[2025-10-24T14:19:27.865+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/essential_medicines.json
+[2025-10-24T14:19:27.871+0000] {data_processor.py:182} INFO - Processed and uploaded 17 chunks for essential_medicines.
+[2025-10-24T14:19:27.877+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/falls.json
+[2025-10-24T14:19:28.773+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/falls.json
+[2025-10-24T14:19:28.796+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/falls.json
+[2025-10-24T14:19:30.081+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/falls.json
+[2025-10-24T14:19:30.085+0000] {data_processor.py:182} INFO - Processed and uploaded 8 chunks for falls.
+[2025-10-24T14:19:30.086+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/family_planningcontraception_methods.json
+[2025-10-24T14:19:30.966+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/family_planningcontraception_methods.json
+[2025-10-24T14:19:30.977+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/family_planningcontraception_methods.json
+[2025-10-24T14:19:32.266+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/family_planningcontraception_methods.json
+[2025-10-24T14:19:32.277+0000] {data_processor.py:182} INFO - Processed and uploaded 11 chunks for family_planningcontraception_methods.
+[2025-10-24T14:19:32.282+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/female_genital_mutilation.json
+[2025-10-24T14:19:33.395+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/female_genital_mutilation.json
+[2025-10-24T14:19:33.432+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/female_genital_mutilation.json
+[2025-10-24T14:19:34.734+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/female_genital_mutilation.json
+[2025-10-24T14:19:34.755+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for female_genital_mutilation.
+[2025-10-24T14:19:34.772+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/food_additives.json
+[2025-10-24T14:19:35.972+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/food_additives.json
+[2025-10-24T14:19:36.002+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/food_additives.json
+[2025-10-24T14:19:37.509+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/food_additives.json
+[2025-10-24T14:19:37.516+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for food_additives.
+[2025-10-24T14:19:37.521+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/food_safety.json
+[2025-10-24T14:19:38.658+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/food_safety.json
+[2025-10-24T14:19:38.701+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/food_safety.json
+[2025-10-24T14:19:39.972+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/food_safety.json
+[2025-10-24T14:19:39.980+0000] {data_processor.py:182} INFO - Processed and uploaded 1 chunks for food_safety.
+[2025-10-24T14:19:39.984+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/foodborne_trematode_infections.json
+[2025-10-24T14:19:41.004+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/foodborne_trematode_infections.json
+[2025-10-24T14:19:41.046+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/foodborne_trematode_infections.json
+[2025-10-24T14:19:42.565+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/foodborne_trematode_infections.json
+[2025-10-24T14:19:42.569+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for foodborne_trematode_infections.
+[2025-10-24T14:19:42.572+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/fragility_fractures.json
+[2025-10-24T14:19:44.077+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/fragility_fractures.json
+[2025-10-24T14:19:44.104+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/fragility_fractures.json
+[2025-10-24T14:19:45.683+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/fragility_fractures.json
+[2025-10-24T14:19:45.688+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for fragility_fractures.
+[2025-10-24T14:19:45.690+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/free_health_care_policies.json
+[2025-10-24T14:19:46.696+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/free_health_care_policies.json
+[2025-10-24T14:19:46.741+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/free_health_care_policies.json
+[2025-10-24T14:19:48.054+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/free_health_care_policies.json
+[2025-10-24T14:19:48.061+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for free_health_care_policies.
+[2025-10-24T14:19:48.063+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/gambling.json
+[2025-10-24T14:19:49.106+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/gambling.json
+[2025-10-24T14:19:49.145+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/gambling.json
+[2025-10-24T14:19:51.092+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/gambling.json
+[2025-10-24T14:19:51.097+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for gambling.
+[2025-10-24T14:19:51.105+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/gonorrhoea_(neisseria_gonorrhoeae_infection).json
+[2025-10-24T14:19:52.110+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/gonorrhoea_(neisseria_gonorrhoeae_infection).json
+[2025-10-24T14:19:52.137+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/gonorrhoea_(neisseria_gonorrhoeae_infection).json
+[2025-10-24T14:19:53.453+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/gonorrhoea_(neisseria_gonorrhoeae_infection).json
+[2025-10-24T14:19:53.458+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for gonorrhoea_(neisseria_gonorrhoeae_infection).
+[2025-10-24T14:19:53.463+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/guillain–barré_syndrome.json
+[2025-10-24T14:19:54.385+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/guillain–barré_syndrome.json
+[2025-10-24T14:19:54.396+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/guillain–barré_syndrome.json
+[2025-10-24T14:19:55.860+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/guillain–barré_syndrome.json
+[2025-10-24T14:19:55.864+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for guillain–barré_syndrome.
+[2025-10-24T14:19:55.865+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/health-care_waste.json
+[2025-10-24T14:19:56.940+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/health-care_waste.json
+[2025-10-24T14:19:56.965+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/health-care_waste.json
+[2025-10-24T14:19:58.573+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/health-care_waste.json
+[2025-10-24T14:19:58.578+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for health-care_waste.
+[2025-10-24T14:19:58.580+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/health_literacy.json
+[2025-10-24T14:20:00.000+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/health_literacy.json
+[2025-10-24T14:20:00.041+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/health_literacy.json
+[2025-10-24T14:20:01.327+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/health_literacy.json
+[2025-10-24T14:20:01.332+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for health_literacy.
+[2025-10-24T14:20:01.335+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/healthy_diet.json
+[2025-10-24T14:20:02.289+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/healthy_diet.json
+[2025-10-24T14:20:02.351+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/healthy_diet.json
+[2025-10-24T14:20:03.721+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/healthy_diet.json
+[2025-10-24T14:20:03.726+0000] {data_processor.py:182} INFO - Processed and uploaded 8 chunks for healthy_diet.
+[2025-10-24T14:20:03.729+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/heat_and_health.json
+[2025-10-24T14:20:04.668+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/heat_and_health.json
+[2025-10-24T14:20:04.690+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/heat_and_health.json
+[2025-10-24T14:20:06.010+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/heat_and_health.json
+[2025-10-24T14:20:06.015+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for heat_and_health.
+[2025-10-24T14:20:06.018+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hepatitis_a.json
+[2025-10-24T14:20:07.026+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hepatitis_a.json
+[2025-10-24T14:20:07.053+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/hepatitis_a.json
+[2025-10-24T14:20:08.433+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/hepatitis_a.json
+[2025-10-24T14:20:08.439+0000] {data_processor.py:182} INFO - Processed and uploaded 2 chunks for hepatitis_a.
+[2025-10-24T14:20:08.441+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hepatitis_b.json
+[2025-10-24T14:20:09.566+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hepatitis_b.json
+[2025-10-24T14:20:09.590+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/hepatitis_b.json
+[2025-10-24T14:20:11.041+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/hepatitis_b.json
+[2025-10-24T14:20:11.046+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for hepatitis_b.
+[2025-10-24T14:20:11.047+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hepatitis_c.json
+[2025-10-24T14:20:11.981+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hepatitis_c.json
+[2025-10-24T14:20:12.014+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/hepatitis_c.json
+[2025-10-24T14:20:13.519+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/hepatitis_c.json
+[2025-10-24T14:20:13.526+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for hepatitis_c.
+[2025-10-24T14:20:13.528+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hepatitis_d.json
+[2025-10-24T14:20:14.535+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hepatitis_d.json
+[2025-10-24T14:20:14.547+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/hepatitis_d.json
+[2025-10-24T14:20:15.735+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/hepatitis_d.json
+[2025-10-24T14:20:15.740+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for hepatitis_d.
+[2025-10-24T14:20:15.742+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hepatitis_e.json
+[2025-10-24T14:20:16.804+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hepatitis_e.json
+[2025-10-24T14:20:16.825+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/hepatitis_e.json
+[2025-10-24T14:20:17.980+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/hepatitis_e.json
+[2025-10-24T14:20:17.988+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for hepatitis_e.
+[2025-10-24T14:20:17.992+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/herpes_simplex_virus.json
+[2025-10-24T14:20:19.144+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/herpes_simplex_virus.json
+[2025-10-24T14:20:19.181+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/herpes_simplex_virus.json
+[2025-10-24T14:20:20.723+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/herpes_simplex_virus.json
+[2025-10-24T14:20:20.732+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for herpes_simplex_virus.
+[2025-10-24T14:20:20.743+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hiv_and_aids.json
+[2025-10-24T14:20:22.278+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hiv_and_aids.json
+[2025-10-24T14:20:22.320+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/hiv_and_aids.json
+[2025-10-24T14:20:23.782+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/hiv_and_aids.json
+[2025-10-24T14:20:23.798+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for hiv_and_aids.
+[2025-10-24T14:20:23.805+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hiv_drug_resistance.json
+[2025-10-24T14:20:24.905+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hiv_drug_resistance.json
+[2025-10-24T14:20:24.927+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/hiv_drug_resistance.json
+[2025-10-24T14:20:26.303+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/hiv_drug_resistance.json
+[2025-10-24T14:20:26.311+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for hiv_drug_resistance.
+[2025-10-24T14:20:26.316+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/household_air_pollution.json
+[2025-10-24T14:20:27.578+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/household_air_pollution.json
+[2025-10-24T14:20:27.603+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/household_air_pollution.json
+[2025-10-24T14:20:28.982+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/household_air_pollution.json
+[2025-10-24T14:20:28.985+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for household_air_pollution.
+[2025-10-24T14:20:28.988+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/human_papillomavirus_and_cancer.json
+[2025-10-24T14:20:30.289+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/human_papillomavirus_and_cancer.json
+[2025-10-24T14:20:30.308+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/human_papillomavirus_and_cancer.json
+[2025-10-24T14:20:31.840+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/human_papillomavirus_and_cancer.json
+[2025-10-24T14:20:31.844+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for human_papillomavirus_and_cancer.
+[2025-10-24T14:20:31.847+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/human_rights.json
+[2025-10-24T14:20:32.984+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/human_rights.json
+[2025-10-24T14:20:33.001+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/human_rights.json
+[2025-10-24T14:20:34.427+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/human_rights.json
+[2025-10-24T14:20:34.430+0000] {data_processor.py:182} INFO - Processed and uploaded 15 chunks for human_rights.
+[2025-10-24T14:20:34.432+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/human_t-lymphotropic_virus_type_1.json
+[2025-10-24T14:20:35.395+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/human_t-lymphotropic_virus_type_1.json
+[2025-10-24T14:20:35.408+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/human_t-lymphotropic_virus_type_1.json
+[2025-10-24T14:20:36.625+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/human_t-lymphotropic_virus_type_1.json
+[2025-10-24T14:20:36.631+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for human_t-lymphotropic_virus_type_1.
+[2025-10-24T14:20:36.634+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hypertension.json
+[2025-10-24T14:20:37.783+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hypertension.json
+[2025-10-24T14:20:37.809+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/hypertension.json
+[2025-10-24T14:20:39.161+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/hypertension.json
+[2025-10-24T14:20:39.169+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for hypertension.
+[2025-10-24T14:20:39.174+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/icd-11.json
+[2025-10-24T14:20:40.187+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/icd-11.json
+[2025-10-24T14:20:40.219+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/icd-11.json
+[2025-10-24T14:20:41.519+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/icd-11.json
+[2025-10-24T14:20:41.529+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for icd-11.
+[2025-10-24T14:20:41.532+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/immunization_coverage.json
+[2025-10-24T14:20:42.755+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/immunization_coverage.json
+[2025-10-24T14:20:42.795+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/immunization_coverage.json
+[2025-10-24T14:20:44.139+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/immunization_coverage.json
+[2025-10-24T14:20:44.143+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for immunization_coverage.
+[2025-10-24T14:20:44.145+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/infant_and_young_child_feeding.json
+[2025-10-24T14:20:45.079+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/infant_and_young_child_feeding.json
+[2025-10-24T14:20:45.098+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/infant_and_young_child_feeding.json
+[2025-10-24T14:20:46.940+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/infant_and_young_child_feeding.json
+[2025-10-24T14:20:46.944+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for infant_and_young_child_feeding.
+[2025-10-24T14:20:46.946+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/infertility.json
+[2025-10-24T14:20:48.184+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/infertility.json
+[2025-10-24T14:20:48.197+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/infertility.json
+[2025-10-24T14:20:49.597+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/infertility.json
+[2025-10-24T14:20:49.601+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for infertility.
+[2025-10-24T14:20:49.604+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/influenza_(avian_and_other_zoonotic).json
+[2025-10-24T14:20:50.528+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/influenza_(avian_and_other_zoonotic).json
+[2025-10-24T14:20:50.564+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/influenza_(avian_and_other_zoonotic).json
+[2025-10-24T14:20:52.221+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/influenza_(avian_and_other_zoonotic).json
+[2025-10-24T14:20:52.226+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for influenza_(avian_and_other_zoonotic).
+[2025-10-24T14:20:52.229+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/influenza_(seasonal).json
+[2025-10-24T14:20:53.282+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/influenza_(seasonal).json
+[2025-10-24T14:20:53.309+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/influenza_(seasonal).json
+[2025-10-24T14:20:54.572+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/influenza_(seasonal).json
+[2025-10-24T14:20:54.579+0000] {data_processor.py:182} INFO - Processed and uploaded 19 chunks for influenza_(seasonal).
+[2025-10-24T14:20:54.582+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/injuries_and_violence.json
+[2025-10-24T14:20:55.601+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/injuries_and_violence.json
+[2025-10-24T14:20:55.617+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/injuries_and_violence.json
+[2025-10-24T14:20:56.819+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/injuries_and_violence.json
+[2025-10-24T14:20:56.824+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for injuries_and_violence.
+[2025-10-24T14:20:56.826+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ionizing_radiation_and_health_effects.json
+[2025-10-24T14:20:57.955+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ionizing_radiation_and_health_effects.json
+[2025-10-24T14:20:57.985+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/ionizing_radiation_and_health_effects.json
+[2025-10-24T14:20:59.396+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/ionizing_radiation_and_health_effects.json
+[2025-10-24T14:20:59.400+0000] {data_processor.py:182} INFO - Processed and uploaded 6 chunks for ionizing_radiation_and_health_effects.
+[2025-10-24T14:20:59.402+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/japanese_encephalitis.json
+[2025-10-24T14:21:00.625+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/japanese_encephalitis.json
+[2025-10-24T14:21:00.666+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/japanese_encephalitis.json
+[2025-10-24T14:21:02.003+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/japanese_encephalitis.json
+[2025-10-24T14:21:02.007+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for japanese_encephalitis.
+[2025-10-24T14:21:02.013+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/lassa_fever.json
+[2025-10-24T14:21:02.975+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/lassa_fever.json
+[2025-10-24T14:21:02.991+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/lassa_fever.json
+[2025-10-24T14:21:04.284+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/lassa_fever.json
+[2025-10-24T14:21:04.288+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for lassa_fever.
+[2025-10-24T14:21:04.290+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/lead_poisoning.json
+[2025-10-24T14:21:05.257+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/lead_poisoning.json
+[2025-10-24T14:21:05.275+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/lead_poisoning.json
+[2025-10-24T14:21:06.797+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/lead_poisoning.json
+[2025-10-24T14:21:06.802+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for lead_poisoning.
+[2025-10-24T14:21:06.805+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/legionellosis.json
+[2025-10-24T14:21:07.714+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/legionellosis.json
+[2025-10-24T14:21:07.734+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/legionellosis.json
+[2025-10-24T14:21:09.144+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/legionellosis.json
+[2025-10-24T14:21:09.150+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for legionellosis.
+[2025-10-24T14:21:09.153+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/leishmaniasis.json
+[2025-10-24T14:21:10.115+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/leishmaniasis.json
+[2025-10-24T14:21:10.135+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/leishmaniasis.json
+[2025-10-24T14:21:11.340+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/leishmaniasis.json
+[2025-10-24T14:21:11.346+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for leishmaniasis.
+[2025-10-24T14:21:11.350+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/leprosy.json
+[2025-10-24T14:21:12.445+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/leprosy.json
+[2025-10-24T14:21:12.488+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/leprosy.json
+[2025-10-24T14:21:13.745+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/leprosy.json
+[2025-10-24T14:21:13.762+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for leprosy.
+[2025-10-24T14:21:13.767+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/listeriosis.json
+[2025-10-24T14:21:14.736+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/listeriosis.json
+[2025-10-24T14:21:14.760+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/listeriosis.json
+[2025-10-24T14:21:16.016+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/listeriosis.json
+[2025-10-24T14:21:16.019+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for listeriosis.
+[2025-10-24T14:21:16.021+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/low_back_pain.json
+[2025-10-24T14:21:17.188+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/low_back_pain.json
+[2025-10-24T14:21:17.211+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/low_back_pain.json
+[2025-10-24T14:21:18.469+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/low_back_pain.json
+[2025-10-24T14:21:18.474+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for low_back_pain.
+[2025-10-24T14:21:18.476+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/lung_cancer.json
+[2025-10-24T14:21:19.400+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/lung_cancer.json
+[2025-10-24T14:21:19.417+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/lung_cancer.json
+[2025-10-24T14:21:20.710+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/lung_cancer.json
+[2025-10-24T14:21:20.721+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for lung_cancer.
+[2025-10-24T14:21:20.723+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/lymphatic_filariasis.json
+[2025-10-24T14:21:21.744+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/lymphatic_filariasis.json
+[2025-10-24T14:21:21.764+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/lymphatic_filariasis.json
+[2025-10-24T14:21:23.577+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/lymphatic_filariasis.json
+[2025-10-24T14:21:23.589+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for lymphatic_filariasis.
+[2025-10-24T14:21:23.594+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/malaria.json
+[2025-10-24T14:21:24.927+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/malaria.json
+[2025-10-24T14:21:24.991+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/malaria.json
+[2025-10-24T14:21:26.738+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/malaria.json
+[2025-10-24T14:21:26.743+0000] {data_processor.py:182} INFO - Processed and uploaded 21 chunks for malaria.
+[2025-10-24T14:21:26.745+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/malnutrition.json
+[2025-10-24T14:21:27.665+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/malnutrition.json
+[2025-10-24T14:21:27.681+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/malnutrition.json
+[2025-10-24T14:21:29.007+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/malnutrition.json
+[2025-10-24T14:21:29.021+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for malnutrition.
+[2025-10-24T14:21:29.030+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/marburg_virus_disease.json
+[2025-10-24T14:21:30.107+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/marburg_virus_disease.json
+[2025-10-24T14:21:30.173+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/marburg_virus_disease.json
+[2025-10-24T14:21:31.841+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/marburg_virus_disease.json
+[2025-10-24T14:21:31.846+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for marburg_virus_disease.
+[2025-10-24T14:21:31.849+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/maternal_mortality.json
+[2025-10-24T14:21:32.994+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/maternal_mortality.json
+[2025-10-24T14:21:33.022+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/maternal_mortality.json
+[2025-10-24T14:21:34.643+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/maternal_mortality.json
+[2025-10-24T14:21:34.647+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for maternal_mortality.
+[2025-10-24T14:21:34.649+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/measles.json
+[2025-10-24T14:21:35.603+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/measles.json
+[2025-10-24T14:21:35.623+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/measles.json
+[2025-10-24T14:21:37.014+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/measles.json
+[2025-10-24T14:21:37.018+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for measles.
+[2025-10-24T14:21:37.021+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/meningitis.json
+[2025-10-24T14:21:38.202+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/meningitis.json
+[2025-10-24T14:21:38.226+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/meningitis.json
+[2025-10-24T14:21:39.681+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/meningitis.json
+[2025-10-24T14:21:39.691+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for meningitis.
+[2025-10-24T14:21:39.697+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/menopause.json
+[2025-10-24T14:21:40.711+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/menopause.json
+[2025-10-24T14:21:40.789+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/menopause.json
+[2025-10-24T14:21:42.050+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/menopause.json
+[2025-10-24T14:21:42.058+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for menopause.
+[2025-10-24T14:21:42.064+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_disorders.json
+[2025-10-24T14:21:43.176+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_disorders.json
+[2025-10-24T14:21:43.195+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/mental_disorders.json
+[2025-10-24T14:21:44.913+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/mental_disorders.json
+[2025-10-24T14:21:44.917+0000] {data_processor.py:182} INFO - Processed and uploaded 24 chunks for mental_disorders.
+[2025-10-24T14:21:44.919+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_health.json
+[2025-10-24T14:21:45.823+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_health.json
+[2025-10-24T14:21:45.835+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/mental_health.json
+[2025-10-24T14:21:47.130+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/mental_health.json
+[2025-10-24T14:21:47.134+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for mental_health.
+[2025-10-24T14:21:47.137+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_health_at_work.json
+[2025-10-24T14:21:48.194+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_health_at_work.json
+[2025-10-24T14:21:48.234+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/mental_health_at_work.json
+[2025-10-24T14:21:49.801+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/mental_health_at_work.json
+[2025-10-24T14:21:49.805+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for mental_health_at_work.
+[2025-10-24T14:21:49.807+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_health_in_emergencies.json
+[2025-10-24T14:21:50.843+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_health_in_emergencies.json
+[2025-10-24T14:21:50.861+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/mental_health_in_emergencies.json
+[2025-10-24T14:21:52.168+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/mental_health_in_emergencies.json
+[2025-10-24T14:21:52.172+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for mental_health_in_emergencies.
+[2025-10-24T14:21:52.175+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_health_of_adolescents.json
+[2025-10-24T14:21:53.233+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_health_of_adolescents.json
+[2025-10-24T14:21:53.285+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/mental_health_of_adolescents.json
+[2025-10-24T14:21:55.128+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/mental_health_of_adolescents.json
+[2025-10-24T14:21:55.134+0000] {data_processor.py:182} INFO - Processed and uploaded 24 chunks for mental_health_of_adolescents.
+[2025-10-24T14:21:55.139+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_health_of_older_adults.json
+[2025-10-24T14:21:56.277+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_health_of_older_adults.json
+[2025-10-24T14:21:56.313+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/mental_health_of_older_adults.json
+[2025-10-24T14:21:57.878+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/mental_health_of_older_adults.json
+[2025-10-24T14:21:57.883+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for mental_health_of_older_adults.
+[2025-10-24T14:21:57.886+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mercury.json
+[2025-10-24T14:21:59.023+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mercury.json
+[2025-10-24T14:21:59.061+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/mercury.json
+[2025-10-24T14:22:00.340+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/mercury.json
+[2025-10-24T14:22:00.357+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for mercury.
+[2025-10-24T14:22:00.362+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json
+[2025-10-24T14:22:01.370+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json
+[2025-10-24T14:22:01.385+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json
+[2025-10-24T14:22:02.686+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json
+[2025-10-24T14:22:02.690+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for middle_east_respiratory_syndrome_coronavirus_(mers-cov).
+[2025-10-24T14:22:02.693+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/migraine_and_other_headache_disorders.json
+[2025-10-24T14:22:03.715+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/migraine_and_other_headache_disorders.json
+[2025-10-24T14:22:03.731+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/migraine_and_other_headache_disorders.json
+[2025-10-24T14:22:04.896+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/migraine_and_other_headache_disorders.json
+[2025-10-24T14:22:04.900+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for migraine_and_other_headache_disorders.
+[2025-10-24T14:22:04.902+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/millennium_development_goals_(mdgs).json
+[2025-10-24T14:22:05.814+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/millennium_development_goals_(mdgs).json
+[2025-10-24T14:22:05.835+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/millennium_development_goals_(mdgs).json
+[2025-10-24T14:22:07.082+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/millennium_development_goals_(mdgs).json
+[2025-10-24T14:22:07.087+0000] {data_processor.py:182} INFO - Processed and uploaded 6 chunks for millennium_development_goals_(mdgs).
+[2025-10-24T14:22:07.092+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mpox.json
+[2025-10-24T14:22:08.023+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mpox.json
+[2025-10-24T14:22:08.059+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/mpox.json
+[2025-10-24T14:22:09.765+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/mpox.json
+[2025-10-24T14:22:09.769+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for mpox.
+[2025-10-24T14:22:09.773+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/multi-drug_resistant_gonorrhoea.json
+[2025-10-24T14:22:10.890+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/multi-drug_resistant_gonorrhoea.json
+[2025-10-24T14:22:10.909+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/multi-drug_resistant_gonorrhoea.json
+[2025-10-24T14:22:12.186+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/multi-drug_resistant_gonorrhoea.json
+[2025-10-24T14:22:12.195+0000] {data_processor.py:182} INFO - Processed and uploaded 13 chunks for multi-drug_resistant_gonorrhoea.
+[2025-10-24T14:22:12.200+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/multiple_sclerosis.json
+[2025-10-24T14:22:13.345+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/multiple_sclerosis.json
+[2025-10-24T14:22:13.361+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/multiple_sclerosis.json
+[2025-10-24T14:22:14.777+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/multiple_sclerosis.json
+[2025-10-24T14:22:14.787+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for multiple_sclerosis.
+[2025-10-24T14:22:14.792+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/musculoskeletal_health.json
+[2025-10-24T14:22:15.888+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/musculoskeletal_health.json
+[2025-10-24T14:22:15.935+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/musculoskeletal_health.json
+[2025-10-24T14:22:17.333+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/musculoskeletal_health.json
+[2025-10-24T14:22:17.344+0000] {data_processor.py:182} INFO - Processed and uploaded 4 chunks for musculoskeletal_health.
+[2025-10-24T14:22:17.349+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mycetoma.json
+[2025-10-24T14:22:18.557+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mycetoma.json
+[2025-10-24T14:22:18.571+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/mycetoma.json
+[2025-10-24T14:22:19.779+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/mycetoma.json
+[2025-10-24T14:22:19.783+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for mycetoma.
+[2025-10-24T14:22:19.785+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mycotoxins.json
+[2025-10-24T14:22:20.791+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mycotoxins.json
+[2025-10-24T14:22:20.804+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/mycotoxins.json
+[2025-10-24T14:22:21.980+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/mycotoxins.json
+[2025-10-24T14:22:21.984+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for mycotoxins.
+[2025-10-24T14:22:21.987+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/natural_toxins_in_food.json
+[2025-10-24T14:22:23.049+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/natural_toxins_in_food.json
+[2025-10-24T14:22:23.062+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/natural_toxins_in_food.json
+[2025-10-24T14:22:24.374+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/natural_toxins_in_food.json
+[2025-10-24T14:22:24.379+0000] {data_processor.py:182} INFO - Processed and uploaded 6 chunks for natural_toxins_in_food.
+[2025-10-24T14:22:24.383+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/newborn_mortality.json
+[2025-10-24T14:22:25.404+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/newborn_mortality.json
+[2025-10-24T14:22:25.447+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/newborn_mortality.json
+[2025-10-24T14:22:27.340+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/newborn_mortality.json
+[2025-10-24T14:22:27.348+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for newborn_mortality.
+[2025-10-24T14:22:27.353+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/newborns:_improving_survival_and_well-being.json
+[2025-10-24T14:22:28.259+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/newborns:_improving_survival_and_well-being.json
+[2025-10-24T14:22:28.292+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/newborns:_improving_survival_and_well-being.json
+[2025-10-24T14:22:29.585+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/newborns:_improving_survival_and_well-being.json
+[2025-10-24T14:22:29.594+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for newborns:_improving_survival_and_well-being.
+[2025-10-24T14:22:29.601+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/nipah_virus.json
+[2025-10-24T14:22:30.620+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/nipah_virus.json
+[2025-10-24T14:22:30.680+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/nipah_virus.json
+[2025-10-24T14:22:32.283+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/nipah_virus.json
+[2025-10-24T14:22:32.287+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for nipah_virus.
+[2025-10-24T14:22:32.290+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/noma.json
+[2025-10-24T14:22:33.413+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/noma.json
+[2025-10-24T14:22:33.458+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/noma.json
+[2025-10-24T14:22:34.775+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/noma.json
+[2025-10-24T14:22:34.780+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for noma.
+[2025-10-24T14:22:34.783+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/noncommunicable_diseases.json
+[2025-10-24T14:22:35.813+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/noncommunicable_diseases.json
+[2025-10-24T14:22:35.825+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/noncommunicable_diseases.json
+[2025-10-24T14:22:37.128+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/noncommunicable_diseases.json
+[2025-10-24T14:22:37.132+0000] {data_processor.py:182} INFO - Processed and uploaded 13 chunks for noncommunicable_diseases.
+[2025-10-24T14:22:37.133+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/nursing_and_midwifery.json
+[2025-10-24T14:22:38.125+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/nursing_and_midwifery.json
+[2025-10-24T14:22:38.145+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/nursing_and_midwifery.json
+[2025-10-24T14:22:39.313+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/nursing_and_midwifery.json
+[2025-10-24T14:22:39.318+0000] {data_processor.py:182} INFO - Processed and uploaded 4 chunks for nursing_and_midwifery.
+[2025-10-24T14:22:39.321+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/obesity_and_overweight.json
+[2025-10-24T14:22:40.278+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/obesity_and_overweight.json
+[2025-10-24T14:22:40.314+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/obesity_and_overweight.json
+[2025-10-24T14:22:41.759+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/obesity_and_overweight.json
+[2025-10-24T14:22:41.770+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for obesity_and_overweight.
+[2025-10-24T14:22:41.775+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/occupational_health:_health_workers.json
+[2025-10-24T14:22:43.090+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/occupational_health:_health_workers.json
+[2025-10-24T14:22:43.125+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/occupational_health:_health_workers.json
+[2025-10-24T14:22:44.374+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/occupational_health:_health_workers.json
+[2025-10-24T14:22:44.378+0000] {data_processor.py:182} INFO - Processed and uploaded 8 chunks for occupational_health:_health_workers.
+[2025-10-24T14:22:44.380+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/older_children_and_young_adolescent_mortality_(5_to_14_years).json
+[2025-10-24T14:22:45.361+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/older_children_and_young_adolescent_mortality_(5_to_14_years).json
+[2025-10-24T14:22:45.387+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/older_children_and_young_adolescent_mortality_(5_to_14_years).json
+[2025-10-24T14:22:46.763+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/older_children_and_young_adolescent_mortality_(5_to_14_years).json
+[2025-10-24T14:22:46.766+0000] {data_processor.py:182} INFO - Processed and uploaded 2 chunks for older_children_and_young_adolescent_mortality_(5_to_14_years).
+[2025-10-24T14:22:46.768+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/onchocerciasis.json
+[2025-10-24T14:22:47.910+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/onchocerciasis.json
+[2025-10-24T14:22:47.954+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/onchocerciasis.json
+[2025-10-24T14:22:49.297+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/onchocerciasis.json
+[2025-10-24T14:22:49.300+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for onchocerciasis.
+[2025-10-24T14:22:49.302+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/one_health.json
+[2025-10-24T14:22:50.422+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/one_health.json
+[2025-10-24T14:22:50.436+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/one_health.json
+[2025-10-24T14:22:51.666+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/one_health.json
+[2025-10-24T14:22:51.670+0000] {data_processor.py:182} INFO - Processed and uploaded 8 chunks for one_health.
+[2025-10-24T14:22:51.673+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/opioid_overdose.json
+[2025-10-24T14:22:52.596+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/opioid_overdose.json
+[2025-10-24T14:22:52.613+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/opioid_overdose.json
+[2025-10-24T14:22:54.083+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/opioid_overdose.json
+[2025-10-24T14:22:54.087+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for opioid_overdose.
+[2025-10-24T14:22:54.089+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/oral_health.json
+[2025-10-24T14:22:55.092+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/oral_health.json
+[2025-10-24T14:22:55.108+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/oral_health.json
+[2025-10-24T14:22:56.586+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/oral_health.json
+[2025-10-24T14:22:56.595+0000] {data_processor.py:182} INFO - Processed and uploaded 28 chunks for oral_health.
+[2025-10-24T14:22:56.600+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/oropouche_virus_disease.json
+[2025-10-24T14:22:57.761+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/oropouche_virus_disease.json
+[2025-10-24T14:22:57.782+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/oropouche_virus_disease.json
+[2025-10-24T14:22:59.489+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/oropouche_virus_disease.json
+[2025-10-24T14:22:59.494+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for oropouche_virus_disease.
+[2025-10-24T14:22:59.496+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/osteoarthritis.json
+[2025-10-24T14:23:00.789+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/osteoarthritis.json
+[2025-10-24T14:23:00.805+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/osteoarthritis.json
+[2025-10-24T14:23:02.599+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/osteoarthritis.json
+[2025-10-24T14:23:02.611+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for osteoarthritis.
+[2025-10-24T14:23:02.618+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/palliative_care.json
+[2025-10-24T14:23:03.634+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/palliative_care.json
+[2025-10-24T14:23:03.672+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/palliative_care.json
+[2025-10-24T14:23:05.094+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/palliative_care.json
+[2025-10-24T14:23:05.098+0000] {data_processor.py:182} INFO - Processed and uploaded 8 chunks for palliative_care.
+[2025-10-24T14:23:05.102+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/parkinson_disease.json
+[2025-10-24T14:23:06.026+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/parkinson_disease.json
+[2025-10-24T14:23:06.044+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/parkinson_disease.json
+[2025-10-24T14:23:07.491+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/parkinson_disease.json
+[2025-10-24T14:23:07.496+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for parkinson_disease.
+[2025-10-24T14:23:07.498+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/patient_safety.json
+[2025-10-24T14:23:08.723+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/patient_safety.json
+[2025-10-24T14:23:08.766+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/patient_safety.json
+[2025-10-24T14:23:10.577+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/patient_safety.json
+[2025-10-24T14:23:10.581+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for patient_safety.
+[2025-10-24T14:23:10.583+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/pesticide_residues_in_food.json
+[2025-10-24T14:23:12.537+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/pesticide_residues_in_food.json
+[2025-10-24T14:23:12.556+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/pesticide_residues_in_food.json
+[2025-10-24T14:23:14.789+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/pesticide_residues_in_food.json
+[2025-10-24T14:23:14.794+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for pesticide_residues_in_food.
+[2025-10-24T14:23:14.796+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/physical_activity.json
+[2025-10-24T14:23:16.031+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/physical_activity.json
+[2025-10-24T14:23:16.072+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/physical_activity.json
+[2025-10-24T14:23:17.662+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/physical_activity.json
+[2025-10-24T14:23:17.673+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for physical_activity.
+[2025-10-24T14:23:17.676+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/plague.json
+[2025-10-24T14:23:18.686+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/plague.json
+[2025-10-24T14:23:18.710+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/plague.json
+[2025-10-24T14:23:20.122+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/plague.json
+[2025-10-24T14:23:20.130+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for plague.
+[2025-10-24T14:23:20.133+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/pneumonia_in_children.json
+[2025-10-24T14:23:21.151+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/pneumonia_in_children.json
+[2025-10-24T14:23:21.167+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/pneumonia_in_children.json
+[2025-10-24T14:23:22.458+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/pneumonia_in_children.json
+[2025-10-24T14:23:22.462+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for pneumonia_in_children.
+[2025-10-24T14:23:22.464+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/podoconiosis_(non-filarial_lymphoedema).json
+[2025-10-24T14:23:23.470+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/podoconiosis_(non-filarial_lymphoedema).json
+[2025-10-24T14:23:23.483+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/podoconiosis_(non-filarial_lymphoedema).json
+[2025-10-24T14:23:24.804+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/podoconiosis_(non-filarial_lymphoedema).json
+[2025-10-24T14:23:24.809+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for podoconiosis_(non-filarial_lymphoedema).
+[2025-10-24T14:23:24.815+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/poliomyelitis.json
+[2025-10-24T14:23:25.940+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/poliomyelitis.json
+[2025-10-24T14:23:25.975+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/poliomyelitis.json
+[2025-10-24T14:23:27.458+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/poliomyelitis.json
+[2025-10-24T14:23:27.465+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for poliomyelitis.
+[2025-10-24T14:23:27.470+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/polycystic_ovary_syndrome.json
+[2025-10-24T14:23:28.466+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/polycystic_ovary_syndrome.json
+[2025-10-24T14:23:28.502+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/polycystic_ovary_syndrome.json
+[2025-10-24T14:23:29.800+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/polycystic_ovary_syndrome.json
+[2025-10-24T14:23:29.804+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for polycystic_ovary_syndrome.
+[2025-10-24T14:23:29.807+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/post-traumatic_stress_disorder.json
+[2025-10-24T14:23:30.793+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/post-traumatic_stress_disorder.json
+[2025-10-24T14:23:30.834+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/post-traumatic_stress_disorder.json
+[2025-10-24T14:23:32.044+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/post-traumatic_stress_disorder.json
+[2025-10-24T14:23:32.053+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for post-traumatic_stress_disorder.
+[2025-10-24T14:23:32.058+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/post_covid-19_condition_(long_covid).json
+[2025-10-24T14:23:33.222+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/post_covid-19_condition_(long_covid).json
+[2025-10-24T14:23:33.257+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/post_covid-19_condition_(long_covid).json
+[2025-10-24T14:23:34.804+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/post_covid-19_condition_(long_covid).json
+[2025-10-24T14:23:34.814+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for post_covid-19_condition_(long_covid).
+[2025-10-24T14:23:34.821+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/pre-eclampsia.json
+[2025-10-24T14:23:36.266+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/pre-eclampsia.json
+[2025-10-24T14:23:36.283+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/pre-eclampsia.json
+[2025-10-24T14:23:37.695+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/pre-eclampsia.json
+[2025-10-24T14:23:37.698+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for pre-eclampsia.
+[2025-10-24T14:23:37.701+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/prequalification_of_medicines_by_who.json
+[2025-10-24T14:23:38.775+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/prequalification_of_medicines_by_who.json
+[2025-10-24T14:23:38.789+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/prequalification_of_medicines_by_who.json
+[2025-10-24T14:23:39.932+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/prequalification_of_medicines_by_who.json
+[2025-10-24T14:23:39.936+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for prequalification_of_medicines_by_who.
+[2025-10-24T14:23:39.939+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/preterm_birth.json
+[2025-10-24T14:23:41.393+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/preterm_birth.json
+[2025-10-24T14:23:41.412+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/preterm_birth.json
+[2025-10-24T14:23:43.492+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/preterm_birth.json
+[2025-10-24T14:23:43.496+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for preterm_birth.
+[2025-10-24T14:23:43.498+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/primary_health_care.json
+[2025-10-24T14:23:44.703+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/primary_health_care.json
+[2025-10-24T14:23:44.720+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/primary_health_care.json
+[2025-10-24T14:23:46.205+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/primary_health_care.json
+[2025-10-24T14:23:46.210+0000] {data_processor.py:182} INFO - Processed and uploaded 8 chunks for primary_health_care.
+[2025-10-24T14:23:46.213+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/protecting_workers'_health.json
+[2025-10-24T14:23:47.222+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/protecting_workers'_health.json
+[2025-10-24T14:23:47.239+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/protecting_workers'_health.json
+[2025-10-24T14:23:48.546+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/protecting_workers'_health.json
+[2025-10-24T14:23:48.551+0000] {data_processor.py:182} INFO - Processed and uploaded 7 chunks for protecting_workers'_health.
+[2025-10-24T14:23:48.553+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/quality_health_services.json
+[2025-10-24T14:23:49.539+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/quality_health_services.json
+[2025-10-24T14:23:49.572+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/quality_health_services.json
+[2025-10-24T14:23:50.830+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/quality_health_services.json
+[2025-10-24T14:23:50.834+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for quality_health_services.
+[2025-10-24T14:23:50.838+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rabies.json
+[2025-10-24T14:23:51.861+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rabies.json
+[2025-10-24T14:23:51.890+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/rabies.json
+[2025-10-24T14:23:53.195+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/rabies.json
+[2025-10-24T14:23:53.200+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for rabies.
+[2025-10-24T14:23:53.205+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/radon.json
+[2025-10-24T14:23:54.348+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/radon.json
+[2025-10-24T14:23:54.373+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/radon.json
+[2025-10-24T14:23:55.678+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/radon.json
+[2025-10-24T14:23:55.682+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for radon.
+[2025-10-24T14:23:55.687+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/refugee_and_migrant_health.json
+[2025-10-24T14:23:56.665+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/refugee_and_migrant_health.json
+[2025-10-24T14:23:56.691+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/refugee_and_migrant_health.json
+[2025-10-24T14:23:57.866+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/refugee_and_migrant_health.json
+[2025-10-24T14:23:57.881+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for refugee_and_migrant_health.
+[2025-10-24T14:23:57.885+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/refugee_and_migrant_mental_health.json
+[2025-10-24T14:23:58.952+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/refugee_and_migrant_mental_health.json
+[2025-10-24T14:23:58.975+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/refugee_and_migrant_mental_health.json
+[2025-10-24T14:24:00.201+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/refugee_and_migrant_mental_health.json
+[2025-10-24T14:24:00.205+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for refugee_and_migrant_mental_health.
+[2025-10-24T14:24:00.208+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rehabilitation.json
+[2025-10-24T14:24:01.157+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rehabilitation.json
+[2025-10-24T14:24:01.180+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/rehabilitation.json
+[2025-10-24T14:24:02.533+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/rehabilitation.json
+[2025-10-24T14:24:02.537+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for rehabilitation.
+[2025-10-24T14:24:02.540+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/respiratory_syncytial_virus_(rsv).json
+[2025-10-24T14:24:03.439+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/respiratory_syncytial_virus_(rsv).json
+[2025-10-24T14:24:03.458+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/respiratory_syncytial_virus_(rsv).json
+[2025-10-24T14:24:04.695+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/respiratory_syncytial_virus_(rsv).json
+[2025-10-24T14:24:04.699+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for respiratory_syncytial_virus_(rsv).
+[2025-10-24T14:24:04.701+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rheumatic_heart_disease.json
+[2025-10-24T14:24:05.762+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rheumatic_heart_disease.json
+[2025-10-24T14:24:05.790+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/rheumatic_heart_disease.json
+[2025-10-24T14:24:07.139+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/rheumatic_heart_disease.json
+[2025-10-24T14:24:07.144+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for rheumatic_heart_disease.
+[2025-10-24T14:24:07.148+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rheumatoid_arthritis.json
+[2025-10-24T14:24:08.073+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rheumatoid_arthritis.json
+[2025-10-24T14:24:08.111+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/rheumatoid_arthritis.json
+[2025-10-24T14:24:09.328+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/rheumatoid_arthritis.json
+[2025-10-24T14:24:09.332+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for rheumatoid_arthritis.
+[2025-10-24T14:24:09.335+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rift_valley_fever.json
+[2025-10-24T14:24:10.226+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rift_valley_fever.json
+[2025-10-24T14:24:10.253+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/rift_valley_fever.json
+[2025-10-24T14:24:11.517+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/rift_valley_fever.json
+[2025-10-24T14:24:11.525+0000] {data_processor.py:182} INFO - Processed and uploaded 1 chunks for rift_valley_fever.
+[2025-10-24T14:24:11.527+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ringworm_(tinea).json
+[2025-10-24T14:24:12.498+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ringworm_(tinea).json
+[2025-10-24T14:24:12.561+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/ringworm_(tinea).json
+[2025-10-24T14:24:13.821+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/ringworm_(tinea).json
+[2025-10-24T14:24:13.825+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for ringworm_(tinea).
+[2025-10-24T14:24:13.828+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/road_traffic_injuries.json
+[2025-10-24T14:24:14.847+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/road_traffic_injuries.json
+[2025-10-24T14:24:14.865+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/road_traffic_injuries.json
+[2025-10-24T14:24:16.259+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/road_traffic_injuries.json
+[2025-10-24T14:24:16.262+0000] {data_processor.py:182} INFO - Processed and uploaded 11 chunks for road_traffic_injuries.
+[2025-10-24T14:24:16.264+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rubella.json
+[2025-10-24T14:24:17.318+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rubella.json
+[2025-10-24T14:24:17.334+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/rubella.json
+[2025-10-24T14:24:18.648+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/rubella.json
+[2025-10-24T14:24:18.652+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for rubella.
+[2025-10-24T14:24:18.654+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/salmonella_(non-typhoidal).json
+[2025-10-24T14:24:19.609+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/salmonella_(non-typhoidal).json
+[2025-10-24T14:24:19.633+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/salmonella_(non-typhoidal).json
+[2025-10-24T14:24:20.821+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/salmonella_(non-typhoidal).json
+[2025-10-24T14:24:20.826+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for salmonella_(non-typhoidal).
+[2025-10-24T14:24:20.828+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sand_and_dust_storms.json
+[2025-10-24T14:24:21.747+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sand_and_dust_storms.json
+[2025-10-24T14:24:21.761+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/sand_and_dust_storms.json
+[2025-10-24T14:24:23.069+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/sand_and_dust_storms.json
+[2025-10-24T14:24:23.073+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for sand_and_dust_storms.
+[2025-10-24T14:24:23.076+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sanitation.json
+[2025-10-24T14:24:24.091+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sanitation.json
+[2025-10-24T14:24:24.110+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/sanitation.json
+[2025-10-24T14:24:25.252+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/sanitation.json
+[2025-10-24T14:24:25.257+0000] {data_processor.py:182} INFO - Processed and uploaded 11 chunks for sanitation.
+[2025-10-24T14:24:25.260+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/scabies.json
+[2025-10-24T14:24:26.237+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/scabies.json
+[2025-10-24T14:24:26.265+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/scabies.json
+[2025-10-24T14:24:27.918+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/scabies.json
+[2025-10-24T14:24:27.922+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for scabies.
+[2025-10-24T14:24:27.926+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/schistosomiasis.json
+[2025-10-24T14:24:28.968+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/schistosomiasis.json
+[2025-10-24T14:24:28.990+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/schistosomiasis.json
+[2025-10-24T14:24:30.521+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/schistosomiasis.json
+[2025-10-24T14:24:30.525+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for schistosomiasis.
+[2025-10-24T14:24:30.528+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/schizophrenia.json
+[2025-10-24T14:24:31.547+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/schizophrenia.json
+[2025-10-24T14:24:31.560+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/schizophrenia.json
+[2025-10-24T14:24:32.767+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/schizophrenia.json
+[2025-10-24T14:24:32.775+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for schizophrenia.
+[2025-10-24T14:24:32.780+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/self-care_for_health_and_well-being.json
+[2025-10-24T14:24:33.954+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/self-care_for_health_and_well-being.json
+[2025-10-24T14:24:33.983+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/self-care_for_health_and_well-being.json
+[2025-10-24T14:24:35.287+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/self-care_for_health_and_well-being.json
+[2025-10-24T14:24:35.333+0000] {data_processor.py:182} INFO - Processed and uploaded 2 chunks for self-care_for_health_and_well-being.
+[2025-10-24T14:24:35.372+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sepsis.json
+[2025-10-24T14:24:36.429+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sepsis.json
+[2025-10-24T14:24:36.478+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/sepsis.json
+[2025-10-24T14:24:37.859+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/sepsis.json
+[2025-10-24T14:24:37.868+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for sepsis.
+[2025-10-24T14:24:37.874+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sexually_transmitted_infections_(stis).json
+[2025-10-24T14:24:39.002+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sexually_transmitted_infections_(stis).json
+[2025-10-24T14:24:39.096+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/sexually_transmitted_infections_(stis).json
+[2025-10-24T14:24:40.525+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/sexually_transmitted_infections_(stis).json
+[2025-10-24T14:24:40.529+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for sexually_transmitted_infections_(stis).
+[2025-10-24T14:24:40.531+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/shingles_(herpes_zoster).json
+[2025-10-24T14:24:41.655+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/shingles_(herpes_zoster).json
+[2025-10-24T14:24:41.679+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/shingles_(herpes_zoster).json
+[2025-10-24T14:24:42.919+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/shingles_(herpes_zoster).json
+[2025-10-24T14:24:42.924+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for shingles_(herpes_zoster).
+[2025-10-24T14:24:42.927+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sickle-cell_disease.json
+[2025-10-24T14:24:43.969+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sickle-cell_disease.json
+[2025-10-24T14:24:43.987+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/sickle-cell_disease.json
+[2025-10-24T14:24:45.227+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/sickle-cell_disease.json
+[2025-10-24T14:24:45.235+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for sickle-cell_disease.
+[2025-10-24T14:24:45.242+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/snakebite_envenoming.json
+[2025-10-24T14:24:46.353+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/snakebite_envenoming.json
+[2025-10-24T14:24:46.395+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/snakebite_envenoming.json
+[2025-10-24T14:24:47.935+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/snakebite_envenoming.json
+[2025-10-24T14:24:47.945+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for snakebite_envenoming.
+[2025-10-24T14:24:47.951+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/social_determinants_of_health.json
+[2025-10-24T14:24:48.999+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/social_determinants_of_health.json
+[2025-10-24T14:24:49.014+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/social_determinants_of_health.json
+[2025-10-24T14:24:50.427+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/social_determinants_of_health.json
+[2025-10-24T14:24:50.431+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for social_determinants_of_health.
+[2025-10-24T14:24:50.434+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sodium_reduction.json
+[2025-10-24T14:24:51.316+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sodium_reduction.json
+[2025-10-24T14:24:51.338+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/sodium_reduction.json
+[2025-10-24T14:24:52.571+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/sodium_reduction.json
+[2025-10-24T14:24:52.585+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for sodium_reduction.
+[2025-10-24T14:24:52.590+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/soil-transmitted_helminth_infections.json
+[2025-10-24T14:24:53.709+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/soil-transmitted_helminth_infections.json
+[2025-10-24T14:24:53.772+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/soil-transmitted_helminth_infections.json
+[2025-10-24T14:24:55.518+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/soil-transmitted_helminth_infections.json
+[2025-10-24T14:24:55.523+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for soil-transmitted_helminth_infections.
+[2025-10-24T14:24:55.525+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/spinal_cord_injury.json
+[2025-10-24T14:24:56.746+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/spinal_cord_injury.json
+[2025-10-24T14:24:56.769+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/spinal_cord_injury.json
+[2025-10-24T14:24:58.381+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/spinal_cord_injury.json
+[2025-10-24T14:24:58.390+0000] {data_processor.py:182} INFO - Processed and uploaded 17 chunks for spinal_cord_injury.
+[2025-10-24T14:24:58.398+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sporotrichosis.json
+[2025-10-24T14:24:59.402+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sporotrichosis.json
+[2025-10-24T14:24:59.416+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/sporotrichosis.json
+[2025-10-24T14:25:00.715+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/sporotrichosis.json
+[2025-10-24T14:25:00.720+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for sporotrichosis.
+[2025-10-24T14:25:00.722+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/substandard_and_falsified_medical_products.json
+[2025-10-24T14:25:01.643+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/substandard_and_falsified_medical_products.json
+[2025-10-24T14:25:01.675+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/substandard_and_falsified_medical_products.json
+[2025-10-24T14:25:03.532+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/substandard_and_falsified_medical_products.json
+[2025-10-24T14:25:03.540+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for substandard_and_falsified_medical_products.
+[2025-10-24T14:25:03.543+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sugars_and_dental_caries.json
+[2025-10-24T14:25:04.672+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sugars_and_dental_caries.json
+[2025-10-24T14:25:04.686+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/sugars_and_dental_caries.json
+[2025-10-24T14:25:06.212+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/sugars_and_dental_caries.json
+[2025-10-24T14:25:06.226+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for sugars_and_dental_caries.
+[2025-10-24T14:25:06.231+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/suicide.json
+[2025-10-24T14:25:07.237+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/suicide.json
+[2025-10-24T14:25:07.251+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/suicide.json
+[2025-10-24T14:25:08.425+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/suicide.json
+[2025-10-24T14:25:08.428+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for suicide.
+[2025-10-24T14:25:08.431+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/syphilis.json
+[2025-10-24T14:25:09.541+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/syphilis.json
+[2025-10-24T14:25:09.589+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/syphilis.json
+[2025-10-24T14:25:10.897+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/syphilis.json
+[2025-10-24T14:25:10.901+0000] {data_processor.py:182} INFO - Processed and uploaded 16 chunks for syphilis.
+[2025-10-24T14:25:10.903+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/taeniasiscysticercosis.json
+[2025-10-24T14:25:11.848+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/taeniasiscysticercosis.json
+[2025-10-24T14:25:11.884+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/taeniasiscysticercosis.json
+[2025-10-24T14:25:13.419+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/taeniasiscysticercosis.json
+[2025-10-24T14:25:13.425+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for taeniasiscysticercosis.
+[2025-10-24T14:25:13.427+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/tetanus.json
+[2025-10-24T14:25:14.306+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/tetanus.json
+[2025-10-24T14:25:14.323+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/tetanus.json
+[2025-10-24T14:25:15.632+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/tetanus.json
+[2025-10-24T14:25:15.636+0000] {data_processor.py:182} INFO - Processed and uploaded 4 chunks for tetanus.
+[2025-10-24T14:25:15.638+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/the_top_10_causes_of_death.json
+[2025-10-24T14:25:16.653+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/the_top_10_causes_of_death.json
+[2025-10-24T14:25:16.674+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/the_top_10_causes_of_death.json
+[2025-10-24T14:25:18.058+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/the_top_10_causes_of_death.json
+[2025-10-24T14:25:18.062+0000] {data_processor.py:182} INFO - Processed and uploaded 7 chunks for the_top_10_causes_of_death.
+[2025-10-24T14:25:18.065+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/tobacco.json
+[2025-10-24T14:25:19.301+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/tobacco.json
+[2025-10-24T14:25:19.327+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/tobacco.json
+[2025-10-24T14:25:20.634+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/tobacco.json
+[2025-10-24T14:25:20.638+0000] {data_processor.py:182} INFO - Processed and uploaded 6 chunks for tobacco.
+[2025-10-24T14:25:20.641+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/trachoma.json
+[2025-10-24T14:25:21.952+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/trachoma.json
+[2025-10-24T14:25:21.970+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/trachoma.json
+[2025-10-24T14:25:23.386+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/trachoma.json
+[2025-10-24T14:25:23.397+0000] {data_processor.py:182} INFO - Processed and uploaded 1 chunks for trachoma.
+[2025-10-24T14:25:23.405+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/trans_fat.json
+[2025-10-24T14:25:24.421+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/trans_fat.json
+[2025-10-24T14:25:24.478+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/trans_fat.json
+[2025-10-24T14:25:25.796+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/trans_fat.json
+[2025-10-24T14:25:25.799+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for trans_fat.
+[2025-10-24T14:25:25.801+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/trichomoniasis.json
+[2025-10-24T14:25:26.872+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/trichomoniasis.json
+[2025-10-24T14:25:26.902+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/trichomoniasis.json
+[2025-10-24T14:25:28.188+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/trichomoniasis.json
+[2025-10-24T14:25:28.195+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for trichomoniasis.
+[2025-10-24T14:25:28.197+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/trypanosomiasis,_human_african_(sleeping_sickness).json
+[2025-10-24T14:25:29.097+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/trypanosomiasis,_human_african_(sleeping_sickness).json
+[2025-10-24T14:25:29.122+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/trypanosomiasis,_human_african_(sleeping_sickness).json
+[2025-10-24T14:25:30.628+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/trypanosomiasis,_human_african_(sleeping_sickness).json
+[2025-10-24T14:25:30.634+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for trypanosomiasis,_human_african_(sleeping_sickness).
+[2025-10-24T14:25:30.636+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/tuberculosis.json
+[2025-10-24T14:25:31.854+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/tuberculosis.json
+[2025-10-24T14:25:31.892+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/tuberculosis.json
+[2025-10-24T14:25:33.441+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/tuberculosis.json
+[2025-10-24T14:25:33.449+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for tuberculosis.
+[2025-10-24T14:25:33.456+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/tungiasis.json
+[2025-10-24T14:25:34.633+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/tungiasis.json
+[2025-10-24T14:25:34.671+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/tungiasis.json
+[2025-10-24T14:25:36.115+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/tungiasis.json
+[2025-10-24T14:25:36.125+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for tungiasis.
+[2025-10-24T14:25:36.129+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/typhoid.json
+[2025-10-24T14:25:37.171+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/typhoid.json
+[2025-10-24T14:25:37.204+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/typhoid.json
+[2025-10-24T14:25:38.949+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/typhoid.json
+[2025-10-24T14:25:38.970+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for typhoid.
+[2025-10-24T14:25:38.973+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ultraviolet_radiation.json
+[2025-10-24T14:25:40.323+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ultraviolet_radiation.json
+[2025-10-24T14:25:40.357+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/ultraviolet_radiation.json
+[2025-10-24T14:25:41.962+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/ultraviolet_radiation.json
+[2025-10-24T14:25:41.968+0000] {data_processor.py:182} INFO - Processed and uploaded 12 chunks for ultraviolet_radiation.
+[2025-10-24T14:25:41.970+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/universal_health_coverage_(uhc).json
+[2025-10-24T14:25:42.946+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/universal_health_coverage_(uhc).json
+[2025-10-24T14:25:42.962+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/universal_health_coverage_(uhc).json
+[2025-10-24T14:25:44.418+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/universal_health_coverage_(uhc).json
+[2025-10-24T14:25:44.422+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for universal_health_coverage_(uhc).
+[2025-10-24T14:25:44.424+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/urban_health.json
+[2025-10-24T14:25:45.445+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/urban_health.json
+[2025-10-24T14:25:45.456+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/urban_health.json
+[2025-10-24T14:25:46.733+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/urban_health.json
+[2025-10-24T14:25:46.742+0000] {data_processor.py:182} INFO - Processed and uploaded 13 chunks for urban_health.
+[2025-10-24T14:25:46.747+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/vector-borne_diseases.json
+[2025-10-24T14:25:48.371+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/vector-borne_diseases.json
+[2025-10-24T14:25:48.441+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/vector-borne_diseases.json
+[2025-10-24T14:25:49.772+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/vector-borne_diseases.json
+[2025-10-24T14:25:49.776+0000] {data_processor.py:182} INFO - Processed and uploaded 9 chunks for vector-borne_diseases.
+[2025-10-24T14:25:49.778+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/violence_against_children.json
+[2025-10-24T14:25:50.865+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/violence_against_children.json
+[2025-10-24T14:25:50.899+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/violence_against_children.json
+[2025-10-24T14:25:52.242+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/violence_against_children.json
+[2025-10-24T14:25:52.247+0000] {data_processor.py:182} INFO - Processed and uploaded 14 chunks for violence_against_children.
+[2025-10-24T14:25:52.252+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/violence_against_women.json
+[2025-10-24T14:25:53.251+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/violence_against_women.json
+[2025-10-24T14:25:53.283+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/violence_against_women.json
+[2025-10-24T14:25:54.712+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/violence_against_women.json
+[2025-10-24T14:25:54.716+0000] {data_processor.py:182} INFO - Processed and uploaded 20 chunks for violence_against_women.
+[2025-10-24T14:25:54.719+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/west_nile_virus.json
+[2025-10-24T14:25:56.144+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/west_nile_virus.json
+[2025-10-24T14:25:56.167+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/west_nile_virus.json
+[2025-10-24T14:25:57.361+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/west_nile_virus.json
+[2025-10-24T14:25:57.364+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for west_nile_virus.
+[2025-10-24T14:25:57.367+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/white_phosphorus.json
+[2025-10-24T14:25:58.637+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/white_phosphorus.json
+[2025-10-24T14:25:58.649+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/white_phosphorus.json
+[2025-10-24T14:25:59.728+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/white_phosphorus.json
+[2025-10-24T14:25:59.731+0000] {data_processor.py:182} INFO - Processed and uploaded 11 chunks for white_phosphorus.
+[2025-10-24T14:25:59.734+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/yaws.json
+[2025-10-24T14:26:00.649+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/yaws.json
+[2025-10-24T14:26:00.693+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/yaws.json
+[2025-10-24T14:26:02.166+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/yaws.json
+[2025-10-24T14:26:02.176+0000] {data_processor.py:182} INFO - Processed and uploaded 18 chunks for yaws.
+[2025-10-24T14:26:02.181+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/yellow_fever.json
+[2025-10-24T14:26:03.239+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/yellow_fever.json
+[2025-10-24T14:26:03.275+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/yellow_fever.json
+[2025-10-24T14:26:04.672+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/yellow_fever.json
+[2025-10-24T14:26:04.681+0000] {data_processor.py:182} INFO - Processed and uploaded 13 chunks for yellow_fever.
+[2025-10-24T14:26:04.686+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/youth_violence.json
+[2025-10-24T14:26:05.905+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/youth_violence.json
+[2025-10-24T14:26:05.926+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/youth_violence.json
+[2025-10-24T14:26:07.043+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/youth_violence.json
+[2025-10-24T14:26:07.047+0000] {data_processor.py:182} INFO - Processed and uploaded 10 chunks for youth_violence.
+[2025-10-24T14:26:07.049+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/zika_virus.json
+[2025-10-24T14:26:08.070+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/zika_virus.json
+[2025-10-24T14:26:08.101+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/zika_virus.json
+[2025-10-24T14:26:09.703+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/zika_virus.json
+[2025-10-24T14:26:09.710+0000] {data_processor.py:182} INFO - Processed and uploaded 22 chunks for zika_virus.
+[2025-10-24T14:26:09.715+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/zoonoses.json
+[2025-10-24T14:26:10.730+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/zoonoses.json
+[2025-10-24T14:26:10.769+0000] {s3_utils.py:29} INFO - Attempting to upload data to s3://whofactsheet/processed/zoonoses.json
+[2025-10-24T14:26:11.995+0000] {s3_utils.py:38} INFO - Successfully uploaded data to processed/zoonoses.json
+[2025-10-24T14:26:11.998+0000] {data_processor.py:182} INFO - Processed and uploaded 2 chunks for zoonoses.
+[2025-10-24T14:26:12.001+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-10-24T14:26:12.018+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=who_data_rag_ingestion_pipeline, task_id=chroma_processor, execution_date=20251024T135155, start_date=20251024T141448, end_date=20251024T142612
+[2025-10-24T14:26:12.077+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-10-24T14:26:12.114+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

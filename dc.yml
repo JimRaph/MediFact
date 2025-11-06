@@ -1,0 +1,137 @@
+
+x-airflow-common:
+  &airflow-common
+  # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.8.1} 
+  user: "${AIRFLOW_UID}:0"
+  build: 
+    context: ./airflow
+    dockerfile: Dockerfile
+  environment:
+    AIRFLOW_UID: 50000
+    AIRFLOW_GID: 0
+    WEAVIATE_HOST: ${WEAVIATE_HOST_URL}
+    PYTHON_PIP_VERSION: '23.3.1'
+    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow_password@postgres:5432/airflow
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__WEBSERVER__SECRET_KEY: 'super-secret-key'
+    AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID} 
+    AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    AWS_REGION: ${AWS_REGION}
+    S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+  volumes:
+    - ./airflow/dags:/opt/airflow/dags
+    - ./airflow/scripts:/opt/airflow/scripts
+    - ./airflow/logs:/opt/airflow/logs
+    # - ./requirements.txt:/requirements.txt
+  networks:
+    - rag_network
+  depends_on:
+    postgres:
+      condition: service_healthy
+    weaviate:
+      condition: service_started
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: airflow_postgres_db
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow_password
+      POSTGRES_DB: airflow
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - rag_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow -d airflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-rag-app
+    ports:
+      - "3000:3000"
+    environment:
+      WEAVIATE_HOST:${WEAVIATE_HOST_URL}
+      RAG_SERVICE_URL:${RAG_SERVICE_URL}
+    depends_on:
+      - weaviate
+      - rag-service
+    networks:
+      - rag_network
+  
+  weaviate:
+    image: cr.weaviate.io/semitechnologies/weaviate:1.30.18
+    container_name: weaviate_db
+    restart: always
+    ports:
+      - "8080:8080"
+      - "50051:50051"
+    # command: sh -c "echo 'Clearing Weaviate Raft persistence data to force single-node startup...' && rm -rf /var/lib/weaviate/raft/* && /bin/weaviate"
+
+    environment:
+      HOST: '0.0.0.0'
+      # ENABLE_MODULES: 'text2vec-transformers'
+      ENABLE_MODULES: ''
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      JAVA_TOOLS_OPTIONS: '-Xms2G -Xmx6G' 
+      CLUSTER_SKIP_JOIN: 'true'
+      DEFAULT_VECTORIZER_MODULE: 'none'
+      # RAFT_PEER_ADDRESS: 'weaviate:8080'
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+    networks:
+      - rag_network
+
+
+    # t2v-server:
+    #   image: semitechnologies/transformers:sentence-transformers-multi-qa-mpnet-base-dot-v1
+    #   container_name: text_embedding_server
+    #   networks:
+    #     - rag_network
+      
+  # rag-service:
+  #   build: 
+  #     context: ./rag_cloud_deployment 
+  #     dockerfile: Dockerfile 
+  #   container_name: rag_inference_service 
+  #   ports:
+  #     -"8000:8000"
+  #   environment:
+  #     WEAVIATE_HOST: ${WEAVIATE_HOST_URL}
+  #   volumes:
+  #     - ./rag_cloud_deployment:/app 
+  #   depends_on:
+  #     - weaviate 
+  #   networks:
+  #     - rag_network
+
+
+  airflow-scheduler:
+    <<: *airflow-common 
+    command: ["airflow", "scheduler"]
+    container_name: airflow-scheduler
+    restart: always
+      
+  airflow-webserver:
+    <<: *airflow-common 
+    command: ["airflow", "webserver"]
+    container_name: airflow-webserver
+    ports:
+      - "8081:8080" 
+
+volumes:
+  weaviate_data:
+    driver: local
+  pg_data:
+    driver: local
+
+networks:
+  rag_network:
+    driver: bridge

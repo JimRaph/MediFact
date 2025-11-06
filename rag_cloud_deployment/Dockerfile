@@ -1,0 +1,25 @@
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+
+COPY requirements_heavy.txt .
+RUN pip install --timeout 2000 -r requirements_heavy.txt  \
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+
+COPY requirements_light.txt .
+RUN pip install --timeout 2000 -r requirements_light.txt \
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+
+COPY inference_chroma.py .
+
+CMD ["uvicorn", "inference_chroma:app", "--host", "0.0.0.0", "--port", "8000"]

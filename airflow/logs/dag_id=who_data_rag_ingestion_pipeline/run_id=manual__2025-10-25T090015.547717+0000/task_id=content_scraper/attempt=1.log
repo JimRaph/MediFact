@@ -1,0 +1,136 @@
+[2025-10-25T09:00:28.740+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: who_data_rag_ingestion_pipeline.content_scraper manual__2025-10-25T09:00:15.547717+00:00 [queued]>
+[2025-10-25T09:00:28.758+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: who_data_rag_ingestion_pipeline.content_scraper manual__2025-10-25T09:00:15.547717+00:00 [queued]>
+[2025-10-25T09:00:28.759+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2025-10-25T09:00:28.783+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): content_scraper> on 2025-10-25 09:00:15.547717+00:00
+[2025-10-25T09:00:28.803+0000] {standard_task_runner.py:60} INFO - Started process 498 to run task
+[2025-10-25T09:00:28.843+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'who_data_rag_ingestion_pipeline', 'content_scraper', 'manual__2025-10-25T09:00:15.547717+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/ingest.py', '--cfg-path', '/tmp/tmplsnmw8qq']
+[2025-10-25T09:00:28.845+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask content_scraper
+[2025-10-25T09:00:28.948+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-10-25T09:00:29.190+0000] {task_command.py:423} INFO - Running <TaskInstance: who_data_rag_ingestion_pipeline.content_scraper manual__2025-10-25T09:00:15.547717+00:00 [running]> on host d62a706d8e86
+[2025-10-25T09:00:29.517+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='who_data_rag_ingestion_pipeline' AIRFLOW_CTX_TASK_ID='content_scraper' AIRFLOW_CTX_EXECUTION_DATE='2025-10-25T09:00:15.547717+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-25T09:00:15.547717+00:00'
+[2025-10-25T09:00:29.537+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/topics/topic_index.json
+[2025-10-25T09:00:33.157+0000] {s3_utils.py:57} INFO - Successfully downloaded topics/topic_index.json
+[2025-10-25T09:00:33.161+0000] {data_processor.py:106} INFO - Checking 233 fact sheets for updates...
+[2025-10-25T09:00:33.921+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/abortion_meta.json
+[2025-10-25T09:00:35.244+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/abortion_meta.json
+[2025-10-25T09:00:35.249+0000] {data_processor.py:125} INFO - No changes detected for Abortion. Skipping reprocessing.
+[2025-10-25T09:00:35.962+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/abuse_of_older_people_meta.json
+[2025-10-25T09:00:37.030+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/abuse_of_older_people_meta.json
+[2025-10-25T09:00:37.035+0000] {data_processor.py:125} INFO - No changes detected for Abuse of older people. Skipping reprocessing.
+[2025-10-25T09:00:37.771+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/adolescent_and_young_adult_health_meta.json
+[2025-10-25T09:00:38.815+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/adolescent_and_young_adult_health_meta.json
+[2025-10-25T09:00:38.819+0000] {data_processor.py:125} INFO - No changes detected for Adolescent and young adult health. Skipping reprocessing.
+[2025-10-25T09:00:39.510+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/adolescent_pregnancy_meta.json
+[2025-10-25T09:00:40.685+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/adolescent_pregnancy_meta.json
+[2025-10-25T09:00:40.688+0000] {data_processor.py:125} INFO - No changes detected for Adolescent pregnancy. Skipping reprocessing.
+[2025-10-25T09:00:41.378+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/ageing_and_health_meta.json
+[2025-10-25T09:00:42.383+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/ageing_and_health_meta.json
+[2025-10-25T09:00:42.385+0000] {data_processor.py:125} INFO - No changes detected for Ageing and health. Skipping reprocessing.
+[2025-10-25T09:00:43.166+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/alcohol_meta.json
+[2025-10-25T09:00:43.992+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/alcohol_meta.json
+[2025-10-25T09:00:43.996+0000] {data_processor.py:125} INFO - No changes detected for Alcohol. Skipping reprocessing.
+[2025-10-25T09:00:44.041+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to success. Terminating instance.
+[2025-10-25T09:00:44.046+0000] {process_utils.py:131} INFO - Sending 15 to group 498. PIDs of all processes in the group: [498]
+[2025-10-25T09:00:44.047+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 498
+[2025-10-25T09:00:44.048+0000] {taskinstance.py:2450} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-10-25T09:00:44.049+0000] {data_processor.py:140} ERROR - Failed fetching Ambient (outdoor) air pollution: Task received SIGTERM signal
+[2025-10-25T09:00:44.761+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/anaemia_meta.json
+[2025-10-25T09:00:45.905+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/anaemia_meta.json
+[2025-10-25T09:00:45.909+0000] {data_processor.py:125} INFO - No changes detected for Anaemia. Skipping reprocessing.
+[2025-10-25T09:00:46.669+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/animal_bites_meta.json
+[2025-10-25T09:00:47.816+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/animal_bites_meta.json
+[2025-10-25T09:00:47.821+0000] {data_processor.py:125} INFO - No changes detected for Animal bites. Skipping reprocessing.
+[2025-10-25T09:00:48.705+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/antimicrobial_resistance_meta.json
+[2025-10-25T09:00:49.795+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/antimicrobial_resistance_meta.json
+[2025-10-25T09:00:49.798+0000] {data_processor.py:125} INFO - No changes detected for Antimicrobial resistance. Skipping reprocessing.
+[2025-10-25T09:00:50.583+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/anxiety_disorders_meta.json
+[2025-10-25T09:00:51.650+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/anxiety_disorders_meta.json
+[2025-10-25T09:00:51.655+0000] {data_processor.py:125} INFO - No changes detected for Anxiety disorders. Skipping reprocessing.
+[2025-10-25T09:00:52.412+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/arsenic_meta.json
+[2025-10-25T09:00:53.348+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/arsenic_meta.json
+[2025-10-25T09:00:53.352+0000] {data_processor.py:125} INFO - No changes detected for Arsenic. Skipping reprocessing.
+[2025-10-25T09:00:54.324+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/asbestos_meta.json
+[2025-10-25T09:00:55.652+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/asbestos_meta.json
+[2025-10-25T09:00:55.657+0000] {data_processor.py:125} INFO - No changes detected for Asbestos. Skipping reprocessing.
+[2025-10-25T09:00:56.368+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/assistive_technology_meta.json
+[2025-10-25T09:00:57.432+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/assistive_technology_meta.json
+[2025-10-25T09:00:57.435+0000] {data_processor.py:125} INFO - No changes detected for Assistive technology. Skipping reprocessing.
+[2025-10-25T09:00:58.106+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/asthma_meta.json
+[2025-10-25T09:00:59.025+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/asthma_meta.json
+[2025-10-25T09:00:59.027+0000] {data_processor.py:125} INFO - No changes detected for Asthma. Skipping reprocessing.
+[2025-10-25T09:00:59.713+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/autism_meta.json
+[2025-10-25T09:01:00.760+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/autism_meta.json
+[2025-10-25T09:01:00.763+0000] {data_processor.py:125} INFO - No changes detected for Autism. Skipping reprocessing.
+[2025-10-25T09:01:01.444+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/bacterial_vaginosis_meta.json
+[2025-10-25T09:01:02.419+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/bacterial_vaginosis_meta.json
+[2025-10-25T09:01:02.423+0000] {data_processor.py:125} INFO - No changes detected for Bacterial vaginosis. Skipping reprocessing.
+[2025-10-25T09:01:03.157+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/biodiversity_meta.json
+[2025-10-25T09:01:04.077+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/biodiversity_meta.json
+[2025-10-25T09:01:04.082+0000] {data_processor.py:125} INFO - No changes detected for Biodiversity. Skipping reprocessing.
+[2025-10-25T09:01:04.789+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/bipolar_disorder_meta.json
+[2025-10-25T09:01:05.996+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/bipolar_disorder_meta.json
+[2025-10-25T09:01:05.999+0000] {data_processor.py:125} INFO - No changes detected for Bipolar disorder. Skipping reprocessing.
+[2025-10-25T09:01:06.714+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/blindness_and_vision_impairment_meta.json
+[2025-10-25T09:01:07.762+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/blindness_and_vision_impairment_meta.json
+[2025-10-25T09:01:07.774+0000] {data_processor.py:125} INFO - No changes detected for Blindness and vision impairment. Skipping reprocessing.
+[2025-10-25T09:01:08.545+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/blood_safety_and_availability_meta.json
+[2025-10-25T09:01:09.576+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/blood_safety_and_availability_meta.json
+[2025-10-25T09:01:09.579+0000] {data_processor.py:125} INFO - No changes detected for Blood safety and availability. Skipping reprocessing.
+[2025-10-25T09:01:10.256+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/botulism_meta.json
+[2025-10-25T09:01:11.444+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/botulism_meta.json
+[2025-10-25T09:01:11.448+0000] {data_processor.py:125} INFO - No changes detected for Botulism. Skipping reprocessing.
+[2025-10-25T09:01:12.259+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/breast_cancer_meta.json
+[2025-10-25T09:01:13.701+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/breast_cancer_meta.json
+[2025-10-25T09:01:13.705+0000] {data_processor.py:125} INFO - No changes detected for Breast cancer. Skipping reprocessing.
+[2025-10-25T09:01:14.421+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/brucellosis_meta.json
+[2025-10-25T09:01:15.436+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/brucellosis_meta.json
+[2025-10-25T09:01:15.440+0000] {data_processor.py:125} INFO - No changes detected for Brucellosis. Skipping reprocessing.
+[2025-10-25T09:01:16.157+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/burns_meta.json
+[2025-10-25T09:01:17.196+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/burns_meta.json
+[2025-10-25T09:01:17.203+0000] {data_processor.py:125} INFO - No changes detected for Burns. Skipping reprocessing.
+[2025-10-25T09:01:17.871+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/buruli_ulcer_(mycobacterium_ulcerans_infection)_meta.json
+[2025-10-25T09:01:19.187+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/buruli_ulcer_(mycobacterium_ulcerans_infection)_meta.json
+[2025-10-25T09:01:19.192+0000] {data_processor.py:125} INFO - No changes detected for Buruli ulcer (Mycobacterium ulcerans infection). Skipping reprocessing.
+[2025-10-25T09:01:19.910+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/campylobacter_meta.json
+[2025-10-25T09:01:20.895+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/campylobacter_meta.json
+[2025-10-25T09:01:20.901+0000] {data_processor.py:125} INFO - No changes detected for Campylobacter. Skipping reprocessing.
+[2025-10-25T09:01:21.680+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/cancer_meta.json
+[2025-10-25T09:01:22.547+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/cancer_meta.json
+[2025-10-25T09:01:22.554+0000] {data_processor.py:125} INFO - No changes detected for Cancer. Skipping reprocessing.
+[2025-10-25T09:01:23.273+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/candidiasis_(yeast_infection)_meta.json
+[2025-10-25T09:01:24.409+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/candidiasis_(yeast_infection)_meta.json
+[2025-10-25T09:01:24.413+0000] {data_processor.py:125} INFO - No changes detected for Candidiasis (yeast infection). Skipping reprocessing.
+[2025-10-25T09:01:25.121+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/cardiovascular_diseases_(cvds)_meta.json
+[2025-10-25T09:01:26.109+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/cardiovascular_diseases_(cvds)_meta.json
+[2025-10-25T09:01:26.114+0000] {data_processor.py:125} INFO - No changes detected for Cardiovascular diseases (CVDs). Skipping reprocessing.
+[2025-10-25T09:01:26.850+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/cervical_cancer_meta.json
+[2025-10-25T09:01:27.761+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/cervical_cancer_meta.json
+[2025-10-25T09:01:27.764+0000] {data_processor.py:125} INFO - No changes detected for Cervical cancer. Skipping reprocessing.
+[2025-10-25T09:01:28.459+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/chagas_disease_(also_known_as_american_trypanosomiasis)_meta.json
+[2025-10-25T09:01:29.521+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/chagas_disease_(also_known_as_american_trypanosomiasis)_meta.json
+[2025-10-25T09:01:29.528+0000] {data_processor.py:125} INFO - No changes detected for Chagas disease (also known as American trypanosomiasis). Skipping reprocessing.
+[2025-10-25T09:01:30.268+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/chikungunya_meta.json
+[2025-10-25T09:01:31.346+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/chikungunya_meta.json
+[2025-10-25T09:01:31.350+0000] {data_processor.py:125} INFO - No changes detected for Chikungunya. Skipping reprocessing.
+[2025-10-25T09:01:32.057+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/child_maltreatment_meta.json
+[2025-10-25T09:01:32.953+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/child_maltreatment_meta.json
+[2025-10-25T09:01:32.959+0000] {data_processor.py:125} INFO - No changes detected for Child maltreatment. Skipping reprocessing.
+[2025-10-25T09:01:34.210+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/child_mortality_(under_5_years)_meta.json
+[2025-10-25T09:01:35.474+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/child_mortality_(under_5_years)_meta.json
+[2025-10-25T09:01:35.481+0000] {data_processor.py:125} INFO - No changes detected for Child mortality (under 5 years). Skipping reprocessing.
+[2025-10-25T09:01:36.235+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/childhood_cancer_meta.json
+[2025-10-25T09:01:37.185+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/childhood_cancer_meta.json
+[2025-10-25T09:01:37.189+0000] {data_processor.py:125} INFO - No changes detected for Childhood cancer. Skipping reprocessing.
+[2025-10-25T09:01:38.187+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/chlamydia_meta.json
+[2025-10-25T09:01:39.751+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/chlamydia_meta.json
+[2025-10-25T09:01:39.754+0000] {data_processor.py:125} INFO - No changes detected for Chlamydia. Skipping reprocessing.
+[2025-10-25T09:01:40.460+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/cholera_meta.json
+[2025-10-25T09:01:41.628+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/cholera_meta.json
+[2025-10-25T09:01:41.632+0000] {data_processor.py:125} INFO - No changes detected for Cholera. Skipping reprocessing.
+[2025-10-25T09:01:42.805+0000] {s3_utils.py:49} INFO - Attempting to download s3://whofactsheet/raw_content/chromoblastomycosis_meta.json
+[2025-10-25T09:01:43.678+0000] {s3_utils.py:57} INFO - Successfully downloaded raw_content/chromoblastomycosis_meta.json
+[2025-10-25T09:01:43.680+0000] {data_processor.py:125} INFO - No changes detected for Chromoblastomycosis. Skipping reprocessing.
+[2025-10-25T09:01:44.103+0000] {process_utils.py:149} WARNING - process psutil.Process(pid=498, name='airflow task ru', status='sleeping', started='09:00:27') did not respond to SIGTERM. Trying SIGKILL
+[2025-10-25T09:01:44.106+0000] {process_utils.py:86} INFO - Sending the signal 9 to group 498
+[2025-10-25T09:01:44.134+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=498, name='airflow task ru', status='terminated', exitcode=<Negsignal.SIGKILL: -9>, started='09:00:27') (498) terminated with exit code -9
+[2025-10-25T09:01:44.135+0000] {standard_task_runner.py:175} ERROR - Job 3 was killed before it finished (likely due to running out of memory)

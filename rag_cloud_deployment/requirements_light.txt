@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+chromadb
+pydantic
+fastembed
+requests
+python-json-logger
+boto3

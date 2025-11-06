@@ -1,0 +1,174 @@
+x-airflow-common:
+    &airflow-common
+
+  # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.8.1}
+
+  user: "${AIRFLOW_UID}:0"
+  build:
+    context: ./airflow
+    dockerfile: Dockerfile
+  environment:
+    AIRFLOW_UID: 50000
+    AIRFLOW_GID: 0
+    PYTHON_PIP_VERSION: '23.3.1'
+    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow_password@postgres:5432/airflow
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__WEBSERVER__SECRET_KEY: 'super-secret-key'
+
+    AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID} 
+    AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    AWS_REGION: ${AWS_REGION}
+    S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+    CHROMA_S3_BUCKET: ${CHROMA_S3_BUCKET} 
+    CHROMA_COLLECTION: ${CHROMA_COLLECTION} 
+    CHROMA_DIR: ${CHROMA_DIR} 
+    CHROMA_DB_FILENAME: ${CHROMA_DB_FILENAME} 
+  volumes:
+    - ./airflow/dags:/opt/airflow/dags
+    - ./airflow/scripts:/opt/airflow/scripts
+    - ./airflow/logs:/opt/airflow/logs
+    - chroma_data:/opt/airflow/app/chroma_db_files
+    - ./utils:/opt/airflow/utils
+  networks:
+    - rag_network
+  depends_on:
+    mount_init:
+      condition: service_completed_successfully
+    postgres:
+      condition: service_healthy
+    airflow-init:
+      condition: service_completed_successfully
+    
+
+services:
+  mount_init:
+    image: alpine:3.19
+    container_name: init-permissions
+    command: >
+      sh -c "mkdir -p /data &&
+             chown -R 50000:0 /data &&
+             chmod -R g+rwX /data &&
+             echo 'Volume ownership fixed successfully.'"
+    volumes:
+      - chroma_data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "[ -d /data ] && echo ok"]
+      interval: 2s
+      retries: 3
+    restart: "no"
+
+  airflow-init:
+    <<: *airflow-common
+    entrypoint: /bin/bash
+    command: -c "airflow db init && airflow users create \
+      --username admin \
+      --firstname admin \
+      --lastname User \
+      --role Admin \
+      --email admin@example.com \
+      --password admin"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+  postgres:
+    image: postgres:13
+    container_name: airflow_postgres_db_rag
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow_password
+      POSTGRES_DB: airflow
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - rag_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U airflow -d airflow"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: rag-web-app
+    ports:
+      - "3000:3000"
+    environment:
+      RAG_SERVICE_URL: ${RAG_SERVICE_URL}
+      RAG_SERVICE_API_KEY: ${RAG_SERVICE_API_KEY}
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      DATABASE_URL: ${DATABASE_URL}
+      WATCHPACK_POLLING: 'true'
+    volumes:
+       - ./app/src:/app/src 
+       - ./app/package.json:/app/package.json
+      #  - ./app/package-lock.json:/app/package-lock.json 
+       - ./app/next.config.ts:/app/next.config.ts
+       - ./app/tsconfig.json:/app/tsconfig.json
+       - ./app/next-env.d.ts:/app/next-env.d.ts
+       - /app/node_modules
+    depends_on:
+      - rag-service 
+    networks:
+      - rag_network
+
+  rag-service:
+    build:
+      context: ./rag_cloud_deployment
+      dockerfile: Dockerfile 
+    container_name: rag_inference_service
+    ports:
+      - "8000:8000"
+    # command: ["uvicorn", "inference_chroma:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID} 
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION}
+      S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+      CHROMA_S3_BUCKET: ${CHROMA_S3_BUCKET} 
+      CHROMA_COLLECTION: ${CHROMA_COLLECTION} 
+      CHROMA_DIR: ${CHROMA_DIR} 
+      CHROMA_DB_FILENAME: ${CHROMA_DB_FILENAME} 
+    volumes:
+      - ./rag_cloud_deployment:/app 
+      - chroma_data:/app/chroma_db_files
+      - ./utils:/app/utils
+    networks:
+      - rag_network
+    depends_on:
+      airflow-scheduler:
+        condition: service_healthy
+
+
+  airflow-scheduler:
+    <<: *airflow-common 
+    command: ["airflow", "scheduler"]
+    container_name: airflow-scheduler
+    healthcheck:
+      test:  ["CMD-SHELL", "airflow db check || exit 1"]
+      interval: 10s
+      timeout: 15s
+      retries: 5
+    restart: always
+      
+  airflow-webserver:
+    <<: *airflow-common 
+    command: ["airflow", "webserver"]
+    container_name: airflow-webserver
+    ports:
+      - "8081:8080" 
+
+volumes:
+  pg_data: 
+    driver: local
+  chroma_data:
+    driver: local
+
+networks:
+  rag_network:
+    driver: bridge

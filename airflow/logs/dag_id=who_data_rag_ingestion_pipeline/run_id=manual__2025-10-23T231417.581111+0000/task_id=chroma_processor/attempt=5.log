@@ -1,0 +1,955 @@
+[2025-10-24T07:03:49.975+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: who_data_rag_ingestion_pipeline.chroma_processor manual__2025-10-23T23:14:17.581111+00:00 [queued]>
+[2025-10-24T07:03:50.000+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: who_data_rag_ingestion_pipeline.chroma_processor manual__2025-10-23T23:14:17.581111+00:00 [queued]>
+[2025-10-24T07:03:50.001+0000] {taskinstance.py:2170} INFO - Starting attempt 5 of 5
+[2025-10-24T07:03:50.029+0000] {taskinstance.py:2191} INFO - Executing <Task(_PythonDecoratedOperator): chroma_processor> on 2025-10-23 23:14:17.581111+00:00
+[2025-10-24T07:03:50.041+0000] {standard_task_runner.py:60} INFO - Started process 949 to run task
+[2025-10-24T07:03:50.048+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'who_data_rag_ingestion_pipeline', 'chroma_processor', 'manual__2025-10-23T23:14:17.581111+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/ingest.py', '--cfg-path', '/tmp/tmpakibdbsr']
+[2025-10-24T07:03:50.050+0000] {standard_task_runner.py:88} INFO - Job 11: Subtask chroma_processor
+[2025-10-24T07:03:50.086+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-10-24T07:03:50.156+0000] {task_command.py:423} INFO - Running <TaskInstance: who_data_rag_ingestion_pipeline.chroma_processor manual__2025-10-23T23:14:17.581111+00:00 [running]> on host dbb5abd21082
+[2025-10-24T07:03:50.326+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='who_data_rag_ingestion_pipeline' AIRFLOW_CTX_TASK_ID='chroma_processor' AIRFLOW_CTX_EXECUTION_DATE='2025-10-23T23:14:17.581111+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-10-23T23:14:17.581111+00:00'
+[2025-10-24T07:03:50.331+0000] {data_processor.py:255} INFO - Starting processing and upload to ChromaDB from S3 raw_content/ prefix...
+[2025-10-24T07:03:52.833+0000] {s3_utils.py:82} INFO - Successfully loaded data
+[2025-10-24T07:03:52.837+0000] {data_processor.py:266} INFO - Processing object: raw_content/abortion.json
+[2025-10-24T07:03:52.841+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/abortion.json
+[2025-10-24T07:03:54.148+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/abortion.json
+[2025-10-24T07:03:54.174+0000] {data_processor.py:301} INFO - Finished chunking raw_content/abortion.json. Found 12 chunks.
+[2025-10-24T07:03:54.175+0000] {data_processor.py:266} INFO - Processing object: raw_content/abuse_of_older_people.json
+[2025-10-24T07:03:54.176+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/abuse_of_older_people.json
+[2025-10-24T07:03:55.240+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/abuse_of_older_people.json
+[2025-10-24T07:03:55.295+0000] {data_processor.py:301} INFO - Finished chunking raw_content/abuse_of_older_people.json. Found 12 chunks.
+[2025-10-24T07:03:55.296+0000] {data_processor.py:266} INFO - Processing object: raw_content/adolescent_and_young_adult_health.json
+[2025-10-24T07:03:55.297+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/adolescent_and_young_adult_health.json
+[2025-10-24T07:03:56.538+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/adolescent_and_young_adult_health.json
+[2025-10-24T07:03:56.615+0000] {data_processor.py:301} INFO - Finished chunking raw_content/adolescent_and_young_adult_health.json. Found 10 chunks.
+[2025-10-24T07:03:56.618+0000] {data_processor.py:266} INFO - Processing object: raw_content/adolescent_pregnancy.json
+[2025-10-24T07:03:56.621+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/adolescent_pregnancy.json
+[2025-10-24T07:03:57.930+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/adolescent_pregnancy.json
+[2025-10-24T07:03:57.970+0000] {data_processor.py:301} INFO - Finished chunking raw_content/adolescent_pregnancy.json. Found 10 chunks.
+[2025-10-24T07:03:57.973+0000] {data_processor.py:266} INFO - Processing object: raw_content/ageing_and_health.json
+[2025-10-24T07:03:57.976+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ageing_and_health.json
+[2025-10-24T07:03:59.166+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ageing_and_health.json
+[2025-10-24T07:03:59.197+0000] {data_processor.py:301} INFO - Finished chunking raw_content/ageing_and_health.json. Found 14 chunks.
+[2025-10-24T07:03:59.200+0000] {data_processor.py:266} INFO - Processing object: raw_content/alcohol.json
+[2025-10-24T07:03:59.202+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/alcohol.json
+[2025-10-24T07:04:00.129+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/alcohol.json
+[2025-10-24T07:04:00.147+0000] {data_processor.py:301} INFO - Finished chunking raw_content/alcohol.json. Found 10 chunks.
+[2025-10-24T07:04:00.148+0000] {data_processor.py:266} INFO - Processing object: raw_content/ambient_(outdoor)_air_pollution.json
+[2025-10-24T07:04:00.149+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ambient_(outdoor)_air_pollution.json
+[2025-10-24T07:04:01.488+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ambient_(outdoor)_air_pollution.json
+[2025-10-24T07:04:01.517+0000] {data_processor.py:301} INFO - Finished chunking raw_content/ambient_(outdoor)_air_pollution.json. Found 12 chunks.
+[2025-10-24T07:04:01.518+0000] {data_processor.py:266} INFO - Processing object: raw_content/anaemia.json
+[2025-10-24T07:04:01.520+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/anaemia.json
+[2025-10-24T07:04:02.612+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/anaemia.json
+[2025-10-24T07:04:02.634+0000] {data_processor.py:301} INFO - Finished chunking raw_content/anaemia.json. Found 18 chunks.
+[2025-10-24T07:04:02.635+0000] {data_processor.py:266} INFO - Processing object: raw_content/animal_bites.json
+[2025-10-24T07:04:02.636+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/animal_bites.json
+[2025-10-24T07:04:04.245+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/animal_bites.json
+[2025-10-24T07:04:04.310+0000] {data_processor.py:301} INFO - Finished chunking raw_content/animal_bites.json. Found 14 chunks.
+[2025-10-24T07:04:04.312+0000] {data_processor.py:266} INFO - Processing object: raw_content/antimicrobial_resistance.json
+[2025-10-24T07:04:04.315+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/antimicrobial_resistance.json
+[2025-10-24T07:04:05.371+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/antimicrobial_resistance.json
+[2025-10-24T07:04:05.403+0000] {data_processor.py:301} INFO - Finished chunking raw_content/antimicrobial_resistance.json. Found 12 chunks.
+[2025-10-24T07:04:05.405+0000] {data_processor.py:266} INFO - Processing object: raw_content/anxiety_disorders.json
+[2025-10-24T07:04:05.406+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/anxiety_disorders.json
+[2025-10-24T07:04:06.572+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/anxiety_disorders.json
+[2025-10-24T07:04:06.607+0000] {data_processor.py:301} INFO - Finished chunking raw_content/anxiety_disorders.json. Found 14 chunks.
+[2025-10-24T07:04:06.608+0000] {data_processor.py:266} INFO - Processing object: raw_content/arsenic.json
+[2025-10-24T07:04:06.609+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/arsenic.json
+[2025-10-24T07:04:08.014+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/arsenic.json
+[2025-10-24T07:04:08.089+0000] {data_processor.py:301} INFO - Finished chunking raw_content/arsenic.json. Found 14 chunks.
+[2025-10-24T07:04:08.090+0000] {data_processor.py:266} INFO - Processing object: raw_content/asbestos.json
+[2025-10-24T07:04:08.092+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/asbestos.json
+[2025-10-24T07:04:09.230+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/asbestos.json
+[2025-10-24T07:04:09.269+0000] {data_processor.py:301} INFO - Finished chunking raw_content/asbestos.json. Found 18 chunks.
+[2025-10-24T07:04:09.271+0000] {data_processor.py:266} INFO - Processing object: raw_content/assistive_technology.json
+[2025-10-24T07:04:09.273+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/assistive_technology.json
+[2025-10-24T07:04:10.246+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/assistive_technology.json
+[2025-10-24T07:04:10.261+0000] {data_processor.py:301} INFO - Finished chunking raw_content/assistive_technology.json. Found 16 chunks.
+[2025-10-24T07:04:10.262+0000] {data_processor.py:266} INFO - Processing object: raw_content/asthma.json
+[2025-10-24T07:04:10.264+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/asthma.json
+[2025-10-24T07:04:11.508+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/asthma.json
+[2025-10-24T07:04:11.530+0000] {data_processor.py:301} INFO - Finished chunking raw_content/asthma.json. Found 16 chunks.
+[2025-10-24T07:04:11.532+0000] {data_processor.py:266} INFO - Processing object: raw_content/autism.json
+[2025-10-24T07:04:11.533+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/autism.json
+[2025-10-24T07:04:12.878+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/autism.json
+[2025-10-24T07:04:12.909+0000] {data_processor.py:301} INFO - Finished chunking raw_content/autism.json. Found 3 chunks.
+[2025-10-24T07:04:12.910+0000] {data_processor.py:266} INFO - Processing object: raw_content/bacterial_vaginosis.json
+[2025-10-24T07:04:12.911+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/bacterial_vaginosis.json
+[2025-10-24T07:04:13.974+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/bacterial_vaginosis.json
+[2025-10-24T07:04:14.005+0000] {data_processor.py:301} INFO - Finished chunking raw_content/bacterial_vaginosis.json. Found 13 chunks.
+[2025-10-24T07:04:14.011+0000] {data_processor.py:266} INFO - Processing object: raw_content/biodiversity.json
+[2025-10-24T07:04:14.014+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/biodiversity.json
+[2025-10-24T07:04:15.528+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/biodiversity.json
+[2025-10-24T07:04:15.558+0000] {data_processor.py:301} INFO - Finished chunking raw_content/biodiversity.json. Found 18 chunks.
+[2025-10-24T07:04:15.560+0000] {data_processor.py:266} INFO - Processing object: raw_content/bipolar_disorder.json
+[2025-10-24T07:04:15.562+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/bipolar_disorder.json
+[2025-10-24T07:04:16.669+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/bipolar_disorder.json
+[2025-10-24T07:04:16.689+0000] {data_processor.py:301} INFO - Finished chunking raw_content/bipolar_disorder.json. Found 12 chunks.
+[2025-10-24T07:04:16.690+0000] {data_processor.py:266} INFO - Processing object: raw_content/blindness_and_vision_impairment.json
+[2025-10-24T07:04:16.691+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/blindness_and_vision_impairment.json
+[2025-10-24T07:04:17.804+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/blindness_and_vision_impairment.json
+[2025-10-24T07:04:17.869+0000] {data_processor.py:301} INFO - Finished chunking raw_content/blindness_and_vision_impairment.json. Found 14 chunks.
+[2025-10-24T07:04:17.872+0000] {data_processor.py:266} INFO - Processing object: raw_content/blood_safety_and_availability.json
+[2025-10-24T07:04:17.874+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/blood_safety_and_availability.json
+[2025-10-24T07:04:19.080+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/blood_safety_and_availability.json
+[2025-10-24T07:04:19.103+0000] {data_processor.py:301} INFO - Finished chunking raw_content/blood_safety_and_availability.json. Found 18 chunks.
+[2025-10-24T07:04:19.105+0000] {data_processor.py:266} INFO - Processing object: raw_content/botulism.json
+[2025-10-24T07:04:19.105+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/botulism.json
+[2025-10-24T07:04:20.272+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/botulism.json
+[2025-10-24T07:04:20.318+0000] {data_processor.py:301} INFO - Finished chunking raw_content/botulism.json. Found 14 chunks.
+[2025-10-24T07:04:20.319+0000] {data_processor.py:266} INFO - Processing object: raw_content/breast_cancer.json
+[2025-10-24T07:04:20.321+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/breast_cancer.json
+[2025-10-24T07:04:21.265+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/breast_cancer.json
+[2025-10-24T07:04:21.294+0000] {data_processor.py:301} INFO - Finished chunking raw_content/breast_cancer.json. Found 12 chunks.
+[2025-10-24T07:04:21.295+0000] {data_processor.py:266} INFO - Processing object: raw_content/brucellosis.json
+[2025-10-24T07:04:21.300+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/brucellosis.json
+[2025-10-24T07:04:22.321+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/brucellosis.json
+[2025-10-24T07:04:22.396+0000] {data_processor.py:301} INFO - Finished chunking raw_content/brucellosis.json. Found 10 chunks.
+[2025-10-24T07:04:22.398+0000] {data_processor.py:266} INFO - Processing object: raw_content/burns.json
+[2025-10-24T07:04:22.400+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/burns.json
+[2025-10-24T07:04:23.481+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/burns.json
+[2025-10-24T07:04:23.561+0000] {data_processor.py:301} INFO - Finished chunking raw_content/burns.json. Found 20 chunks.
+[2025-10-24T07:04:23.581+0000] {data_processor.py:266} INFO - Processing object: raw_content/buruli_ulcer_(mycobacterium_ulcerans_infection).json
+[2025-10-24T07:04:23.585+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/buruli_ulcer_(mycobacterium_ulcerans_infection).json
+[2025-10-24T07:04:24.658+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/buruli_ulcer_(mycobacterium_ulcerans_infection).json
+[2025-10-24T07:04:24.719+0000] {data_processor.py:301} INFO - Finished chunking raw_content/buruli_ulcer_(mycobacterium_ulcerans_infection).json. Found 16 chunks.
+[2025-10-24T07:04:24.721+0000] {data_processor.py:266} INFO - Processing object: raw_content/campylobacter.json
+[2025-10-24T07:04:24.723+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/campylobacter.json
+[2025-10-24T07:04:25.764+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/campylobacter.json
+[2025-10-24T07:04:25.828+0000] {data_processor.py:301} INFO - Finished chunking raw_content/campylobacter.json. Found 12 chunks.
+[2025-10-24T07:04:25.830+0000] {data_processor.py:266} INFO - Processing object: raw_content/cancer.json
+[2025-10-24T07:04:25.832+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/cancer.json
+[2025-10-24T07:04:27.019+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/cancer.json
+[2025-10-24T07:04:27.120+0000] {data_processor.py:301} INFO - Finished chunking raw_content/cancer.json. Found 25 chunks.
+[2025-10-24T07:04:27.121+0000] {data_processor.py:266} INFO - Processing object: raw_content/candidiasis_(yeast_infection).json
+[2025-10-24T07:04:27.122+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/candidiasis_(yeast_infection).json
+[2025-10-24T07:04:28.319+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/candidiasis_(yeast_infection).json
+[2025-10-24T07:04:28.391+0000] {data_processor.py:301} INFO - Finished chunking raw_content/candidiasis_(yeast_infection).json. Found 22 chunks.
+[2025-10-24T07:04:28.393+0000] {data_processor.py:266} INFO - Processing object: raw_content/cardiovascular_diseases_(cvds).json
+[2025-10-24T07:04:28.396+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/cardiovascular_diseases_(cvds).json
+[2025-10-24T07:04:29.438+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/cardiovascular_diseases_(cvds).json
+[2025-10-24T07:04:29.490+0000] {data_processor.py:301} INFO - Finished chunking raw_content/cardiovascular_diseases_(cvds).json. Found 16 chunks.
+[2025-10-24T07:04:29.492+0000] {data_processor.py:266} INFO - Processing object: raw_content/cervical_cancer.json
+[2025-10-24T07:04:29.494+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/cervical_cancer.json
+[2025-10-24T07:04:30.669+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/cervical_cancer.json
+[2025-10-24T07:04:30.752+0000] {data_processor.py:301} INFO - Finished chunking raw_content/cervical_cancer.json. Found 11 chunks.
+[2025-10-24T07:04:30.754+0000] {data_processor.py:266} INFO - Processing object: raw_content/chagas_disease_(also_known_as_american_trypanosomiasis).json
+[2025-10-24T07:04:30.756+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/chagas_disease_(also_known_as_american_trypanosomiasis).json
+[2025-10-24T07:04:31.680+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/chagas_disease_(also_known_as_american_trypanosomiasis).json
+[2025-10-24T07:04:31.749+0000] {data_processor.py:301} INFO - Finished chunking raw_content/chagas_disease_(also_known_as_american_trypanosomiasis).json. Found 15 chunks.
+[2025-10-24T07:04:31.752+0000] {data_processor.py:266} INFO - Processing object: raw_content/chikungunya.json
+[2025-10-24T07:04:31.755+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/chikungunya.json
+[2025-10-24T07:04:32.874+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/chikungunya.json
+[2025-10-24T07:04:32.891+0000] {data_processor.py:301} INFO - Finished chunking raw_content/chikungunya.json. Found 18 chunks.
+[2025-10-24T07:04:32.893+0000] {data_processor.py:266} INFO - Processing object: raw_content/child_maltreatment.json
+[2025-10-24T07:04:32.894+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/child_maltreatment.json
+[2025-10-24T07:04:33.792+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/child_maltreatment.json
+[2025-10-24T07:04:33.824+0000] {data_processor.py:301} INFO - Finished chunking raw_content/child_maltreatment.json. Found 14 chunks.
+[2025-10-24T07:04:33.826+0000] {data_processor.py:266} INFO - Processing object: raw_content/child_mortality_(under_5_years).json
+[2025-10-24T07:04:33.828+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/child_mortality_(under_5_years).json
+[2025-10-24T07:04:34.828+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/child_mortality_(under_5_years).json
+[2025-10-24T07:04:34.874+0000] {data_processor.py:301} INFO - Finished chunking raw_content/child_mortality_(under_5_years).json. Found 10 chunks.
+[2025-10-24T07:04:34.876+0000] {data_processor.py:266} INFO - Processing object: raw_content/childhood_cancer.json
+[2025-10-24T07:04:34.878+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/childhood_cancer.json
+[2025-10-24T07:04:35.976+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/childhood_cancer.json
+[2025-10-24T07:04:35.996+0000] {data_processor.py:301} INFO - Finished chunking raw_content/childhood_cancer.json. Found 10 chunks.
+[2025-10-24T07:04:35.998+0000] {data_processor.py:266} INFO - Processing object: raw_content/chlamydia.json
+[2025-10-24T07:04:35.999+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/chlamydia.json
+[2025-10-24T07:04:37.380+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/chlamydia.json
+[2025-10-24T07:04:37.402+0000] {data_processor.py:301} INFO - Finished chunking raw_content/chlamydia.json. Found 19 chunks.
+[2025-10-24T07:04:37.404+0000] {data_processor.py:266} INFO - Processing object: raw_content/cholera.json
+[2025-10-24T07:04:37.405+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/cholera.json
+[2025-10-24T07:04:38.393+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/cholera.json
+[2025-10-24T07:04:38.420+0000] {data_processor.py:301} INFO - Finished chunking raw_content/cholera.json. Found 32 chunks.
+[2025-10-24T07:04:38.422+0000] {data_processor.py:266} INFO - Processing object: raw_content/chromoblastomycosis.json
+[2025-10-24T07:04:38.423+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/chromoblastomycosis.json
+[2025-10-24T07:04:39.364+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/chromoblastomycosis.json
+[2025-10-24T07:04:39.385+0000] {data_processor.py:301} INFO - Finished chunking raw_content/chromoblastomycosis.json. Found 16 chunks.
+[2025-10-24T07:04:39.386+0000] {data_processor.py:266} INFO - Processing object: raw_content/chronic_obstructive_pulmonary_disease_(copd).json
+[2025-10-24T07:04:39.387+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/chronic_obstructive_pulmonary_disease_(copd).json
+[2025-10-24T07:04:40.320+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/chronic_obstructive_pulmonary_disease_(copd).json
+[2025-10-24T07:04:40.358+0000] {data_processor.py:301} INFO - Finished chunking raw_content/chronic_obstructive_pulmonary_disease_(copd).json. Found 14 chunks.
+[2025-10-24T07:04:40.360+0000] {data_processor.py:266} INFO - Processing object: raw_content/civil_registration_and_vital_statistics.json
+[2025-10-24T07:04:40.362+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/civil_registration_and_vital_statistics.json
+[2025-10-24T07:04:41.387+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/civil_registration_and_vital_statistics.json
+[2025-10-24T07:04:41.411+0000] {data_processor.py:301} INFO - Finished chunking raw_content/civil_registration_and_vital_statistics.json. Found 8 chunks.
+[2025-10-24T07:04:41.412+0000] {data_processor.py:266} INFO - Processing object: raw_content/climate_change.json
+[2025-10-24T07:04:41.414+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/climate_change.json
+[2025-10-24T07:04:42.363+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/climate_change.json
+[2025-10-24T07:04:42.380+0000] {data_processor.py:301} INFO - Finished chunking raw_content/climate_change.json. Found 12 chunks.
+[2025-10-24T07:04:42.381+0000] {data_processor.py:266} INFO - Processing object: raw_content/colorectal_cancer.json
+[2025-10-24T07:04:42.382+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/colorectal_cancer.json
+[2025-10-24T07:04:43.300+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/colorectal_cancer.json
+[2025-10-24T07:04:43.323+0000] {data_processor.py:301} INFO - Finished chunking raw_content/colorectal_cancer.json. Found 14 chunks.
+[2025-10-24T07:04:43.324+0000] {data_processor.py:266} INFO - Processing object: raw_content/commercial_determinants_of_health.json
+[2025-10-24T07:04:43.325+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/commercial_determinants_of_health.json
+[2025-10-24T07:04:44.285+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/commercial_determinants_of_health.json
+[2025-10-24T07:04:44.306+0000] {data_processor.py:301} INFO - Finished chunking raw_content/commercial_determinants_of_health.json. Found 14 chunks.
+[2025-10-24T07:04:44.307+0000] {data_processor.py:266} INFO - Processing object: raw_content/community-based_health_insurance.json
+[2025-10-24T07:04:44.308+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/community-based_health_insurance.json
+[2025-10-24T07:04:45.211+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/community-based_health_insurance.json
+[2025-10-24T07:04:45.225+0000] {data_processor.py:301} INFO - Finished chunking raw_content/community-based_health_insurance.json. Found 7 chunks.
+[2025-10-24T07:04:45.226+0000] {data_processor.py:266} INFO - Processing object: raw_content/condoms.json
+[2025-10-24T07:04:45.227+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/condoms.json
+[2025-10-24T07:04:46.257+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/condoms.json
+[2025-10-24T07:04:46.283+0000] {data_processor.py:301} INFO - Finished chunking raw_content/condoms.json. Found 10 chunks.
+[2025-10-24T07:04:46.285+0000] {data_processor.py:266} INFO - Processing object: raw_content/congenital_disorders.json
+[2025-10-24T07:04:46.287+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/congenital_disorders.json
+[2025-10-24T07:04:47.240+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/congenital_disorders.json
+[2025-10-24T07:04:47.257+0000] {data_processor.py:301} INFO - Finished chunking raw_content/congenital_disorders.json. Found 8 chunks.
+[2025-10-24T07:04:47.258+0000] {data_processor.py:266} INFO - Processing object: raw_content/coronavirus_disease_(covid-19).json
+[2025-10-24T07:04:47.259+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/coronavirus_disease_(covid-19).json
+[2025-10-24T07:04:48.195+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/coronavirus_disease_(covid-19).json
+[2025-10-24T07:04:48.210+0000] {data_processor.py:301} INFO - Finished chunking raw_content/coronavirus_disease_(covid-19).json. Found 12 chunks.
+[2025-10-24T07:04:48.212+0000] {data_processor.py:266} INFO - Processing object: raw_content/corporal_punishment_of_children_and_health.json
+[2025-10-24T07:04:48.213+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/corporal_punishment_of_children_and_health.json
+[2025-10-24T07:04:49.226+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/corporal_punishment_of_children_and_health.json
+[2025-10-24T07:04:49.256+0000] {data_processor.py:301} INFO - Finished chunking raw_content/corporal_punishment_of_children_and_health.json. Found 10 chunks.
+[2025-10-24T07:04:49.257+0000] {data_processor.py:266} INFO - Processing object: raw_content/crimean-congo_haemorrhagic_fever.json
+[2025-10-24T07:04:49.258+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/crimean-congo_haemorrhagic_fever.json
+[2025-10-24T07:04:50.246+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/crimean-congo_haemorrhagic_fever.json
+[2025-10-24T07:04:50.274+0000] {data_processor.py:301} INFO - Finished chunking raw_content/crimean-congo_haemorrhagic_fever.json. Found 16 chunks.
+[2025-10-24T07:04:50.275+0000] {data_processor.py:266} INFO - Processing object: raw_content/deafness_and_hearing_loss.json
+[2025-10-24T07:04:50.276+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/deafness_and_hearing_loss.json
+[2025-10-24T07:04:51.192+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/deafness_and_hearing_loss.json
+[2025-10-24T07:04:51.244+0000] {data_processor.py:301} INFO - Finished chunking raw_content/deafness_and_hearing_loss.json. Found 18 chunks.
+[2025-10-24T07:04:51.245+0000] {data_processor.py:266} INFO - Processing object: raw_content/deliberate_events.json
+[2025-10-24T07:04:51.246+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/deliberate_events.json
+[2025-10-24T07:04:52.193+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/deliberate_events.json
+[2025-10-24T07:04:52.215+0000] {data_processor.py:301} INFO - Finished chunking raw_content/deliberate_events.json. Found 8 chunks.
+[2025-10-24T07:04:52.217+0000] {data_processor.py:266} INFO - Processing object: raw_content/dementia.json
+[2025-10-24T07:04:52.218+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/dementia.json
+[2025-10-24T07:04:53.210+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/dementia.json
+[2025-10-24T07:04:53.231+0000] {data_processor.py:301} INFO - Finished chunking raw_content/dementia.json. Found 17 chunks.
+[2025-10-24T07:04:53.232+0000] {data_processor.py:266} INFO - Processing object: raw_content/dengue.json
+[2025-10-24T07:04:53.233+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/dengue.json
+[2025-10-24T07:04:54.250+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/dengue.json
+[2025-10-24T07:04:54.272+0000] {data_processor.py:301} INFO - Finished chunking raw_content/dengue.json. Found 11 chunks.
+[2025-10-24T07:04:54.274+0000] {data_processor.py:266} INFO - Processing object: raw_content/depressive_disorder_(depression).json
+[2025-10-24T07:04:54.275+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/depressive_disorder_(depression).json
+[2025-10-24T07:04:55.203+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/depressive_disorder_(depression).json
+[2025-10-24T07:04:55.222+0000] {data_processor.py:301} INFO - Finished chunking raw_content/depressive_disorder_(depression).json. Found 12 chunks.
+[2025-10-24T07:04:55.223+0000] {data_processor.py:266} INFO - Processing object: raw_content/diabetes.json
+[2025-10-24T07:04:55.225+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/diabetes.json
+[2025-10-24T07:04:56.328+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/diabetes.json
+[2025-10-24T07:04:56.350+0000] {data_processor.py:301} INFO - Finished chunking raw_content/diabetes.json. Found 21 chunks.
+[2025-10-24T07:04:56.352+0000] {data_processor.py:266} INFO - Processing object: raw_content/diarrhoeal_disease.json
+[2025-10-24T07:04:56.353+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/diarrhoeal_disease.json
+[2025-10-24T07:04:57.296+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/diarrhoeal_disease.json
+[2025-10-24T07:04:57.324+0000] {data_processor.py:301} INFO - Finished chunking raw_content/diarrhoeal_disease.json. Found 14 chunks.
+[2025-10-24T07:04:57.326+0000] {data_processor.py:266} INFO - Processing object: raw_content/dioxins.json
+[2025-10-24T07:04:57.328+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/dioxins.json
+[2025-10-24T07:04:58.316+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/dioxins.json
+[2025-10-24T07:04:58.351+0000] {data_processor.py:301} INFO - Finished chunking raw_content/dioxins.json. Found 17 chunks.
+[2025-10-24T07:04:58.354+0000] {data_processor.py:266} INFO - Processing object: raw_content/diphtheria.json
+[2025-10-24T07:04:58.356+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/diphtheria.json
+[2025-10-24T07:04:59.388+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/diphtheria.json
+[2025-10-24T07:04:59.405+0000] {data_processor.py:301} INFO - Finished chunking raw_content/diphtheria.json. Found 16 chunks.
+[2025-10-24T07:04:59.406+0000] {data_processor.py:266} INFO - Processing object: raw_content/disability.json
+[2025-10-24T07:04:59.407+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/disability.json
+[2025-10-24T07:05:00.380+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/disability.json
+[2025-10-24T07:05:00.402+0000] {data_processor.py:301} INFO - Finished chunking raw_content/disability.json. Found 12 chunks.
+[2025-10-24T07:05:00.404+0000] {data_processor.py:266} INFO - Processing object: raw_content/dracunculiasis_(guinea-worm_disease).json
+[2025-10-24T07:05:00.404+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/dracunculiasis_(guinea-worm_disease).json
+[2025-10-24T07:05:01.431+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/dracunculiasis_(guinea-worm_disease).json
+[2025-10-24T07:05:01.461+0000] {data_processor.py:301} INFO - Finished chunking raw_content/dracunculiasis_(guinea-worm_disease).json. Found 20 chunks.
+[2025-10-24T07:05:01.463+0000] {data_processor.py:266} INFO - Processing object: raw_content/drinking-water.json
+[2025-10-24T07:05:01.466+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/drinking-water.json
+[2025-10-24T07:05:02.491+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/drinking-water.json
+[2025-10-24T07:05:02.524+0000] {data_processor.py:301} INFO - Finished chunking raw_content/drinking-water.json. Found 12 chunks.
+[2025-10-24T07:05:02.526+0000] {data_processor.py:266} INFO - Processing object: raw_content/drowning.json
+[2025-10-24T07:05:02.527+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/drowning.json
+[2025-10-24T07:05:03.573+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/drowning.json
+[2025-10-24T07:05:03.600+0000] {data_processor.py:301} INFO - Finished chunking raw_content/drowning.json. Found 8 chunks.
+[2025-10-24T07:05:03.603+0000] {data_processor.py:266} INFO - Processing object: raw_content/e._coli.json
+[2025-10-24T07:05:03.605+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/e._coli.json
+[2025-10-24T07:05:04.620+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/e._coli.json
+[2025-10-24T07:05:04.646+0000] {data_processor.py:301} INFO - Finished chunking raw_content/e._coli.json. Found 12 chunks.
+[2025-10-24T07:05:04.647+0000] {data_processor.py:266} INFO - Processing object: raw_content/ebola_disease.json
+[2025-10-24T07:05:04.648+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ebola_disease.json
+[2025-10-24T07:05:05.746+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ebola_disease.json
+[2025-10-24T07:05:05.789+0000] {data_processor.py:301} INFO - Finished chunking raw_content/ebola_disease.json. Found 21 chunks.
+[2025-10-24T07:05:05.790+0000] {data_processor.py:266} INFO - Processing object: raw_content/echinococcosis.json
+[2025-10-24T07:05:05.791+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/echinococcosis.json
+[2025-10-24T07:05:06.772+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/echinococcosis.json
+[2025-10-24T07:05:06.801+0000] {data_processor.py:301} INFO - Finished chunking raw_content/echinococcosis.json. Found 18 chunks.
+[2025-10-24T07:05:06.803+0000] {data_processor.py:266} INFO - Processing object: raw_content/el_niño_southern_oscillation_(enso).json
+[2025-10-24T07:05:06.805+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/el_niño_southern_oscillation_(enso).json
+[2025-10-24T07:05:07.756+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/el_niño_southern_oscillation_(enso).json
+[2025-10-24T07:05:07.790+0000] {data_processor.py:301} INFO - Finished chunking raw_content/el_niño_southern_oscillation_(enso).json. Found 20 chunks.
+[2025-10-24T07:05:07.792+0000] {data_processor.py:266} INFO - Processing object: raw_content/electricity_in_health-care_facilities.json
+[2025-10-24T07:05:07.795+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/electricity_in_health-care_facilities.json
+[2025-10-24T07:05:08.990+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/electricity_in_health-care_facilities.json
+[2025-10-24T07:05:09.033+0000] {data_processor.py:301} INFO - Finished chunking raw_content/electricity_in_health-care_facilities.json. Found 10 chunks.
+[2025-10-24T07:05:09.035+0000] {data_processor.py:266} INFO - Processing object: raw_content/electronic_waste_(e-waste).json
+[2025-10-24T07:05:09.037+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/electronic_waste_(e-waste).json
+[2025-10-24T07:05:10.040+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/electronic_waste_(e-waste).json
+[2025-10-24T07:05:10.082+0000] {data_processor.py:301} INFO - Finished chunking raw_content/electronic_waste_(e-waste).json. Found 16 chunks.
+[2025-10-24T07:05:10.085+0000] {data_processor.py:266} INFO - Processing object: raw_content/emergency_contraception.json
+[2025-10-24T07:05:10.091+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/emergency_contraception.json
+[2025-10-24T07:05:11.282+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/emergency_contraception.json
+[2025-10-24T07:05:11.317+0000] {data_processor.py:301} INFO - Finished chunking raw_content/emergency_contraception.json. Found 20 chunks.
+[2025-10-24T07:05:11.319+0000] {data_processor.py:266} INFO - Processing object: raw_content/endometriosis.json
+[2025-10-24T07:05:11.319+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/endometriosis.json
+[2025-10-24T07:05:12.324+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/endometriosis.json
+[2025-10-24T07:05:12.350+0000] {data_processor.py:301} INFO - Finished chunking raw_content/endometriosis.json. Found 16 chunks.
+[2025-10-24T07:05:12.351+0000] {data_processor.py:266} INFO - Processing object: raw_content/epilepsy.json
+[2025-10-24T07:05:12.353+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/epilepsy.json
+[2025-10-24T07:05:13.479+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/epilepsy.json
+[2025-10-24T07:05:13.518+0000] {data_processor.py:301} INFO - Finished chunking raw_content/epilepsy.json. Found 20 chunks.
+[2025-10-24T07:05:13.520+0000] {data_processor.py:266} INFO - Processing object: raw_content/essential_medicines.json
+[2025-10-24T07:05:13.521+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/essential_medicines.json
+[2025-10-24T07:05:14.505+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/essential_medicines.json
+[2025-10-24T07:05:14.563+0000] {data_processor.py:301} INFO - Finished chunking raw_content/essential_medicines.json. Found 17 chunks.
+[2025-10-24T07:05:14.569+0000] {data_processor.py:266} INFO - Processing object: raw_content/falls.json
+[2025-10-24T07:05:14.572+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/falls.json
+[2025-10-24T07:05:15.601+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/falls.json
+[2025-10-24T07:05:15.622+0000] {data_processor.py:301} INFO - Finished chunking raw_content/falls.json. Found 8 chunks.
+[2025-10-24T07:05:15.624+0000] {data_processor.py:266} INFO - Processing object: raw_content/family_planningcontraception_methods.json
+[2025-10-24T07:05:15.625+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/family_planningcontraception_methods.json
+[2025-10-24T07:05:16.762+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/family_planningcontraception_methods.json
+[2025-10-24T07:05:16.779+0000] {data_processor.py:301} INFO - Finished chunking raw_content/family_planningcontraception_methods.json. Found 11 chunks.
+[2025-10-24T07:05:16.781+0000] {data_processor.py:266} INFO - Processing object: raw_content/female_genital_mutilation.json
+[2025-10-24T07:05:16.782+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/female_genital_mutilation.json
+[2025-10-24T07:05:17.788+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/female_genital_mutilation.json
+[2025-10-24T07:05:17.815+0000] {data_processor.py:301} INFO - Finished chunking raw_content/female_genital_mutilation.json. Found 16 chunks.
+[2025-10-24T07:05:17.817+0000] {data_processor.py:266} INFO - Processing object: raw_content/food_additives.json
+[2025-10-24T07:05:17.818+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/food_additives.json
+[2025-10-24T07:05:18.773+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/food_additives.json
+[2025-10-24T07:05:18.829+0000] {data_processor.py:301} INFO - Finished chunking raw_content/food_additives.json. Found 14 chunks.
+[2025-10-24T07:05:18.831+0000] {data_processor.py:266} INFO - Processing object: raw_content/food_safety.json
+[2025-10-24T07:05:18.833+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/food_safety.json
+[2025-10-24T07:05:19.863+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/food_safety.json
+[2025-10-24T07:05:19.892+0000] {data_processor.py:301} INFO - Finished chunking raw_content/food_safety.json. Found 1 chunks.
+[2025-10-24T07:05:19.894+0000] {data_processor.py:266} INFO - Processing object: raw_content/foodborne_trematode_infections.json
+[2025-10-24T07:05:19.895+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/foodborne_trematode_infections.json
+[2025-10-24T07:05:21.004+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/foodborne_trematode_infections.json
+[2025-10-24T07:05:21.048+0000] {data_processor.py:301} INFO - Finished chunking raw_content/foodborne_trematode_infections.json. Found 10 chunks.
+[2025-10-24T07:05:21.050+0000] {data_processor.py:266} INFO - Processing object: raw_content/fragility_fractures.json
+[2025-10-24T07:05:21.051+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/fragility_fractures.json
+[2025-10-24T07:05:22.010+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/fragility_fractures.json
+[2025-10-24T07:05:22.087+0000] {data_processor.py:301} INFO - Finished chunking raw_content/fragility_fractures.json. Found 18 chunks.
+[2025-10-24T07:05:22.090+0000] {data_processor.py:266} INFO - Processing object: raw_content/free_health_care_policies.json
+[2025-10-24T07:05:22.093+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/free_health_care_policies.json
+[2025-10-24T07:05:23.250+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/free_health_care_policies.json
+[2025-10-24T07:05:23.296+0000] {data_processor.py:301} INFO - Finished chunking raw_content/free_health_care_policies.json. Found 10 chunks.
+[2025-10-24T07:05:23.297+0000] {data_processor.py:266} INFO - Processing object: raw_content/gambling.json
+[2025-10-24T07:05:23.298+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/gambling.json
+[2025-10-24T07:05:24.282+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/gambling.json
+[2025-10-24T07:05:24.359+0000] {data_processor.py:301} INFO - Finished chunking raw_content/gambling.json. Found 22 chunks.
+[2025-10-24T07:05:24.363+0000] {data_processor.py:266} INFO - Processing object: raw_content/gonorrhoea_(neisseria_gonorrhoeae_infection).json
+[2025-10-24T07:05:24.366+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/gonorrhoea_(neisseria_gonorrhoeae_infection).json
+[2025-10-24T07:05:25.435+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/gonorrhoea_(neisseria_gonorrhoeae_infection).json
+[2025-10-24T07:05:25.454+0000] {data_processor.py:301} INFO - Finished chunking raw_content/gonorrhoea_(neisseria_gonorrhoeae_infection).json. Found 18 chunks.
+[2025-10-24T07:05:25.455+0000] {data_processor.py:266} INFO - Processing object: raw_content/guillain–barré_syndrome.json
+[2025-10-24T07:05:25.456+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/guillain–barré_syndrome.json
+[2025-10-24T07:05:26.476+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/guillain–barré_syndrome.json
+[2025-10-24T07:05:26.493+0000] {data_processor.py:301} INFO - Finished chunking raw_content/guillain–barré_syndrome.json. Found 14 chunks.
+[2025-10-24T07:05:26.495+0000] {data_processor.py:266} INFO - Processing object: raw_content/health-care_waste.json
+[2025-10-24T07:05:26.496+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/health-care_waste.json
+[2025-10-24T07:05:28.530+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/health-care_waste.json
+[2025-10-24T07:05:28.582+0000] {data_processor.py:301} INFO - Finished chunking raw_content/health-care_waste.json. Found 18 chunks.
+[2025-10-24T07:05:28.587+0000] {data_processor.py:266} INFO - Processing object: raw_content/health_literacy.json
+[2025-10-24T07:05:28.591+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/health_literacy.json
+[2025-10-24T07:05:29.619+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/health_literacy.json
+[2025-10-24T07:05:29.653+0000] {data_processor.py:301} INFO - Finished chunking raw_content/health_literacy.json. Found 14 chunks.
+[2025-10-24T07:05:29.656+0000] {data_processor.py:266} INFO - Processing object: raw_content/healthy_diet.json
+[2025-10-24T07:05:29.657+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/healthy_diet.json
+[2025-10-24T07:05:30.810+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/healthy_diet.json
+[2025-10-24T07:05:30.848+0000] {data_processor.py:301} INFO - Finished chunking raw_content/healthy_diet.json. Found 8 chunks.
+[2025-10-24T07:05:30.849+0000] {data_processor.py:266} INFO - Processing object: raw_content/heat_and_health.json
+[2025-10-24T07:05:30.850+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/heat_and_health.json
+[2025-10-24T07:05:32.093+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/heat_and_health.json
+[2025-10-24T07:05:32.123+0000] {data_processor.py:301} INFO - Finished chunking raw_content/heat_and_health.json. Found 12 chunks.
+[2025-10-24T07:05:32.124+0000] {data_processor.py:266} INFO - Processing object: raw_content/hepatitis_a.json
+[2025-10-24T07:05:32.126+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hepatitis_a.json
+[2025-10-24T07:05:33.276+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hepatitis_a.json
+[2025-10-24T07:05:33.294+0000] {data_processor.py:301} INFO - Finished chunking raw_content/hepatitis_a.json. Found 2 chunks.
+[2025-10-24T07:05:33.295+0000] {data_processor.py:266} INFO - Processing object: raw_content/hepatitis_b.json
+[2025-10-24T07:05:33.296+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hepatitis_b.json
+[2025-10-24T07:05:34.363+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hepatitis_b.json
+[2025-10-24T07:05:34.394+0000] {data_processor.py:301} INFO - Finished chunking raw_content/hepatitis_b.json. Found 16 chunks.
+[2025-10-24T07:05:34.397+0000] {data_processor.py:266} INFO - Processing object: raw_content/hepatitis_c.json
+[2025-10-24T07:05:34.397+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hepatitis_c.json
+[2025-10-24T07:05:35.346+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hepatitis_c.json
+[2025-10-24T07:05:35.368+0000] {data_processor.py:301} INFO - Finished chunking raw_content/hepatitis_c.json. Found 16 chunks.
+[2025-10-24T07:05:35.370+0000] {data_processor.py:266} INFO - Processing object: raw_content/hepatitis_d.json
+[2025-10-24T07:05:35.371+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hepatitis_d.json
+[2025-10-24T07:05:36.315+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hepatitis_d.json
+[2025-10-24T07:05:36.336+0000] {data_processor.py:301} INFO - Finished chunking raw_content/hepatitis_d.json. Found 18 chunks.
+[2025-10-24T07:05:36.338+0000] {data_processor.py:266} INFO - Processing object: raw_content/hepatitis_e.json
+[2025-10-24T07:05:36.339+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hepatitis_e.json
+[2025-10-24T07:05:37.390+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hepatitis_e.json
+[2025-10-24T07:05:37.426+0000] {data_processor.py:301} INFO - Finished chunking raw_content/hepatitis_e.json. Found 16 chunks.
+[2025-10-24T07:05:37.430+0000] {data_processor.py:266} INFO - Processing object: raw_content/herpes_simplex_virus.json
+[2025-10-24T07:05:37.432+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/herpes_simplex_virus.json
+[2025-10-24T07:05:38.616+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/herpes_simplex_virus.json
+[2025-10-24T07:05:38.648+0000] {data_processor.py:301} INFO - Finished chunking raw_content/herpes_simplex_virus.json. Found 18 chunks.
+[2025-10-24T07:05:38.650+0000] {data_processor.py:266} INFO - Processing object: raw_content/hiv_and_aids.json
+[2025-10-24T07:05:38.651+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hiv_and_aids.json
+[2025-10-24T07:05:39.572+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hiv_and_aids.json
+[2025-10-24T07:05:39.605+0000] {data_processor.py:301} INFO - Finished chunking raw_content/hiv_and_aids.json. Found 18 chunks.
+[2025-10-24T07:05:39.606+0000] {data_processor.py:266} INFO - Processing object: raw_content/hiv_drug_resistance.json
+[2025-10-24T07:05:39.607+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hiv_drug_resistance.json
+[2025-10-24T07:05:40.642+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hiv_drug_resistance.json
+[2025-10-24T07:05:40.665+0000] {data_processor.py:301} INFO - Finished chunking raw_content/hiv_drug_resistance.json. Found 14 chunks.
+[2025-10-24T07:05:40.666+0000] {data_processor.py:266} INFO - Processing object: raw_content/household_air_pollution.json
+[2025-10-24T07:05:40.667+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/household_air_pollution.json
+[2025-10-24T07:05:41.819+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/household_air_pollution.json
+[2025-10-24T07:05:41.848+0000] {data_processor.py:301} INFO - Finished chunking raw_content/household_air_pollution.json. Found 12 chunks.
+[2025-10-24T07:05:41.850+0000] {data_processor.py:266} INFO - Processing object: raw_content/human_papillomavirus_and_cancer.json
+[2025-10-24T07:05:41.851+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/human_papillomavirus_and_cancer.json
+[2025-10-24T07:05:42.955+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/human_papillomavirus_and_cancer.json
+[2025-10-24T07:05:42.981+0000] {data_processor.py:301} INFO - Finished chunking raw_content/human_papillomavirus_and_cancer.json. Found 14 chunks.
+[2025-10-24T07:05:42.982+0000] {data_processor.py:266} INFO - Processing object: raw_content/human_rights.json
+[2025-10-24T07:05:42.985+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/human_rights.json
+[2025-10-24T07:05:44.229+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/human_rights.json
+[2025-10-24T07:05:44.280+0000] {data_processor.py:301} INFO - Finished chunking raw_content/human_rights.json. Found 15 chunks.
+[2025-10-24T07:05:44.282+0000] {data_processor.py:266} INFO - Processing object: raw_content/human_t-lymphotropic_virus_type_1.json
+[2025-10-24T07:05:44.283+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/human_t-lymphotropic_virus_type_1.json
+[2025-10-24T07:05:45.331+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/human_t-lymphotropic_virus_type_1.json
+[2025-10-24T07:05:45.367+0000] {data_processor.py:301} INFO - Finished chunking raw_content/human_t-lymphotropic_virus_type_1.json. Found 16 chunks.
+[2025-10-24T07:05:45.369+0000] {data_processor.py:266} INFO - Processing object: raw_content/hypertension.json
+[2025-10-24T07:05:45.371+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/hypertension.json
+[2025-10-24T07:05:46.620+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/hypertension.json
+[2025-10-24T07:05:46.673+0000] {data_processor.py:301} INFO - Finished chunking raw_content/hypertension.json. Found 16 chunks.
+[2025-10-24T07:05:46.674+0000] {data_processor.py:266} INFO - Processing object: raw_content/icd-11.json
+[2025-10-24T07:05:46.675+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/icd-11.json
+[2025-10-24T07:05:48.111+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/icd-11.json
+[2025-10-24T07:05:48.140+0000] {data_processor.py:301} INFO - Finished chunking raw_content/icd-11.json. Found 16 chunks.
+[2025-10-24T07:05:48.142+0000] {data_processor.py:266} INFO - Processing object: raw_content/immunization_coverage.json
+[2025-10-24T07:05:48.144+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/immunization_coverage.json
+[2025-10-24T07:05:49.276+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/immunization_coverage.json
+[2025-10-24T07:05:49.307+0000] {data_processor.py:301} INFO - Finished chunking raw_content/immunization_coverage.json. Found 10 chunks.
+[2025-10-24T07:05:49.309+0000] {data_processor.py:266} INFO - Processing object: raw_content/infant_and_young_child_feeding.json
+[2025-10-24T07:05:49.312+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/infant_and_young_child_feeding.json
+[2025-10-24T07:05:50.458+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/infant_and_young_child_feeding.json
+[2025-10-24T07:05:50.485+0000] {data_processor.py:301} INFO - Finished chunking raw_content/infant_and_young_child_feeding.json. Found 12 chunks.
+[2025-10-24T07:05:50.486+0000] {data_processor.py:266} INFO - Processing object: raw_content/infertility.json
+[2025-10-24T07:05:50.488+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/infertility.json
+[2025-10-24T07:05:51.504+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/infertility.json
+[2025-10-24T07:05:51.523+0000] {data_processor.py:301} INFO - Finished chunking raw_content/infertility.json. Found 12 chunks.
+[2025-10-24T07:05:51.524+0000] {data_processor.py:266} INFO - Processing object: raw_content/influenza_(avian_and_other_zoonotic).json
+[2025-10-24T07:05:51.525+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/influenza_(avian_and_other_zoonotic).json
+[2025-10-24T07:05:52.504+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/influenza_(avian_and_other_zoonotic).json
+[2025-10-24T07:05:52.519+0000] {data_processor.py:301} INFO - Finished chunking raw_content/influenza_(avian_and_other_zoonotic).json. Found 18 chunks.
+[2025-10-24T07:05:52.521+0000] {data_processor.py:266} INFO - Processing object: raw_content/influenza_(seasonal).json
+[2025-10-24T07:05:52.522+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/influenza_(seasonal).json
+[2025-10-24T07:05:53.544+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/influenza_(seasonal).json
+[2025-10-24T07:05:53.573+0000] {data_processor.py:301} INFO - Finished chunking raw_content/influenza_(seasonal).json. Found 19 chunks.
+[2025-10-24T07:05:53.574+0000] {data_processor.py:266} INFO - Processing object: raw_content/injuries_and_violence.json
+[2025-10-24T07:05:53.575+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/injuries_and_violence.json
+[2025-10-24T07:05:54.694+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/injuries_and_violence.json
+[2025-10-24T07:05:54.717+0000] {data_processor.py:301} INFO - Finished chunking raw_content/injuries_and_violence.json. Found 14 chunks.
+[2025-10-24T07:05:54.718+0000] {data_processor.py:266} INFO - Processing object: raw_content/ionizing_radiation_and_health_effects.json
+[2025-10-24T07:05:54.719+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ionizing_radiation_and_health_effects.json
+[2025-10-24T07:05:55.689+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ionizing_radiation_and_health_effects.json
+[2025-10-24T07:05:55.716+0000] {data_processor.py:301} INFO - Finished chunking raw_content/ionizing_radiation_and_health_effects.json. Found 6 chunks.
+[2025-10-24T07:05:55.719+0000] {data_processor.py:266} INFO - Processing object: raw_content/japanese_encephalitis.json
+[2025-10-24T07:05:55.720+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/japanese_encephalitis.json
+[2025-10-24T07:05:56.621+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/japanese_encephalitis.json
+[2025-10-24T07:05:56.636+0000] {data_processor.py:301} INFO - Finished chunking raw_content/japanese_encephalitis.json. Found 16 chunks.
+[2025-10-24T07:05:56.637+0000] {data_processor.py:266} INFO - Processing object: raw_content/lassa_fever.json
+[2025-10-24T07:05:56.638+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/lassa_fever.json
+[2025-10-24T07:05:57.724+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/lassa_fever.json
+[2025-10-24T07:05:57.765+0000] {data_processor.py:301} INFO - Finished chunking raw_content/lassa_fever.json. Found 16 chunks.
+[2025-10-24T07:05:57.767+0000] {data_processor.py:266} INFO - Processing object: raw_content/lead_poisoning.json
+[2025-10-24T07:05:57.768+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/lead_poisoning.json
+[2025-10-24T07:05:58.851+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/lead_poisoning.json
+[2025-10-24T07:05:58.882+0000] {data_processor.py:301} INFO - Finished chunking raw_content/lead_poisoning.json. Found 12 chunks.
+[2025-10-24T07:05:58.883+0000] {data_processor.py:266} INFO - Processing object: raw_content/legionellosis.json
+[2025-10-24T07:05:58.885+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/legionellosis.json
+[2025-10-24T07:05:59.794+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/legionellosis.json
+[2025-10-24T07:05:59.811+0000] {data_processor.py:301} INFO - Finished chunking raw_content/legionellosis.json. Found 14 chunks.
+[2025-10-24T07:05:59.812+0000] {data_processor.py:266} INFO - Processing object: raw_content/leishmaniasis.json
+[2025-10-24T07:05:59.813+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/leishmaniasis.json
+[2025-10-24T07:06:00.803+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/leishmaniasis.json
+[2025-10-24T07:06:00.843+0000] {data_processor.py:301} INFO - Finished chunking raw_content/leishmaniasis.json. Found 20 chunks.
+[2025-10-24T07:06:00.844+0000] {data_processor.py:266} INFO - Processing object: raw_content/leprosy.json
+[2025-10-24T07:06:00.846+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/leprosy.json
+[2025-10-24T07:06:02.041+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/leprosy.json
+[2025-10-24T07:06:02.068+0000] {data_processor.py:301} INFO - Finished chunking raw_content/leprosy.json. Found 16 chunks.
+[2025-10-24T07:06:02.072+0000] {data_processor.py:266} INFO - Processing object: raw_content/listeriosis.json
+[2025-10-24T07:06:02.074+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/listeriosis.json
+[2025-10-24T07:06:03.142+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/listeriosis.json
+[2025-10-24T07:06:03.179+0000] {data_processor.py:301} INFO - Finished chunking raw_content/listeriosis.json. Found 12 chunks.
+[2025-10-24T07:06:03.182+0000] {data_processor.py:266} INFO - Processing object: raw_content/low_back_pain.json
+[2025-10-24T07:06:03.185+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/low_back_pain.json
+[2025-10-24T07:06:04.134+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/low_back_pain.json
+[2025-10-24T07:06:04.152+0000] {data_processor.py:301} INFO - Finished chunking raw_content/low_back_pain.json. Found 16 chunks.
+[2025-10-24T07:06:04.153+0000] {data_processor.py:266} INFO - Processing object: raw_content/lung_cancer.json
+[2025-10-24T07:06:04.154+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/lung_cancer.json
+[2025-10-24T07:06:05.084+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/lung_cancer.json
+[2025-10-24T07:06:05.117+0000] {data_processor.py:301} INFO - Finished chunking raw_content/lung_cancer.json. Found 18 chunks.
+[2025-10-24T07:06:05.119+0000] {data_processor.py:266} INFO - Processing object: raw_content/lymphatic_filariasis.json
+[2025-10-24T07:06:05.121+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/lymphatic_filariasis.json
+[2025-10-24T07:06:06.071+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/lymphatic_filariasis.json
+[2025-10-24T07:06:06.098+0000] {data_processor.py:301} INFO - Finished chunking raw_content/lymphatic_filariasis.json. Found 16 chunks.
+[2025-10-24T07:06:06.099+0000] {data_processor.py:266} INFO - Processing object: raw_content/malaria.json
+[2025-10-24T07:06:06.100+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/malaria.json
+[2025-10-24T07:06:06.962+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/malaria.json
+[2025-10-24T07:06:06.992+0000] {data_processor.py:301} INFO - Finished chunking raw_content/malaria.json. Found 21 chunks.
+[2025-10-24T07:06:06.993+0000] {data_processor.py:266} INFO - Processing object: raw_content/malnutrition.json
+[2025-10-24T07:06:06.994+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/malnutrition.json
+[2025-10-24T07:06:08.033+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/malnutrition.json
+[2025-10-24T07:06:08.074+0000] {data_processor.py:301} INFO - Finished chunking raw_content/malnutrition.json. Found 14 chunks.
+[2025-10-24T07:06:08.075+0000] {data_processor.py:266} INFO - Processing object: raw_content/marburg_virus_disease.json
+[2025-10-24T07:06:08.076+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/marburg_virus_disease.json
+[2025-10-24T07:06:08.924+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/marburg_virus_disease.json
+[2025-10-24T07:06:08.989+0000] {data_processor.py:301} INFO - Finished chunking raw_content/marburg_virus_disease.json. Found 22 chunks.
+[2025-10-24T07:06:08.990+0000] {data_processor.py:266} INFO - Processing object: raw_content/maternal_mortality.json
+[2025-10-24T07:06:08.991+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/maternal_mortality.json
+[2025-10-24T07:06:10.175+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/maternal_mortality.json
+[2025-10-24T07:06:10.196+0000] {data_processor.py:301} INFO - Finished chunking raw_content/maternal_mortality.json. Found 18 chunks.
+[2025-10-24T07:06:10.197+0000] {data_processor.py:266} INFO - Processing object: raw_content/measles.json
+[2025-10-24T07:06:10.197+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/measles.json
+[2025-10-24T07:06:11.653+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/measles.json
+[2025-10-24T07:06:11.673+0000] {data_processor.py:301} INFO - Finished chunking raw_content/measles.json. Found 18 chunks.
+[2025-10-24T07:06:11.674+0000] {data_processor.py:266} INFO - Processing object: raw_content/meningitis.json
+[2025-10-24T07:06:11.676+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/meningitis.json
+[2025-10-24T07:06:12.713+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/meningitis.json
+[2025-10-24T07:06:12.750+0000] {data_processor.py:301} INFO - Finished chunking raw_content/meningitis.json. Found 22 chunks.
+[2025-10-24T07:06:12.751+0000] {data_processor.py:266} INFO - Processing object: raw_content/menopause.json
+[2025-10-24T07:06:12.752+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/menopause.json
+[2025-10-24T07:06:14.020+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/menopause.json
+[2025-10-24T07:06:14.046+0000] {data_processor.py:301} INFO - Finished chunking raw_content/menopause.json. Found 12 chunks.
+[2025-10-24T07:06:14.048+0000] {data_processor.py:266} INFO - Processing object: raw_content/mental_disorders.json
+[2025-10-24T07:06:14.050+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_disorders.json
+[2025-10-24T07:06:15.026+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_disorders.json
+[2025-10-24T07:06:15.042+0000] {data_processor.py:301} INFO - Finished chunking raw_content/mental_disorders.json. Found 24 chunks.
+[2025-10-24T07:06:15.043+0000] {data_processor.py:266} INFO - Processing object: raw_content/mental_health.json
+[2025-10-24T07:06:15.044+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_health.json
+[2025-10-24T07:06:15.943+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_health.json
+[2025-10-24T07:06:15.965+0000] {data_processor.py:301} INFO - Finished chunking raw_content/mental_health.json. Found 12 chunks.
+[2025-10-24T07:06:15.966+0000] {data_processor.py:266} INFO - Processing object: raw_content/mental_health_at_work.json
+[2025-10-24T07:06:15.967+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_health_at_work.json
+[2025-10-24T07:06:17.006+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_health_at_work.json
+[2025-10-24T07:06:17.031+0000] {data_processor.py:301} INFO - Finished chunking raw_content/mental_health_at_work.json. Found 18 chunks.
+[2025-10-24T07:06:17.032+0000] {data_processor.py:266} INFO - Processing object: raw_content/mental_health_in_emergencies.json
+[2025-10-24T07:06:17.033+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_health_in_emergencies.json
+[2025-10-24T07:06:18.109+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_health_in_emergencies.json
+[2025-10-24T07:06:18.139+0000] {data_processor.py:301} INFO - Finished chunking raw_content/mental_health_in_emergencies.json. Found 14 chunks.
+[2025-10-24T07:06:18.140+0000] {data_processor.py:266} INFO - Processing object: raw_content/mental_health_of_adolescents.json
+[2025-10-24T07:06:18.141+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_health_of_adolescents.json
+[2025-10-24T07:06:19.135+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_health_of_adolescents.json
+[2025-10-24T07:06:19.160+0000] {data_processor.py:301} INFO - Finished chunking raw_content/mental_health_of_adolescents.json. Found 24 chunks.
+[2025-10-24T07:06:19.162+0000] {data_processor.py:266} INFO - Processing object: raw_content/mental_health_of_older_adults.json
+[2025-10-24T07:06:19.163+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mental_health_of_older_adults.json
+[2025-10-24T07:06:20.162+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mental_health_of_older_adults.json
+[2025-10-24T07:06:20.178+0000] {data_processor.py:301} INFO - Finished chunking raw_content/mental_health_of_older_adults.json. Found 14 chunks.
+[2025-10-24T07:06:20.180+0000] {data_processor.py:266} INFO - Processing object: raw_content/mercury.json
+[2025-10-24T07:06:20.181+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mercury.json
+[2025-10-24T07:06:21.184+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mercury.json
+[2025-10-24T07:06:21.213+0000] {data_processor.py:301} INFO - Finished chunking raw_content/mercury.json. Found 16 chunks.
+[2025-10-24T07:06:21.214+0000] {data_processor.py:266} INFO - Processing object: raw_content/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json
+[2025-10-24T07:06:21.215+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json
+[2025-10-24T07:06:22.212+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json
+[2025-10-24T07:06:22.223+0000] {data_processor.py:301} INFO - Finished chunking raw_content/middle_east_respiratory_syndrome_coronavirus_(mers-cov).json. Found 14 chunks.
+[2025-10-24T07:06:22.224+0000] {data_processor.py:266} INFO - Processing object: raw_content/migraine_and_other_headache_disorders.json
+[2025-10-24T07:06:22.225+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/migraine_and_other_headache_disorders.json
+[2025-10-24T07:06:23.325+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/migraine_and_other_headache_disorders.json
+[2025-10-24T07:06:23.339+0000] {data_processor.py:301} INFO - Finished chunking raw_content/migraine_and_other_headache_disorders.json. Found 16 chunks.
+[2025-10-24T07:06:23.340+0000] {data_processor.py:266} INFO - Processing object: raw_content/millennium_development_goals_(mdgs).json
+[2025-10-24T07:06:23.341+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/millennium_development_goals_(mdgs).json
+[2025-10-24T07:06:24.340+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/millennium_development_goals_(mdgs).json
+[2025-10-24T07:06:24.363+0000] {data_processor.py:301} INFO - Finished chunking raw_content/millennium_development_goals_(mdgs).json. Found 6 chunks.
+[2025-10-24T07:06:24.365+0000] {data_processor.py:266} INFO - Processing object: raw_content/mpox.json
+[2025-10-24T07:06:24.366+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mpox.json
+[2025-10-24T07:06:25.285+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mpox.json
+[2025-10-24T07:06:25.308+0000] {data_processor.py:301} INFO - Finished chunking raw_content/mpox.json. Found 20 chunks.
+[2025-10-24T07:06:25.310+0000] {data_processor.py:266} INFO - Processing object: raw_content/multi-drug_resistant_gonorrhoea.json
+[2025-10-24T07:06:25.311+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/multi-drug_resistant_gonorrhoea.json
+[2025-10-24T07:06:26.191+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/multi-drug_resistant_gonorrhoea.json
+[2025-10-24T07:06:26.226+0000] {data_processor.py:301} INFO - Finished chunking raw_content/multi-drug_resistant_gonorrhoea.json. Found 13 chunks.
+[2025-10-24T07:06:26.228+0000] {data_processor.py:266} INFO - Processing object: raw_content/multiple_sclerosis.json
+[2025-10-24T07:06:26.229+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/multiple_sclerosis.json
+[2025-10-24T07:06:27.207+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/multiple_sclerosis.json
+[2025-10-24T07:06:27.232+0000] {data_processor.py:301} INFO - Finished chunking raw_content/multiple_sclerosis.json. Found 14 chunks.
+[2025-10-24T07:06:27.234+0000] {data_processor.py:266} INFO - Processing object: raw_content/musculoskeletal_health.json
+[2025-10-24T07:06:27.236+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/musculoskeletal_health.json
+[2025-10-24T07:06:28.123+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/musculoskeletal_health.json
+[2025-10-24T07:06:28.140+0000] {data_processor.py:301} INFO - Finished chunking raw_content/musculoskeletal_health.json. Found 4 chunks.
+[2025-10-24T07:06:28.141+0000] {data_processor.py:266} INFO - Processing object: raw_content/mycetoma.json
+[2025-10-24T07:06:28.142+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mycetoma.json
+[2025-10-24T07:06:29.311+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mycetoma.json
+[2025-10-24T07:06:29.326+0000] {data_processor.py:301} INFO - Finished chunking raw_content/mycetoma.json. Found 16 chunks.
+[2025-10-24T07:06:29.328+0000] {data_processor.py:266} INFO - Processing object: raw_content/mycotoxins.json
+[2025-10-24T07:06:29.329+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/mycotoxins.json
+[2025-10-24T07:06:30.372+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/mycotoxins.json
+[2025-10-24T07:06:30.389+0000] {data_processor.py:301} INFO - Finished chunking raw_content/mycotoxins.json. Found 10 chunks.
+[2025-10-24T07:06:30.390+0000] {data_processor.py:266} INFO - Processing object: raw_content/natural_toxins_in_food.json
+[2025-10-24T07:06:30.392+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/natural_toxins_in_food.json
+[2025-10-24T07:06:31.407+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/natural_toxins_in_food.json
+[2025-10-24T07:06:31.434+0000] {data_processor.py:301} INFO - Finished chunking raw_content/natural_toxins_in_food.json. Found 6 chunks.
+[2025-10-24T07:06:31.435+0000] {data_processor.py:266} INFO - Processing object: raw_content/newborn_mortality.json
+[2025-10-24T07:06:31.437+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/newborn_mortality.json
+[2025-10-24T07:06:32.418+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/newborn_mortality.json
+[2025-10-24T07:06:32.454+0000] {data_processor.py:301} INFO - Finished chunking raw_content/newborn_mortality.json. Found 12 chunks.
+[2025-10-24T07:06:32.456+0000] {data_processor.py:266} INFO - Processing object: raw_content/newborns:_improving_survival_and_well-being.json
+[2025-10-24T07:06:32.457+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/newborns:_improving_survival_and_well-being.json
+[2025-10-24T07:06:33.452+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/newborns:_improving_survival_and_well-being.json
+[2025-10-24T07:06:33.469+0000] {data_processor.py:301} INFO - Finished chunking raw_content/newborns:_improving_survival_and_well-being.json. Found 12 chunks.
+[2025-10-24T07:06:33.470+0000] {data_processor.py:266} INFO - Processing object: raw_content/nipah_virus.json
+[2025-10-24T07:06:33.471+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/nipah_virus.json
+[2025-10-24T07:06:34.443+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/nipah_virus.json
+[2025-10-24T07:06:34.474+0000] {data_processor.py:301} INFO - Finished chunking raw_content/nipah_virus.json. Found 22 chunks.
+[2025-10-24T07:06:34.475+0000] {data_processor.py:266} INFO - Processing object: raw_content/noma.json
+[2025-10-24T07:06:34.477+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/noma.json
+[2025-10-24T07:06:35.473+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/noma.json
+[2025-10-24T07:06:35.508+0000] {data_processor.py:301} INFO - Finished chunking raw_content/noma.json. Found 14 chunks.
+[2025-10-24T07:06:35.510+0000] {data_processor.py:266} INFO - Processing object: raw_content/noncommunicable_diseases.json
+[2025-10-24T07:06:35.511+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/noncommunicable_diseases.json
+[2025-10-24T07:06:36.577+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/noncommunicable_diseases.json
+[2025-10-24T07:06:36.593+0000] {data_processor.py:301} INFO - Finished chunking raw_content/noncommunicable_diseases.json. Found 13 chunks.
+[2025-10-24T07:06:36.594+0000] {data_processor.py:266} INFO - Processing object: raw_content/nursing_and_midwifery.json
+[2025-10-24T07:06:36.596+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/nursing_and_midwifery.json
+[2025-10-24T07:06:37.677+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/nursing_and_midwifery.json
+[2025-10-24T07:06:37.707+0000] {data_processor.py:301} INFO - Finished chunking raw_content/nursing_and_midwifery.json. Found 4 chunks.
+[2025-10-24T07:06:37.710+0000] {data_processor.py:266} INFO - Processing object: raw_content/obesity_and_overweight.json
+[2025-10-24T07:06:37.711+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/obesity_and_overweight.json
+[2025-10-24T07:06:38.632+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/obesity_and_overweight.json
+[2025-10-24T07:06:38.657+0000] {data_processor.py:301} INFO - Finished chunking raw_content/obesity_and_overweight.json. Found 16 chunks.
+[2025-10-24T07:06:38.658+0000] {data_processor.py:266} INFO - Processing object: raw_content/occupational_health:_health_workers.json
+[2025-10-24T07:06:38.659+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/occupational_health:_health_workers.json
+[2025-10-24T07:06:39.679+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/occupational_health:_health_workers.json
+[2025-10-24T07:06:39.691+0000] {data_processor.py:301} INFO - Finished chunking raw_content/occupational_health:_health_workers.json. Found 8 chunks.
+[2025-10-24T07:06:39.692+0000] {data_processor.py:266} INFO - Processing object: raw_content/older_children_and_young_adolescent_mortality_(5_to_14_years).json
+[2025-10-24T07:06:39.693+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/older_children_and_young_adolescent_mortality_(5_to_14_years).json
+[2025-10-24T07:06:40.650+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/older_children_and_young_adolescent_mortality_(5_to_14_years).json
+[2025-10-24T07:06:40.671+0000] {data_processor.py:301} INFO - Finished chunking raw_content/older_children_and_young_adolescent_mortality_(5_to_14_years).json. Found 2 chunks.
+[2025-10-24T07:06:40.673+0000] {data_processor.py:266} INFO - Processing object: raw_content/onchocerciasis.json
+[2025-10-24T07:06:40.674+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/onchocerciasis.json
+[2025-10-24T07:06:41.752+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/onchocerciasis.json
+[2025-10-24T07:06:41.770+0000] {data_processor.py:301} INFO - Finished chunking raw_content/onchocerciasis.json. Found 16 chunks.
+[2025-10-24T07:06:41.771+0000] {data_processor.py:266} INFO - Processing object: raw_content/one_health.json
+[2025-10-24T07:06:41.772+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/one_health.json
+[2025-10-24T07:06:42.748+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/one_health.json
+[2025-10-24T07:06:42.766+0000] {data_processor.py:301} INFO - Finished chunking raw_content/one_health.json. Found 8 chunks.
+[2025-10-24T07:06:42.767+0000] {data_processor.py:266} INFO - Processing object: raw_content/opioid_overdose.json
+[2025-10-24T07:06:42.769+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/opioid_overdose.json
+[2025-10-24T07:06:43.749+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/opioid_overdose.json
+[2025-10-24T07:06:43.775+0000] {data_processor.py:301} INFO - Finished chunking raw_content/opioid_overdose.json. Found 16 chunks.
+[2025-10-24T07:06:43.777+0000] {data_processor.py:266} INFO - Processing object: raw_content/oral_health.json
+[2025-10-24T07:06:43.778+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/oral_health.json
+[2025-10-24T07:06:44.769+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/oral_health.json
+[2025-10-24T07:06:44.785+0000] {data_processor.py:301} INFO - Finished chunking raw_content/oral_health.json. Found 28 chunks.
+[2025-10-24T07:06:44.786+0000] {data_processor.py:266} INFO - Processing object: raw_content/oropouche_virus_disease.json
+[2025-10-24T07:06:44.787+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/oropouche_virus_disease.json
+[2025-10-24T07:06:45.761+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/oropouche_virus_disease.json
+[2025-10-24T07:06:45.787+0000] {data_processor.py:301} INFO - Finished chunking raw_content/oropouche_virus_disease.json. Found 20 chunks.
+[2025-10-24T07:06:45.788+0000] {data_processor.py:266} INFO - Processing object: raw_content/osteoarthritis.json
+[2025-10-24T07:06:45.789+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/osteoarthritis.json
+[2025-10-24T07:06:46.767+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/osteoarthritis.json
+[2025-10-24T07:06:46.789+0000] {data_processor.py:301} INFO - Finished chunking raw_content/osteoarthritis.json. Found 18 chunks.
+[2025-10-24T07:06:46.790+0000] {data_processor.py:266} INFO - Processing object: raw_content/palliative_care.json
+[2025-10-24T07:06:46.792+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/palliative_care.json
+[2025-10-24T07:06:47.761+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/palliative_care.json
+[2025-10-24T07:06:47.787+0000] {data_processor.py:301} INFO - Finished chunking raw_content/palliative_care.json. Found 8 chunks.
+[2025-10-24T07:06:47.789+0000] {data_processor.py:266} INFO - Processing object: raw_content/parkinson_disease.json
+[2025-10-24T07:06:47.790+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/parkinson_disease.json
+[2025-10-24T07:06:48.705+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/parkinson_disease.json
+[2025-10-24T07:06:48.724+0000] {data_processor.py:301} INFO - Finished chunking raw_content/parkinson_disease.json. Found 16 chunks.
+[2025-10-24T07:06:48.725+0000] {data_processor.py:266} INFO - Processing object: raw_content/patient_safety.json
+[2025-10-24T07:06:48.725+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/patient_safety.json
+[2025-10-24T07:06:49.837+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/patient_safety.json
+[2025-10-24T07:06:49.868+0000] {data_processor.py:301} INFO - Finished chunking raw_content/patient_safety.json. Found 10 chunks.
+[2025-10-24T07:06:49.870+0000] {data_processor.py:266} INFO - Processing object: raw_content/pesticide_residues_in_food.json
+[2025-10-24T07:06:49.871+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/pesticide_residues_in_food.json
+[2025-10-24T07:06:51.391+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/pesticide_residues_in_food.json
+[2025-10-24T07:06:51.417+0000] {data_processor.py:301} INFO - Finished chunking raw_content/pesticide_residues_in_food.json. Found 12 chunks.
+[2025-10-24T07:06:51.419+0000] {data_processor.py:266} INFO - Processing object: raw_content/physical_activity.json
+[2025-10-24T07:06:51.420+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/physical_activity.json
+[2025-10-24T07:06:52.415+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/physical_activity.json
+[2025-10-24T07:06:52.473+0000] {data_processor.py:301} INFO - Finished chunking raw_content/physical_activity.json. Found 14 chunks.
+[2025-10-24T07:06:52.476+0000] {data_processor.py:266} INFO - Processing object: raw_content/plague.json
+[2025-10-24T07:06:52.479+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/plague.json
+[2025-10-24T07:06:53.551+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/plague.json
+[2025-10-24T07:06:53.593+0000] {data_processor.py:301} INFO - Finished chunking raw_content/plague.json. Found 20 chunks.
+[2025-10-24T07:06:53.595+0000] {data_processor.py:266} INFO - Processing object: raw_content/pneumonia_in_children.json
+[2025-10-24T07:06:53.598+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/pneumonia_in_children.json
+[2025-10-24T07:06:54.570+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/pneumonia_in_children.json
+[2025-10-24T07:06:54.601+0000] {data_processor.py:301} INFO - Finished chunking raw_content/pneumonia_in_children.json. Found 16 chunks.
+[2025-10-24T07:06:54.603+0000] {data_processor.py:266} INFO - Processing object: raw_content/podoconiosis_(non-filarial_lymphoedema).json
+[2025-10-24T07:06:54.605+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/podoconiosis_(non-filarial_lymphoedema).json
+[2025-10-24T07:06:55.694+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/podoconiosis_(non-filarial_lymphoedema).json
+[2025-10-24T07:06:55.717+0000] {data_processor.py:301} INFO - Finished chunking raw_content/podoconiosis_(non-filarial_lymphoedema).json. Found 22 chunks.
+[2025-10-24T07:06:55.719+0000] {data_processor.py:266} INFO - Processing object: raw_content/poliomyelitis.json
+[2025-10-24T07:06:55.720+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/poliomyelitis.json
+[2025-10-24T07:06:56.644+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/poliomyelitis.json
+[2025-10-24T07:06:56.676+0000] {data_processor.py:301} INFO - Finished chunking raw_content/poliomyelitis.json. Found 10 chunks.
+[2025-10-24T07:06:56.679+0000] {data_processor.py:266} INFO - Processing object: raw_content/polycystic_ovary_syndrome.json
+[2025-10-24T07:06:56.681+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/polycystic_ovary_syndrome.json
+[2025-10-24T07:06:57.879+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/polycystic_ovary_syndrome.json
+[2025-10-24T07:06:57.915+0000] {data_processor.py:301} INFO - Finished chunking raw_content/polycystic_ovary_syndrome.json. Found 14 chunks.
+[2025-10-24T07:06:57.918+0000] {data_processor.py:266} INFO - Processing object: raw_content/post-traumatic_stress_disorder.json
+[2025-10-24T07:06:57.919+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/post-traumatic_stress_disorder.json
+[2025-10-24T07:06:59.054+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/post-traumatic_stress_disorder.json
+[2025-10-24T07:06:59.074+0000] {data_processor.py:301} INFO - Finished chunking raw_content/post-traumatic_stress_disorder.json. Found 14 chunks.
+[2025-10-24T07:06:59.075+0000] {data_processor.py:266} INFO - Processing object: raw_content/post_covid-19_condition_(long_covid).json
+[2025-10-24T07:06:59.077+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/post_covid-19_condition_(long_covid).json
+[2025-10-24T07:07:00.000+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/post_covid-19_condition_(long_covid).json
+[2025-10-24T07:07:00.041+0000] {data_processor.py:301} INFO - Finished chunking raw_content/post_covid-19_condition_(long_covid).json. Found 22 chunks.
+[2025-10-24T07:07:00.046+0000] {data_processor.py:266} INFO - Processing object: raw_content/pre-eclampsia.json
+[2025-10-24T07:07:00.047+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/pre-eclampsia.json
+[2025-10-24T07:07:00.993+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/pre-eclampsia.json
+[2025-10-24T07:07:01.031+0000] {data_processor.py:301} INFO - Finished chunking raw_content/pre-eclampsia.json. Found 18 chunks.
+[2025-10-24T07:07:01.033+0000] {data_processor.py:266} INFO - Processing object: raw_content/prequalification_of_medicines_by_who.json
+[2025-10-24T07:07:01.034+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/prequalification_of_medicines_by_who.json
+[2025-10-24T07:07:02.033+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/prequalification_of_medicines_by_who.json
+[2025-10-24T07:07:02.055+0000] {data_processor.py:301} INFO - Finished chunking raw_content/prequalification_of_medicines_by_who.json. Found 10 chunks.
+[2025-10-24T07:07:02.056+0000] {data_processor.py:266} INFO - Processing object: raw_content/preterm_birth.json
+[2025-10-24T07:07:02.057+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/preterm_birth.json
+[2025-10-24T07:07:03.245+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/preterm_birth.json
+[2025-10-24T07:07:03.271+0000] {data_processor.py:301} INFO - Finished chunking raw_content/preterm_birth.json. Found 12 chunks.
+[2025-10-24T07:07:03.279+0000] {data_processor.py:266} INFO - Processing object: raw_content/primary_health_care.json
+[2025-10-24T07:07:03.280+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/primary_health_care.json
+[2025-10-24T07:07:04.280+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/primary_health_care.json
+[2025-10-24T07:07:04.290+0000] {data_processor.py:301} INFO - Finished chunking raw_content/primary_health_care.json. Found 8 chunks.
+[2025-10-24T07:07:04.291+0000] {data_processor.py:266} INFO - Processing object: raw_content/protecting_workers'_health.json
+[2025-10-24T07:07:04.292+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/protecting_workers'_health.json
+[2025-10-24T07:07:05.299+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/protecting_workers'_health.json
+[2025-10-24T07:07:05.313+0000] {data_processor.py:301} INFO - Finished chunking raw_content/protecting_workers'_health.json. Found 7 chunks.
+[2025-10-24T07:07:05.314+0000] {data_processor.py:266} INFO - Processing object: raw_content/quality_health_services.json
+[2025-10-24T07:07:05.315+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/quality_health_services.json
+[2025-10-24T07:07:06.286+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/quality_health_services.json
+[2025-10-24T07:07:06.324+0000] {data_processor.py:301} INFO - Finished chunking raw_content/quality_health_services.json. Found 10 chunks.
+[2025-10-24T07:07:06.327+0000] {data_processor.py:266} INFO - Processing object: raw_content/rabies.json
+[2025-10-24T07:07:06.329+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rabies.json
+[2025-10-24T07:07:07.193+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rabies.json
+[2025-10-24T07:07:07.218+0000] {data_processor.py:301} INFO - Finished chunking raw_content/rabies.json. Found 16 chunks.
+[2025-10-24T07:07:07.220+0000] {data_processor.py:266} INFO - Processing object: raw_content/radon.json
+[2025-10-24T07:07:07.221+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/radon.json
+[2025-10-24T07:07:08.216+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/radon.json
+[2025-10-24T07:07:08.237+0000] {data_processor.py:301} INFO - Finished chunking raw_content/radon.json. Found 14 chunks.
+[2025-10-24T07:07:08.238+0000] {data_processor.py:266} INFO - Processing object: raw_content/refugee_and_migrant_health.json
+[2025-10-24T07:07:08.239+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/refugee_and_migrant_health.json
+[2025-10-24T07:07:09.267+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/refugee_and_migrant_health.json
+[2025-10-24T07:07:09.284+0000] {data_processor.py:301} INFO - Finished chunking raw_content/refugee_and_migrant_health.json. Found 14 chunks.
+[2025-10-24T07:07:09.285+0000] {data_processor.py:266} INFO - Processing object: raw_content/refugee_and_migrant_mental_health.json
+[2025-10-24T07:07:09.286+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/refugee_and_migrant_mental_health.json
+[2025-10-24T07:07:10.277+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/refugee_and_migrant_mental_health.json
+[2025-10-24T07:07:10.293+0000] {data_processor.py:301} INFO - Finished chunking raw_content/refugee_and_migrant_mental_health.json. Found 12 chunks.
+[2025-10-24T07:07:10.294+0000] {data_processor.py:266} INFO - Processing object: raw_content/rehabilitation.json
+[2025-10-24T07:07:10.295+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rehabilitation.json
+[2025-10-24T07:07:11.309+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rehabilitation.json
+[2025-10-24T07:07:11.329+0000] {data_processor.py:301} INFO - Finished chunking raw_content/rehabilitation.json. Found 14 chunks.
+[2025-10-24T07:07:11.330+0000] {data_processor.py:266} INFO - Processing object: raw_content/respiratory_syncytial_virus_(rsv).json
+[2025-10-24T07:07:11.331+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/respiratory_syncytial_virus_(rsv).json
+[2025-10-24T07:07:12.340+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/respiratory_syncytial_virus_(rsv).json
+[2025-10-24T07:07:12.359+0000] {data_processor.py:301} INFO - Finished chunking raw_content/respiratory_syncytial_virus_(rsv).json. Found 16 chunks.
+[2025-10-24T07:07:12.361+0000] {data_processor.py:266} INFO - Processing object: raw_content/rheumatic_heart_disease.json
+[2025-10-24T07:07:12.362+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rheumatic_heart_disease.json
+[2025-10-24T07:07:13.349+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rheumatic_heart_disease.json
+[2025-10-24T07:07:13.378+0000] {data_processor.py:301} INFO - Finished chunking raw_content/rheumatic_heart_disease.json. Found 16 chunks.
+[2025-10-24T07:07:13.380+0000] {data_processor.py:266} INFO - Processing object: raw_content/rheumatoid_arthritis.json
+[2025-10-24T07:07:13.381+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rheumatoid_arthritis.json
+[2025-10-24T07:07:14.436+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rheumatoid_arthritis.json
+[2025-10-24T07:07:14.472+0000] {data_processor.py:301} INFO - Finished chunking raw_content/rheumatoid_arthritis.json. Found 18 chunks.
+[2025-10-24T07:07:14.474+0000] {data_processor.py:266} INFO - Processing object: raw_content/rift_valley_fever.json
+[2025-10-24T07:07:14.476+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rift_valley_fever.json
+[2025-10-24T07:07:15.443+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rift_valley_fever.json
+[2025-10-24T07:07:15.467+0000] {data_processor.py:301} INFO - Finished chunking raw_content/rift_valley_fever.json. Found 1 chunks.
+[2025-10-24T07:07:15.469+0000] {data_processor.py:266} INFO - Processing object: raw_content/ringworm_(tinea).json
+[2025-10-24T07:07:15.469+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ringworm_(tinea).json
+[2025-10-24T07:07:16.579+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ringworm_(tinea).json
+[2025-10-24T07:07:16.623+0000] {data_processor.py:301} INFO - Finished chunking raw_content/ringworm_(tinea).json. Found 22 chunks.
+[2025-10-24T07:07:16.625+0000] {data_processor.py:266} INFO - Processing object: raw_content/road_traffic_injuries.json
+[2025-10-24T07:07:16.627+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/road_traffic_injuries.json
+[2025-10-24T07:07:17.601+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/road_traffic_injuries.json
+[2025-10-24T07:07:17.620+0000] {data_processor.py:301} INFO - Finished chunking raw_content/road_traffic_injuries.json. Found 11 chunks.
+[2025-10-24T07:07:17.622+0000] {data_processor.py:266} INFO - Processing object: raw_content/rubella.json
+[2025-10-24T07:07:17.623+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/rubella.json
+[2025-10-24T07:07:18.632+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/rubella.json
+[2025-10-24T07:07:18.654+0000] {data_processor.py:301} INFO - Finished chunking raw_content/rubella.json. Found 12 chunks.
+[2025-10-24T07:07:18.656+0000] {data_processor.py:266} INFO - Processing object: raw_content/salmonella_(non-typhoidal).json
+[2025-10-24T07:07:18.657+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/salmonella_(non-typhoidal).json
+[2025-10-24T07:07:19.598+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/salmonella_(non-typhoidal).json
+[2025-10-24T07:07:19.621+0000] {data_processor.py:301} INFO - Finished chunking raw_content/salmonella_(non-typhoidal).json. Found 18 chunks.
+[2025-10-24T07:07:19.623+0000] {data_processor.py:266} INFO - Processing object: raw_content/sand_and_dust_storms.json
+[2025-10-24T07:07:19.624+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sand_and_dust_storms.json
+[2025-10-24T07:07:20.576+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sand_and_dust_storms.json
+[2025-10-24T07:07:20.589+0000] {data_processor.py:301} INFO - Finished chunking raw_content/sand_and_dust_storms.json. Found 10 chunks.
+[2025-10-24T07:07:20.590+0000] {data_processor.py:266} INFO - Processing object: raw_content/sanitation.json
+[2025-10-24T07:07:20.591+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sanitation.json
+[2025-10-24T07:07:21.495+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sanitation.json
+[2025-10-24T07:07:21.508+0000] {data_processor.py:301} INFO - Finished chunking raw_content/sanitation.json. Found 11 chunks.
+[2025-10-24T07:07:21.509+0000] {data_processor.py:266} INFO - Processing object: raw_content/scabies.json
+[2025-10-24T07:07:21.511+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/scabies.json
+[2025-10-24T07:07:22.500+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/scabies.json
+[2025-10-24T07:07:22.519+0000] {data_processor.py:301} INFO - Finished chunking raw_content/scabies.json. Found 20 chunks.
+[2025-10-24T07:07:22.520+0000] {data_processor.py:266} INFO - Processing object: raw_content/schistosomiasis.json
+[2025-10-24T07:07:22.521+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/schistosomiasis.json
+[2025-10-24T07:07:23.549+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/schistosomiasis.json
+[2025-10-24T07:07:23.598+0000] {data_processor.py:301} INFO - Finished chunking raw_content/schistosomiasis.json. Found 16 chunks.
+[2025-10-24T07:07:23.603+0000] {data_processor.py:266} INFO - Processing object: raw_content/schizophrenia.json
+[2025-10-24T07:07:23.605+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/schizophrenia.json
+[2025-10-24T07:07:24.468+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/schizophrenia.json
+[2025-10-24T07:07:24.481+0000] {data_processor.py:301} INFO - Finished chunking raw_content/schizophrenia.json. Found 14 chunks.
+[2025-10-24T07:07:24.482+0000] {data_processor.py:266} INFO - Processing object: raw_content/self-care_for_health_and_well-being.json
+[2025-10-24T07:07:24.483+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/self-care_for_health_and_well-being.json
+[2025-10-24T07:07:25.330+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/self-care_for_health_and_well-being.json
+[2025-10-24T07:07:25.360+0000] {data_processor.py:301} INFO - Finished chunking raw_content/self-care_for_health_and_well-being.json. Found 2 chunks.
+[2025-10-24T07:07:25.362+0000] {data_processor.py:266} INFO - Processing object: raw_content/sepsis.json
+[2025-10-24T07:07:25.364+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sepsis.json
+[2025-10-24T07:07:26.426+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sepsis.json
+[2025-10-24T07:07:26.467+0000] {data_processor.py:301} INFO - Finished chunking raw_content/sepsis.json. Found 16 chunks.
+[2025-10-24T07:07:26.470+0000] {data_processor.py:266} INFO - Processing object: raw_content/sexually_transmitted_infections_(stis).json
+[2025-10-24T07:07:26.472+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sexually_transmitted_infections_(stis).json
+[2025-10-24T07:07:27.436+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sexually_transmitted_infections_(stis).json
+[2025-10-24T07:07:27.463+0000] {data_processor.py:301} INFO - Finished chunking raw_content/sexually_transmitted_infections_(stis).json. Found 12 chunks.
+[2025-10-24T07:07:27.464+0000] {data_processor.py:266} INFO - Processing object: raw_content/shingles_(herpes_zoster).json
+[2025-10-24T07:07:27.464+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/shingles_(herpes_zoster).json
+[2025-10-24T07:07:28.421+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/shingles_(herpes_zoster).json
+[2025-10-24T07:07:28.447+0000] {data_processor.py:301} INFO - Finished chunking raw_content/shingles_(herpes_zoster).json. Found 22 chunks.
+[2025-10-24T07:07:28.448+0000] {data_processor.py:266} INFO - Processing object: raw_content/sickle-cell_disease.json
+[2025-10-24T07:07:28.449+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sickle-cell_disease.json
+[2025-10-24T07:07:29.377+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sickle-cell_disease.json
+[2025-10-24T07:07:29.400+0000] {data_processor.py:301} INFO - Finished chunking raw_content/sickle-cell_disease.json. Found 18 chunks.
+[2025-10-24T07:07:29.402+0000] {data_processor.py:266} INFO - Processing object: raw_content/snakebite_envenoming.json
+[2025-10-24T07:07:29.404+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/snakebite_envenoming.json
+[2025-10-24T07:07:30.493+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/snakebite_envenoming.json
+[2025-10-24T07:07:30.529+0000] {data_processor.py:301} INFO - Finished chunking raw_content/snakebite_envenoming.json. Found 12 chunks.
+[2025-10-24T07:07:30.530+0000] {data_processor.py:266} INFO - Processing object: raw_content/social_determinants_of_health.json
+[2025-10-24T07:07:30.531+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/social_determinants_of_health.json
+[2025-10-24T07:07:31.660+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/social_determinants_of_health.json
+[2025-10-24T07:07:31.703+0000] {data_processor.py:301} INFO - Finished chunking raw_content/social_determinants_of_health.json. Found 12 chunks.
+[2025-10-24T07:07:31.706+0000] {data_processor.py:266} INFO - Processing object: raw_content/sodium_reduction.json
+[2025-10-24T07:07:31.708+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sodium_reduction.json
+[2025-10-24T07:07:32.812+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sodium_reduction.json
+[2025-10-24T07:07:32.843+0000] {data_processor.py:301} INFO - Finished chunking raw_content/sodium_reduction.json. Found 16 chunks.
+[2025-10-24T07:07:32.844+0000] {data_processor.py:266} INFO - Processing object: raw_content/soil-transmitted_helminth_infections.json
+[2025-10-24T07:07:32.845+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/soil-transmitted_helminth_infections.json
+[2025-10-24T07:07:33.923+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/soil-transmitted_helminth_infections.json
+[2025-10-24T07:07:33.945+0000] {data_processor.py:301} INFO - Finished chunking raw_content/soil-transmitted_helminth_infections.json. Found 18 chunks.
+[2025-10-24T07:07:33.946+0000] {data_processor.py:266} INFO - Processing object: raw_content/spinal_cord_injury.json
+[2025-10-24T07:07:33.946+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/spinal_cord_injury.json
+[2025-10-24T07:07:35.074+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/spinal_cord_injury.json
+[2025-10-24T07:07:35.117+0000] {data_processor.py:301} INFO - Finished chunking raw_content/spinal_cord_injury.json. Found 17 chunks.
+[2025-10-24T07:07:35.119+0000] {data_processor.py:266} INFO - Processing object: raw_content/sporotrichosis.json
+[2025-10-24T07:07:35.121+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sporotrichosis.json
+[2025-10-24T07:07:36.142+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sporotrichosis.json
+[2025-10-24T07:07:36.173+0000] {data_processor.py:301} INFO - Finished chunking raw_content/sporotrichosis.json. Found 22 chunks.
+[2025-10-24T07:07:36.174+0000] {data_processor.py:266} INFO - Processing object: raw_content/substandard_and_falsified_medical_products.json
+[2025-10-24T07:07:36.175+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/substandard_and_falsified_medical_products.json
+[2025-10-24T07:07:37.218+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/substandard_and_falsified_medical_products.json
+[2025-10-24T07:07:37.236+0000] {data_processor.py:301} INFO - Finished chunking raw_content/substandard_and_falsified_medical_products.json. Found 16 chunks.
+[2025-10-24T07:07:37.237+0000] {data_processor.py:266} INFO - Processing object: raw_content/sugars_and_dental_caries.json
+[2025-10-24T07:07:37.238+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/sugars_and_dental_caries.json
+[2025-10-24T07:07:38.350+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/sugars_and_dental_caries.json
+[2025-10-24T07:07:38.373+0000] {data_processor.py:301} INFO - Finished chunking raw_content/sugars_and_dental_caries.json. Found 12 chunks.
+[2025-10-24T07:07:38.375+0000] {data_processor.py:266} INFO - Processing object: raw_content/suicide.json
+[2025-10-24T07:07:38.376+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/suicide.json
+[2025-10-24T07:07:39.548+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/suicide.json
+[2025-10-24T07:07:39.591+0000] {data_processor.py:301} INFO - Finished chunking raw_content/suicide.json. Found 12 chunks.
+[2025-10-24T07:07:39.594+0000] {data_processor.py:266} INFO - Processing object: raw_content/syphilis.json
+[2025-10-24T07:07:39.598+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/syphilis.json
+[2025-10-24T07:07:40.659+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/syphilis.json
+[2025-10-24T07:07:40.679+0000] {data_processor.py:301} INFO - Finished chunking raw_content/syphilis.json. Found 16 chunks.
+[2025-10-24T07:07:40.680+0000] {data_processor.py:266} INFO - Processing object: raw_content/taeniasiscysticercosis.json
+[2025-10-24T07:07:40.681+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/taeniasiscysticercosis.json
+[2025-10-24T07:07:41.730+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/taeniasiscysticercosis.json
+[2025-10-24T07:07:41.783+0000] {data_processor.py:301} INFO - Finished chunking raw_content/taeniasiscysticercosis.json. Found 14 chunks.
+[2025-10-24T07:07:41.785+0000] {data_processor.py:266} INFO - Processing object: raw_content/tetanus.json
+[2025-10-24T07:07:41.787+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/tetanus.json
+[2025-10-24T07:07:42.885+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/tetanus.json
+[2025-10-24T07:07:42.947+0000] {data_processor.py:301} INFO - Finished chunking raw_content/tetanus.json. Found 4 chunks.
+[2025-10-24T07:07:42.950+0000] {data_processor.py:266} INFO - Processing object: raw_content/the_top_10_causes_of_death.json
+[2025-10-24T07:07:42.955+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/the_top_10_causes_of_death.json
+[2025-10-24T07:07:44.104+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/the_top_10_causes_of_death.json
+[2025-10-24T07:07:44.132+0000] {data_processor.py:301} INFO - Finished chunking raw_content/the_top_10_causes_of_death.json. Found 7 chunks.
+[2025-10-24T07:07:44.133+0000] {data_processor.py:266} INFO - Processing object: raw_content/tobacco.json
+[2025-10-24T07:07:44.134+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/tobacco.json
+[2025-10-24T07:07:45.243+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/tobacco.json
+[2025-10-24T07:07:45.311+0000] {data_processor.py:301} INFO - Finished chunking raw_content/tobacco.json. Found 6 chunks.
+[2025-10-24T07:07:45.313+0000] {data_processor.py:266} INFO - Processing object: raw_content/trachoma.json
+[2025-10-24T07:07:45.317+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/trachoma.json
+[2025-10-24T07:07:46.270+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/trachoma.json
+[2025-10-24T07:07:46.308+0000] {data_processor.py:301} INFO - Finished chunking raw_content/trachoma.json. Found 1 chunks.
+[2025-10-24T07:07:46.312+0000] {data_processor.py:266} INFO - Processing object: raw_content/trans_fat.json
+[2025-10-24T07:07:46.315+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/trans_fat.json
+[2025-10-24T07:07:47.612+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/trans_fat.json
+[2025-10-24T07:07:47.656+0000] {data_processor.py:301} INFO - Finished chunking raw_content/trans_fat.json. Found 12 chunks.
+[2025-10-24T07:07:47.659+0000] {data_processor.py:266} INFO - Processing object: raw_content/trichomoniasis.json
+[2025-10-24T07:07:47.661+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/trichomoniasis.json
+[2025-10-24T07:07:48.639+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/trichomoniasis.json
+[2025-10-24T07:07:48.690+0000] {data_processor.py:301} INFO - Finished chunking raw_content/trichomoniasis.json. Found 20 chunks.
+[2025-10-24T07:07:48.692+0000] {data_processor.py:266} INFO - Processing object: raw_content/trypanosomiasis,_human_african_(sleeping_sickness).json
+[2025-10-24T07:07:48.693+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/trypanosomiasis,_human_african_(sleeping_sickness).json
+[2025-10-24T07:07:49.726+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/trypanosomiasis,_human_african_(sleeping_sickness).json
+[2025-10-24T07:07:49.761+0000] {data_processor.py:301} INFO - Finished chunking raw_content/trypanosomiasis,_human_african_(sleeping_sickness).json. Found 18 chunks.
+[2025-10-24T07:07:49.762+0000] {data_processor.py:266} INFO - Processing object: raw_content/tuberculosis.json
+[2025-10-24T07:07:49.763+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/tuberculosis.json
+[2025-10-24T07:07:50.783+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/tuberculosis.json
+[2025-10-24T07:07:50.810+0000] {data_processor.py:301} INFO - Finished chunking raw_content/tuberculosis.json. Found 22 chunks.
+[2025-10-24T07:07:50.811+0000] {data_processor.py:266} INFO - Processing object: raw_content/tungiasis.json
+[2025-10-24T07:07:50.812+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/tungiasis.json
+[2025-10-24T07:07:51.859+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/tungiasis.json
+[2025-10-24T07:07:51.875+0000] {data_processor.py:301} INFO - Finished chunking raw_content/tungiasis.json. Found 22 chunks.
+[2025-10-24T07:07:51.877+0000] {data_processor.py:266} INFO - Processing object: raw_content/typhoid.json
+[2025-10-24T07:07:51.878+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/typhoid.json
+[2025-10-24T07:07:52.848+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/typhoid.json
+[2025-10-24T07:07:52.866+0000] {data_processor.py:301} INFO - Finished chunking raw_content/typhoid.json. Found 14 chunks.
+[2025-10-24T07:07:52.868+0000] {data_processor.py:266} INFO - Processing object: raw_content/ultraviolet_radiation.json
+[2025-10-24T07:07:52.869+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/ultraviolet_radiation.json
+[2025-10-24T07:07:53.838+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/ultraviolet_radiation.json
+[2025-10-24T07:07:53.854+0000] {data_processor.py:301} INFO - Finished chunking raw_content/ultraviolet_radiation.json. Found 12 chunks.
+[2025-10-24T07:07:53.855+0000] {data_processor.py:266} INFO - Processing object: raw_content/universal_health_coverage_(uhc).json
+[2025-10-24T07:07:53.856+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/universal_health_coverage_(uhc).json
+[2025-10-24T07:07:54.906+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/universal_health_coverage_(uhc).json
+[2025-10-24T07:07:54.927+0000] {data_processor.py:301} INFO - Finished chunking raw_content/universal_health_coverage_(uhc).json. Found 10 chunks.
+[2025-10-24T07:07:54.929+0000] {data_processor.py:266} INFO - Processing object: raw_content/urban_health.json
+[2025-10-24T07:07:54.930+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/urban_health.json
+[2025-10-24T07:07:55.997+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/urban_health.json
+[2025-10-24T07:07:56.019+0000] {data_processor.py:301} INFO - Finished chunking raw_content/urban_health.json. Found 13 chunks.
+[2025-10-24T07:07:56.022+0000] {data_processor.py:266} INFO - Processing object: raw_content/vector-borne_diseases.json
+[2025-10-24T07:07:56.026+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/vector-borne_diseases.json
+[2025-10-24T07:07:57.526+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/vector-borne_diseases.json
+[2025-10-24T07:07:57.644+0000] {data_processor.py:301} INFO - Finished chunking raw_content/vector-borne_diseases.json. Found 9 chunks.
+[2025-10-24T07:07:57.646+0000] {data_processor.py:266} INFO - Processing object: raw_content/violence_against_children.json
+[2025-10-24T07:07:57.648+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/violence_against_children.json
+[2025-10-24T07:07:58.996+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/violence_against_children.json
+[2025-10-24T07:07:59.027+0000] {data_processor.py:301} INFO - Finished chunking raw_content/violence_against_children.json. Found 14 chunks.
+[2025-10-24T07:07:59.028+0000] {data_processor.py:266} INFO - Processing object: raw_content/violence_against_women.json
+[2025-10-24T07:07:59.029+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/violence_against_women.json
+[2025-10-24T07:07:59.991+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/violence_against_women.json
+[2025-10-24T07:08:00.013+0000] {data_processor.py:301} INFO - Finished chunking raw_content/violence_against_women.json. Found 20 chunks.
+[2025-10-24T07:08:00.014+0000] {data_processor.py:266} INFO - Processing object: raw_content/west_nile_virus.json
+[2025-10-24T07:08:00.015+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/west_nile_virus.json
+[2025-10-24T07:08:00.990+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/west_nile_virus.json
+[2025-10-24T07:08:01.019+0000] {data_processor.py:301} INFO - Finished chunking raw_content/west_nile_virus.json. Found 18 chunks.
+[2025-10-24T07:08:01.021+0000] {data_processor.py:266} INFO - Processing object: raw_content/white_phosphorus.json
+[2025-10-24T07:08:01.022+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/white_phosphorus.json
+[2025-10-24T07:08:02.029+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/white_phosphorus.json
+[2025-10-24T07:08:02.077+0000] {data_processor.py:301} INFO - Finished chunking raw_content/white_phosphorus.json. Found 11 chunks.
+[2025-10-24T07:08:02.080+0000] {data_processor.py:266} INFO - Processing object: raw_content/yaws.json
+[2025-10-24T07:08:02.082+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/yaws.json
+[2025-10-24T07:08:03.139+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/yaws.json
+[2025-10-24T07:08:03.172+0000] {data_processor.py:301} INFO - Finished chunking raw_content/yaws.json. Found 18 chunks.
+[2025-10-24T07:08:03.174+0000] {data_processor.py:266} INFO - Processing object: raw_content/yellow_fever.json
+[2025-10-24T07:08:03.175+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/yellow_fever.json
+[2025-10-24T07:08:04.301+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/yellow_fever.json
+[2025-10-24T07:08:04.329+0000] {data_processor.py:301} INFO - Finished chunking raw_content/yellow_fever.json. Found 13 chunks.
+[2025-10-24T07:08:04.332+0000] {data_processor.py:266} INFO - Processing object: raw_content/youth_violence.json
+[2025-10-24T07:08:04.334+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/youth_violence.json
+[2025-10-24T07:08:05.343+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/youth_violence.json
+[2025-10-24T07:08:05.384+0000] {data_processor.py:301} INFO - Finished chunking raw_content/youth_violence.json. Found 10 chunks.
+[2025-10-24T07:08:05.387+0000] {data_processor.py:266} INFO - Processing object: raw_content/zika_virus.json
+[2025-10-24T07:08:05.389+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/zika_virus.json
+[2025-10-24T07:08:06.421+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/zika_virus.json
+[2025-10-24T07:08:06.450+0000] {data_processor.py:301} INFO - Finished chunking raw_content/zika_virus.json. Found 22 chunks.
+[2025-10-24T07:08:06.452+0000] {data_processor.py:266} INFO - Processing object: raw_content/zoonoses.json
+[2025-10-24T07:08:06.454+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet/raw_content/zoonoses.json
+[2025-10-24T07:08:07.471+0000] {s3_utils.py:56} INFO - Successfully downloaded raw_content/zoonoses.json
+[2025-10-24T07:08:07.486+0000] {data_processor.py:301} INFO - Finished chunking raw_content/zoonoses.json. Found 2 chunks.
+[2025-10-24T07:08:07.490+0000] {data_processor.py:183} INFO - Local ChromaDB not found. Attempting to restore from S3...
+[2025-10-24T07:08:07.492+0000] {s3_utils.py:48} INFO - Attempting to download s3://whofactsheet//app/chroma_db_files/chroma.sqlite
+[2025-10-24T07:08:08.441+0000] {s3_utils.py:60} WARNING - S3 object not found: /app/chroma_db_files/chroma.sqlite
+[2025-10-24T07:08:08.449+0000] {data_processor.py:193} WARNING - ChromaDB not found on S3. Starting with a new database.
+[2025-10-24T07:08:08.520+0000] {posthog.py:22} INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[2025-10-24T07:08:08.782+0000] {data_processor.py:201} ERROR - Failed to initialize Chroma client: error returned from database: (code: 8) attempt to write a readonly database
+[2025-10-24T07:08:08.783+0000] {data_processor.py:308} INFO - Chunked and uploaded all documents to ChromaDB.
+[2025-10-24T07:08:08.788+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-10-24T07:08:08.809+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=who_data_rag_ingestion_pipeline, task_id=chroma_processor, execution_date=20251023T231417, start_date=20251024T070349, end_date=20251024T070808
+[2025-10-24T07:08:08.901+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-10-24T07:08:08.960+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

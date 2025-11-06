@@ -1,0 +1,8 @@
+boto3
+# weaviate-client
+chromadb
+requests
+beautifulsoup4
+lxml
+langchain-text-splitters
+fastembed
