@@ -40,3 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 rag_cloud_deployment/infer.py
+rag_cloud_deployment/__pycache__/inference_chroma.cpython-311.pyc 
+dc.yml
+utils/__pycache__/s3_utils.cpython-311.pyc 
+app/node_modules
+app/src/node_modules
+*.env
+airflow/logs
+airflow/dags/__pycache__
