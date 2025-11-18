@@ -33,27 +33,22 @@ async function main() {
           {
             role: 'user',
             content: 'What are the symptoms of COVID-19?',
+            source: JSON.stringify([])
           },
           {
             role: 'assistant', 
             content: 'Common symptoms of COVID-19 include fever, cough, \
             and difficulty breathing. However, symptoms can vary. Please \
             consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
-            consult WHO guidelines for the most current information \
             .',
+            source: JSON.stringify(
+              [
+                {
+                  title: 'coronavirus-disease-(covid-19)',                                                                     
+                  url: 'https://www.who.int/news-room/fact-sheets/detail/coronavirus-disease-(covid-19)'                       
+                }
+              ]    
+            ),     
           },
         ],
       },

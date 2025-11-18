@@ -26,11 +26,13 @@ export function SignInForm() {
         redirect: false,
         email: data.email,
         password: data.password,
-        // callbackUrl: '/', 
+        callbackUrl: '/', 
       })
 
       if (loginResult?.error) {
         setError('Invalid email or password')
+      } else {
+        router.push('/')
       }
     } catch (err) {
       console.error(err)
@@ -71,7 +73,7 @@ export function SignInForm() {
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
         className="hidden lg:flex flex-col justify-center items-center 
-        w-1/2 relative bg-gradient-to-br from-sky-100 via-sky-200
+        w-1/2 relative bg-linear-to-br from-sky-100 via-sky-200
          to-sky-300 text-white overflow-hidden"
       >
     
@@ -99,7 +101,7 @@ export function SignInForm() {
 
 
         <svg
-          className="absolute bottom-0 left-0 w-full opacity-10"
+          className="absolute bottom-0 left-0 w-full opacity-40"
           viewBox="0 0 800 400"
           xmlns="http://www.w3.org/2000/svg"
         >

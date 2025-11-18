@@ -1,9 +1,4 @@
-/**
- * API Request/Response Types
- * These ensure type safety when communicating with external APIs
- */
 
-// Request to your Railway inference API
 export interface InferenceAPIRequest {
   query: string
   conversation_id?: string
@@ -14,24 +9,21 @@ export interface InferenceAPIRequest {
   stream?: boolean
 }
 
-// Response from your Railway inference API  
 export interface InferenceAPIResponse {
     query: string;
     answer: string;
-    sources: string[]; // List of source URLs (strings)
-    context_chunks: string[]; // List of context text (strings)
+    sources: string[]; 
+    context_chunks: string[]; 
     expanded_queries: string[];
     time?: Date
 }
 
 export type RagResponse = {
     answer: string;
-    // Client UI requires objects, not just strings, for the 'sources' display
-    sources: Array<{ title: string; url: string }>; 
+    sources: Array<{ title: string; url: string }> | string; 
     responseTime?: number;
 };
 
-// Error responses
 export interface APIError {
   error: string
   code?: string

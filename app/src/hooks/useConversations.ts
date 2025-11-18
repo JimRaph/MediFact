@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { Conversation } from '@/types/chat' 
 
@@ -18,7 +18,7 @@ interface UseConversationsReturn {
     clearResponseMessages: () => void 
 }
 
-
+const storedconversationkey = 'stored:conversation'
 
 export function useConversations(userId: string): UseConversationsReturn {
  const [currentConversation, setCurrentConversation] = useState<Conversation | null>(null)
@@ -40,6 +40,55 @@ export function useConversations(userId: string): UseConversationsReturn {
     staleTime: 5 * 60 * 1000, 
  })
 
+ useEffect(()=>{
+    if(conversations.length > 0) {  
+        const storedConversationId = typeof window !== 'undefined' ? localStorage.getItem(storedconversationkey) : null 
+        if(!storedConversationId) return 
+
+        if(currentConversation) return 
+        console.log('conversations test: ', conversations)
+        const isFound = conversations.find((conv) => conv.id === storedConversationId)
+        if(isFound){
+            console.log('isfound: ', storedConversationId, isFound)
+            setCurrentConversation(isFound)
+        } else {
+            localStorage.removeItem(storedconversationkey)
+            console.log('removed: ', storedConversationId)
+            console.log('isfound here: ', isFound)
+        }
+    } 
+    
+ }, [conversations])
+
+
+ //Original intention here was to sync conversation across tabs
+ // but a user might want to have two separate conversation simultaneouly
+ // I feel like this is a better user experience than syncing.
+//  useEffect(()=>{
+//     if(conversations.length < 0) return
+        
+//         const onStorage = (e:StorageEvent) => {
+//         if (e.key !== storedconversationkey) return 
+//         const newId = e.newValue
+//         if(!newId){
+//             setCurrentConversation(null)
+//             return 
+//         }
+
+//         const isFound = conversations.find((conv) => conv.id === newId)
+//         if(isFound){
+//             setCurrentConversation(isFound)
+//         } else {
+
+//         }
+//     }
+    
+
+//     window.addEventListener('storage', onStorage)
+//     return () => window.removeEventListener('storage', onStorage)
+//  },[conversations])
+
+
  const deleteConversationMutation = useMutation({
     mutationFn: async (conversationId: string) => {
         const response = await fetch(`/api/conversations/${conversationId}`,{
@@ -56,10 +105,14 @@ export function useConversations(userId: string): UseConversationsReturn {
     onSuccess: (responseMessage, conversationId) => {
         setResponseMsg(responseMessage)
         queryClient.invalidateQueries({queryKey: ['conversations', userId]})
+
         if (currentConversation?.id === conversationId) {
             setCurrentConversation(null)
+            localStorage.removeItem(storedconversationkey)
         }
+
         queryClient.removeQueries({queryKey: ['messages', conversationId]})
+        window.dispatchEvent(new CustomEvent('cancel-active-mutation'))
     },
 
     onError: (error) => {
@@ -71,11 +124,36 @@ export function useConversations(userId: string): UseConversationsReturn {
 
  const selectConversation = useCallback((conversation: Conversation | null) => {
     setCurrentConversation(conversation)
+    console.log('convo ', conversation)
+    if(conversation?.id){
+        try{
+            localStorage.setItem(storedconversationkey, conversation.id)
+        } catch(e) {
+
+        }
+    } else {
+        try {
+            localStorage.removeItem(storedconversationkey)
+        } catch(e) {
+
+        }
+    }
  }, [])
 
  const createNewConversation = useCallback(() => {
     setCurrentConversation(null); 
- }, [])
+
+    try {
+        localStorage.removeItem(storedconversationkey)
+    } catch (e) {
+        
+    }
+
+    queryClient.removeQueries({queryKey: ['messages']})
+    queryClient.cancelQueries({queryKey: ['messages']})
+    setResponseMsg(null)
+    setConversationDeleteError(null)
+ }, [queryClient])
 
  const deleteConversation = useCallback((conversationId: string) => {
     deleteConversationMutation.mutate(conversationId)

@@ -9,7 +9,7 @@ export default async function LoginPage() {
   if (session) redirect('/')
 
   return (
-    <div className="min-h-screen bg-blue-800">
+    <div className="min-h-screen bg-sky-300 overflow-clip">
       <SignInForm />
     </div>
   )

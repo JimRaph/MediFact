@@ -18,8 +18,8 @@ const Options = ({handleDelete, conversation, removeModal}: OptionsProps) => {
   }
 
   return (
-    <div className='z-10 inset-0 fixed flex justify-center text-gray-600
-    rounded-md shadow-lg bg-gray-50/80 items-center'
+    <div className='z-50 inset-0 fixed flex justify-center text-gray-600
+    rounded-md shadow-lg bg-gray-500/90 items-center'
       >
         <div className='bg-gray-200 border border-gray-300 rounded-2xl p-4 cursor-default'>
           <p>Are you sure you want to delete this conversation?</p>

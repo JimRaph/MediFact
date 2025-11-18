@@ -36,10 +36,10 @@ export async function POST(request: NextRequest) {
       )
     }
 
-
-    
     const isRagServiceHealthy = await healthCheck();
+
     console.log('rag urrl: ', RAG_SERVICE_URL)
+
     if (!isRagServiceHealthy) {
       console.log('rag url: ', RAG_SERVICE_URL)
       console.error('RAG Service is unavailable or failed health check.');
@@ -92,10 +92,12 @@ export async function POST(request: NextRequest) {
         role: 'user',
         content: message,
         conversationId: conversation.id,
+        source: ''
       },
     })
 
     const ragResponse: RagResponse = await getRagAnswer(message, history || []); 
+
     console.log("ragResponse: ", ragResponse)
     const aiAnswer = ragResponse.answer;
     const sources = ragResponse.sources;
@@ -105,6 +107,7 @@ export async function POST(request: NextRequest) {
         role: 'assistant',
         content: aiAnswer,
         conversationId: conversation.id,
+        source: JSON.stringify(sources)
       },
     })
 

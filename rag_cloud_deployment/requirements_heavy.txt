@@ -6,6 +6,9 @@
 
 torch==2.9.0
 transformers
-bitsandbytes
+# bitsandbytes
 sentence-transformers
 accelerate
+llama-cpp-python
+tiktoken
+sentencepiece

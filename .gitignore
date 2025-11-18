@@ -41,8 +41,10 @@ yarn-error.log*
 next-env.d.ts
 rag_cloud_deployment/infer.py
 rag_cloud_deployment/__pycache__/inference_chroma.cpython-311.pyc 
+rag_cloud_deployment/keep.py 
+rag_cloud_deployment/utils
 dc.yml
-utils/__pycache__/s3_utils.cpython-311.pyc 
+utils
 app/node_modules
 app/src/node_modules
 *.env

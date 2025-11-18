@@ -3,4 +3,9 @@ APP/.next
 APP/node_modules
 
 
-
+rag_cloud_deployment/__pycache__/inference_chroma.cpython-311.pyc 
+rag_cloud_deployment/infer.py
+rag_cloud_deployment/keep.py 
+rag_cloud_deployment/utils
+dc.yml
+utils

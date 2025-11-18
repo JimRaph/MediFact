@@ -1,20 +1,19 @@
 import { getServerSession } from 'next-auth'
-import { redirect } from 'next/navigation'
 import { authOptions } from '@/lib/auth'
+import { redirect } from 'next/navigation'
 import { ChatInterface } from '@/components/chat/ChatInterface'
 
 
-
-export default async function DashboardPage() {
+export default async function Dashboard() {
   const session = await getServerSession(authOptions)
-
+  
   if (!session) {
-    redirect('/login')
+    redirect('/login'); 
   }
 
   return (
-    <div className="flex-1 ">
-      <ChatInterface user={session.user} />
+    <div className='w-screen'>
+         <ChatInterface user = {session?.user} />  
     </div>
   )
 }

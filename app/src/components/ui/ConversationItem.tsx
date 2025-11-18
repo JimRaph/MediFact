@@ -5,11 +5,12 @@ import { Conversation } from '@/types/chat'
 import { formatDate } from '@/lib/utils'
 import Options from './Options'
 import { TrashIcon } from '@heroicons/react/24/outline'
+import { Modal } from '@/components/Modal'
 
 interface ConversationItemProps {
     conversation: Conversation
     isSelected: boolean
-    onSelect: (conversation: Conversation) => void
+    onSelect: (conversation: Conversation ) => void
     onDelete: (conversationId: string) => void
     isDisabled: boolean
 }
@@ -85,6 +86,7 @@ export function ConversationItem({
               </div>
              
             </button>
+            
             <div >
 
               {
@@ -101,13 +103,21 @@ export function ConversationItem({
               )
                 }
             </div>
+
             <div>
-              {showDeleteConfirmation && <Options
-              conversation ={conversation} 
-              handleDelete={handleDelete}
-              removeModal={setShowDeleteConfirmation}
-              />}
+              {showDeleteConfirmation && (
+                <Modal>
+
+                  <Options
+                    conversation ={conversation} 
+                    handleDelete={handleDelete}
+                    removeModal={setShowDeleteConfirmation}
+                    />
+
+                </Modal>
+              )}
             </div>
+
           </div>
     )
 }

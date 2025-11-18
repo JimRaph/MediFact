@@ -134,6 +134,8 @@ services:
       CHROMA_COLLECTION: ${CHROMA_COLLECTION} 
       CHROMA_DIR: ${CHROMA_DIR} 
       CHROMA_DB_FILENAME: ${CHROMA_DB_FILENAME} 
+      CHROMA_CACHE_COLLECTION: ${CHROMA_CACHE_COLLECTION}
+      LLAMA_GGUF_PATH: /app/model/tinyllama-reasoning.Q4_K_M.gguf
     volumes:
       - ./rag_cloud_deployment:/app 
       - chroma_data:/app/chroma_db_files

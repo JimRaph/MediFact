@@ -8,26 +8,33 @@ import { MessageBubble } from './MessageBubble'
 import { ConversationSidebar } from './ConversationSidebar'
 import { ChatInterfaceProps } from '@/types/user'
 import { toast } from 'react-toastify'
-import { Conversation } from '@prisma/client'
-import { Bars3Icon, H3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+// import { Bars3Icon, H3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import { Conversation } from '@/types/chat' 
+// import { useAuthStore } from '@/stores/authStore'
+import { useComp } from '@/stores/compStore'
 
 
-export function ChatInterface({ user }: ChatInterfaceProps) {
+export function ChatInterface({user}: ChatInterfaceProps) {
 
-  const [sidebarOpen, setSidebarOpen] = useState<Boolean>(false)
+   console.log('session1: ', user)
+  const setSidebarOpen = useComp((state) => state.setSidebarOpen)
+  const sidebarOpen = useComp((state) => state.sidebarOpen)
+  
   
   const { conversations,currentConversation,selectConversation,createNewConversation,
     isCreatingConversation, deleteConversation,isDeletingConversation,
     conversationDeleteError,responseMsg,clearResponseMessages} = useConversations(user.id)
   
   const handleNewConversationCreated = useCallback((newId: string) => {
-    const newConversation = conversations.find(c => c.id === newId);
-    if (newConversation) {
-        selectConversation(newConversation); 
-    }
+    // const newConversation = conversations.find(c => c.id === newId);
+    // if (newConversation) {
+    //     selectConversation(newConversation); 
+    // }
+    selectConversation({id: newId} as Conversation)
+    
 }, [conversations, selectConversation]);
 
-  const handleSelectConversation = useCallback((conv ) => {
+  const handleSelectConversation = useCallback((conv:Conversation ) => {
     selectConversation(conv)
     if(sidebarOpen){
       setSidebarOpen(false)
@@ -41,6 +48,7 @@ export function ChatInterface({ user }: ChatInterfaceProps) {
     handleSubmit,
     isSending, 
     isLoadingHistory,
+    cancelSending,
   } = useChat({
     currentConversation,
     userId: user.id,
@@ -66,20 +74,25 @@ export function ChatInterface({ user }: ChatInterfaceProps) {
     }
   }, [responseMsg, conversationDeleteError,clearResponseMessages])
 
-
+  useEffect(() => {
+    if (isDeletingConversation || isCreatingConversation) {
+      cancelSending()
+    }
+  }, [isDeletingConversation, isCreatingConversation])
 
   return (
 
-    <div className="flex h-[calc(100vh-4rem)] bg-gray-50 relative overflow-hidden md:overflow-visible">
+    <div className="flex h-[calc(100vh-4rem)] bg-gray-50 relative overflow-hidden md:overflow-visible ">
+
 
      <div className={`
             fixed inset-y-0 left-0 z-20 w-80 bg-gray-50 border-r border-gray-200 
             flex-col shrink-0 transition-transform duration-300 ease-in-out
             ${sidebarOpen ? 'translate-x-0 shadow-xl' : '-translate-x-full shadow-none'}
-            md:static md:flex md:translate-x-0
+            lg:static lg:flex lg:translate-x-0
         `}
     > 
-
+    
 
       <ConversationSidebar
         conversations={conversations}
@@ -90,7 +103,11 @@ export function ChatInterface({ user }: ChatInterfaceProps) {
         onDeleteConversation={deleteConversation}
         isDeletingConversation={isDeletingConversation}
         userId = {user.id}
+        setInput = {setInput}
       /> 
+
+      
+
     </div> 
 
     {sidebarOpen && (
@@ -101,19 +118,10 @@ export function ChatInterface({ user }: ChatInterfaceProps) {
         />
     )}
       
-      <div className="flex-1 flex flex-col relative">
-
-        <div  className='md:hidden p-2'>
-          <button className="p-2 rounded-md text-gray-700 hover: bg-gray-200" 
-            onClick={() => setSidebarOpen(true)}
-            aria-label = "Open sidebar"
-          >
-            <Bars3Icon className="w-6 h-6" />
-          </button>
-        </div>
+      <div className="flex-1 flex flex-col relative max-w-2xl mx-auto border-gray-150 border-r border-l shadow shadow-gray-300">
 
 
-        <div className="flex-1 p-4 overflow-auto space-y-4">
+        <div className="flex-1  p-4 overflow-auto space-y-4 scrollbar-thin">
           {messages.length === 0 && !isLoadingHistory && !isSending && (
             <div className="flex items-center justify-center h-full">
               <div className="text-center text-gray-500">
@@ -147,10 +155,12 @@ export function ChatInterface({ user }: ChatInterfaceProps) {
           )}
 
           <div ref={messagesEndRef} />
+
+          
         </div>
         
 
-        <ChatInput
+        <ChatInput 
           input={input}
           setInput={setInput}
           onSubmit={handleSubmit}

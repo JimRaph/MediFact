@@ -8,11 +8,13 @@ import Image from 'next/image'
 import { useAuthStore } from '@/stores/authStore'
 import { RegisterData } from '@/types/api'
 import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 export function RegisterForm() {
     const { register, handleSubmit } = useForm<RegisterData>()
     const { isLoading, setLoading, setError, error } = useAuthStore()
-
+    const router = useRouter()
+    
     const onSubmit = async (data: RegisterData) => {
         try {
         setError(null)
@@ -31,14 +33,15 @@ export function RegisterForm() {
         }
 
         const loginRes = await signIn('credentials', {
-            redirect: true,
+            redirect: false,
             email: data.email,
-            password: data.password,
-            callbackUrl: '/',
+            password: data.password
         })
 
         if (loginRes?.error) {
             setError('Login failed.')
+        } else{
+          router.push('/')
         }
         } catch (err) {
         console.error(err)
@@ -72,16 +75,14 @@ export function RegisterForm() {
 
 return (
     <div className="flex min-h-screen">
-      {/* Left Section (Illustration) */}
       <motion.div
         initial={{ x: -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
         className="hidden lg:flex flex-col justify-center items-center 
-        w-1/2 relative bg-gradient-to-br from-emerald-100 via-emerald-200
+        w-1/2 relative bg-linear-to-br from-emerald-100 via-emerald-200
         to-emerald-300 text-white overflow-hidden"
       >
-        {/* Animated heart icon */}
         <motion.div
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ repeat: Infinity, duration: 2 }}
@@ -103,9 +104,8 @@ return (
           <p>Create your account and start your AI-powered health information journey.</p>
         </div>
 
-        {/* Curved vector background */}
         <svg
-          className="absolute bottom-0 left-0 w-full opacity-10"
+          className="absolute bottom-0 left-0 w-full opacity-50"
           viewBox="0 0 800 400"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -116,7 +116,6 @@ return (
         </svg>
       </motion.div>
 
-      {/* Right Section (Form) */}
       <motion.div
         initial={{ x: 50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}

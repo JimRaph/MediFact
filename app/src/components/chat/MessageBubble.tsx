@@ -14,6 +14,7 @@ interface MessageBubbleProps {
 export function MessageBubble({ message }: MessageBubbleProps) {
  const isUser = message.role === 'user'
  
+ console.log('messsage ', message)
  const hasSources = !isUser && message.sources && message.sources.length > 0
  const [isSourcesExpanded, setIsSourcesExpanded] = useState(false)
 

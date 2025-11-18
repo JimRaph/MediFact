@@ -11,7 +11,7 @@ import hashlib
 import time
 import chromadb
 from chromadb import PersistentClient
-from utils.s3_utils import upload_to_s3, download_from_s3, download_all_files, \
+from s3_utils import upload_to_s3, download_from_s3, download_all_files, \
 upload_chroma_folder_to_s3, download_chroma_folder_from_s3
 
 
@@ -31,7 +31,7 @@ CHROMA_DB_FILENAME = os.getenv("CHROMA_DB_FILENAME")
 EMBEDDING_MODEL = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
 
 WHO_INDEX_URL = "https://www.who.int/news-room/fact-sheets"
-
+PREFIX = "raw_content/"
 
 def fetch_html(url: str) -> str:
     resp = requests.get(url)
@@ -316,9 +316,14 @@ def embed_and_upload_chroma(batch_size: int = 100):
     upload_chroma_folder_to_s3(local_dir=CHROMA_DIR, s3_prefix=CHROMA_DIR)
     logger.info("ChromaDB embedding complete and synced to S3.")
 
-
-if __name__ == "__main__":
+def run_all():
+    logger.info('.................STARTING DATA PIPELINE...............')
     topic_data_and_save_to_s3(WHO_INDEX_URL)
     fetch_content_and_save_to_s3()
-    process_and_upload_to_chroma(prefix="raw_content/")
+    process_and_upload_to_chroma(PREFIX)
     embed_and_upload_chroma()
+    logger.info("................DATA PIPELINE ENDED..................")
+    
+
+if __name__ == "__main__":
+    run_all()

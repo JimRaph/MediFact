@@ -24,10 +24,7 @@ export interface ChatRequest {
 }
 
 export interface ChatResponse {
-  conversationId?: string,
-  query: string
-  answer: string
-  sources: string[]
-  context_chunks: string[]
-  expanded_queries: string[]
+  response: string
+  conversationId: string
+  sources: Record<string, string>[]
 }

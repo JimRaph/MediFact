@@ -90,7 +90,7 @@ export async function healthCheck(): Promise<boolean> {
 export async function getRagAnswer(
     latestQuery: string, 
     conversationHistory: Message[],
-    convId?: string
+    // convId?: string
 ): Promise<RagResponse> {
     
     const serviceHistory = conversationHistory.map(m => ({
@@ -101,7 +101,7 @@ export async function getRagAnswer(
     const data: InferenceAPIRequest = { 
         query: latestQuery, 
         history: serviceHistory,
-        conversation_id: convId,
+        // conversation_id: convId,
         stream: false
     };
     
