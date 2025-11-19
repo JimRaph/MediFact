@@ -3,11 +3,16 @@ name: WHO Data Pipeline
 on:
   schedule:
     - cron: "0 0 1 */2 *"  
-  workflow_dispatch: {}      
+  workflow_dispatch: {}    
+
+  push:
+    paths:
+      - "rag_cloud_deployment/**"  
 
 jobs:
   run-pipeline:
     runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
 
     steps:
       - name: Checkout repo
@@ -33,3 +38,34 @@ jobs:
           CHROMA_DB_FILENAME: ${{ secrets.CHROMA_DB_FILENAME }}
         run: |
           python airflow/scripts/data_preprocessing.py
+
+  deploy-to-hf-space:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'   
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Clone Hugging Face Space
+        run: |
+          git clone https://huggingface.co/spaces/EJ4U/WHO-rag-system hf-space
+          rm -rf hf-space/*
+
+      - name: Copy deployment folder
+        run: |
+          cp -r rag_cloud_deployment/* hf-space/
+
+      - name: Commit and push to HF Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          cd hf-space
+          git add .
+          git commit -m "Auto-deploy pipeline update" || echo "No changes to commit"
+          git push https://$HF_TOKEN@huggingface.co/spaces/EJ4U/WHO-rag-system main

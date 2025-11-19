@@ -1,6 +1,10 @@
 
 FROM python:3.11-slim
 
+#for huggingface space
+ENV PORT = 7860
+EXPOSE 7860
+
 WORKDIR /app
 
 
@@ -20,6 +24,8 @@ RUN pip install --timeout 2000 -r requirements_light.txt \
 --extra-index-url https://download.pytorch.org/whl/cpu
 
 
-COPY inference_chroma.py .
+# COPY inference_chroma.py .
+COPY . . 
 
-CMD ["uvicorn", "inference_chroma:app", "--host", "0.0.0.0", "--port", "8000"]
+# CMD ["uvicorn", "inference_chroma:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "inference_chroma:app", "--host", "0.0.0.0", "--port", "7860"]

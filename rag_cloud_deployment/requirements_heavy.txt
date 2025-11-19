@@ -9,6 +9,7 @@ transformers
 # bitsandbytes
 sentence-transformers
 accelerate
-llama-cpp-python
+# llama-cpp-python UNCOMMENT THIS LINE FOR LOCAL DOCKER TESTING
+llama-cpp-python==0.2.83 --extra-index-url https://abetlen.github.io/llama-cpp-python-wheels/  
 tiktoken
 sentencepiece
