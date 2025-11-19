@@ -53,12 +53,15 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Clone Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git clone https://huggingface.co/spaces/EJ4U/WHO-rag-system hf-space
-          rm -rf hf-space/*
+          git clone https://EJ4U:${HF_TOKEN}@huggingface.co/spaces/EJ4U/WHO-rag-system hf-space
+
 
       - name: Copy deployment folder
         run: |
+          rm -rf hf-space/*
           cp -r rag_cloud_deployment/* hf-space/
 
       - name: Commit and push to HF Space
@@ -66,6 +69,6 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           cd hf-space
-          git add .
-          git commit -m "Auto-deploy pipeline update" || echo "No changes to commit"
-          git push https://EJ4U:${HF_TOKEN}@huggingface.co/spaces/EJ4U/WHO-rag-system.git main
+          git add --all
+          git commit -m "Auto-deploy pipeline update $$(date)" || echo "No changes to commit"
+          git push --force origin main
