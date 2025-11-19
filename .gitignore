@@ -39,11 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
 rag_cloud_deployment/infer.py
 rag_cloud_deployment/__pycache__/inference_chroma.cpython-311.pyc 
 rag_cloud_deployment/keep.py 
 rag_cloud_deployment/utils
 rag_cloud_deployment/model
+
 dc.yml
 utils
 app/node_modules
