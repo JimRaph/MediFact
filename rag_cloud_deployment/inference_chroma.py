@@ -21,6 +21,8 @@ from chromadb.api.types import QueryResult
 import time
 from llama_cpp import Llama 
 
+from huggingface_hub import hf_hub_download
+
 logging.basicConfig(level=logging.INFO, format='{"time": "%(asctime)s", "level": "%(levelname)s", "message": "%(message)s"}')
 logger = logging.getLogger(__name__)
 
@@ -44,7 +46,7 @@ MAX_NEW_TOKENS_GPU = int(os.getenv("MAX_NEW_TOKENS_GPU", 1024))
 # GPU_MIN_FREE_HOURS_THRESHOLD = float(os.getenv("GPU_MIN_FREE_HOURS_THRESHOLD", 0.5))
 GPU_MIN_FREE_HOURS_THRESHOLD = 11
 
-LLAMA_GGUF_PATH = os.getenv("LLAMA_GGUF_PATH", "/model/tinyllama-reasoning.Q4_K_M.gguf")
+# LLAMA_GGUF_PATH = os.getenv("LLAMA_GGUF_PATH", "/model/tinyllama-reasoning.Q4_K_M.gguf")
 LLM_TOKENIZER_ID = "alexredna/TinyLlama-1.1B-Chat-v1.0-reasoning-v2"
 
 TINYLAMA_CONTEXT_WINDOW = 2048 
@@ -68,11 +70,20 @@ LLAMA_3_CHAT_TEMPLATE = (
 )
 
 CROSS_ENCODER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+MODEL_ID = "EJ4U/WHO-rag-model"
+FILENAME = "tinyllama-reasoning.Q4_K_M.gguf"
+
 try:
     cross_encoder = CrossEncoder(CROSS_ENCODER_MODEL, device=DEVICE)
     logger.info("Cross-encoder model loaded successfully.")
 except Exception as e:
     logger.warning("Cross-encoder model error: %s", e)
+
+LLAMA_GGUF_PATH = hf_hub_download(
+    repo_id=MODEL_ID,
+    filename=FILENAME,
+    cache_dir="model" 
+)
 
 EMBEDDING_MODEL = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
 _ = list(EMBEDDING_MODEL.embed(["warmup"])) 
@@ -160,109 +171,15 @@ def initialize_chroma_client() -> chromadb.PersistentClient:
 
     return client
 
-# async def load_cpu_pipeline() -> Tuple[Optional[object], str, int, int, int]:
-#     """
-#     Lazily load the CPU pipeline.
-#     Replaced HF pipeline load with llama.cpp Llama instance and HF tokenizer for templating.
-#     Returns a tuple (pipe_like, runtime_env, max_context, max_gen, top_k)
-#      - pipe_like will be app.state.llm_cpp (Llama instance) and tokenizer is in app.state.tokenizer
-#     """
-#     if getattr(app.state, 'cpu_pipeline', None) is None:
-#         logger.info("Lazy-loading TinyLlama (CPU) via llama.cpp...")
-#         try:
-#             logger.info(f"Loading tokenizer from {LLM_TOKENIZER_ID} for chat template and token counting.")
-#             app.state.tokenizer = AutoTokenizer.from_pretrained(LLM_TOKENIZER_ID, use_fast=False)
-#             if not getattr(app.state.tokenizer, "chat_template", None):
-#                 app.state.tokenizer.chat_template = LLAMA_3_CHAT_TEMPLATE
 
-#             # app.state.llm_cpp = await asyncio.to_thread(initialize_cpp_llm, LLAMA_GGUF_PATH, TINYLAMA_CONTEXT_WINDOW, max(1, os.cpu_count() - 1))
-#             # app.state.cpu_pipeline = app.state.llm_cpp
-            
-#             app.state.llm_cpp = await asyncio.to_thread(initialize_llm_pipeline, LLM_MODEL_CPU_ID, DEVICE)
-#             app.state.cpu_pipeline = app.state.llm_cpp
-
-#             logger.info("CPU pipeline (llama.cpp) loaded successfully.")
-#         except Exception as e:
-#             logger.error(f"FATAL: Failed to load CPU pipeline (llama.cpp): {e}", exc_info=True)
-#             raise HTTPException(status_code=503, detail=f"Failed to load fallback CPU model: {e}")
-#     return app.state.cpu_pipeline, "cpu", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
-
-# async def load_cpu_pipeline() -> Tuple[Optional[object], str, int, int, int]:
-
-#     if getattr(app.state, 'cpu_pipeline', None) is not None:
-#         if isinstance(app.state.cpu_pipeline, Llama):
-#             return app.state.cpu_pipeline, "cpu_gguf", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
-#         else:
-#             return app.state.cpu_pipeline, "cpu_hf", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
-
-#     if getattr(app.state, 'tokenizer', None) is None:
-#         try:
-#             logger.info(f"Loading tokenizer from {LLM_TOKENIZER_ID} for chat template and token counting.")
-#             app.state.tokenizer = AutoTokenizer.from_pretrained(LLM_TOKENIZER_ID, use_fast=False)
-#             if not getattr(app.state.tokenizer, "chat_template", None):
-#                 app.state.tokenizer.chat_template = LLAMA_3_CHAT_TEMPLATE
-#         except Exception as e:
-#             logger.error(f"FATAL: Failed to load common tokenizer {LLM_TOKENIZER_ID}: {e}", exc_info=True)
-#             raise HTTPException(status_code=503, detail=f"Failed to load tokenizer: {e}")
-
-#     gguf_path_exists = LLAMA_GGUF_PATH and os.path.exists(LLAMA_GGUF_PATH)
-    
-#     if gguf_path_exists:
-#         logger.info("Attempting to lazy-load TinyLlama (CPU) via llama.cpp (GGUF)...")
-#         try:
-#             app.state.llm_cpp = await asyncio.to_thread(
-#                 initialize_cpp_llm, 
-#                 LLAMA_GGUF_PATH, 
-#                 TINYLAMA_CONTEXT_WINDOW, 
-#                 max(1, os.cpu_count() - 1) 
-#             )
-#             app.state.cpu_pipeline = app.state.llm_cpp 
-#             logger.info("CPU pipeline (llama.cpp GGUF) loaded successfully.")
-#             return app.state.cpu_pipeline, "cpu_gguf", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
-        
-#         except Exception as e:
-#             logger.error(f"Failed to load llama.cpp GGUF model from {LLAMA_GGUF_PATH}: {e}. Falling back to HF.", exc_info=True)
-
-#             if getattr(app.state, 'llm_cpp', None):
-#                 del app.state.llm_cpp
-#                 app.state.llm_cpp = None
-#             app.state.cpu_pipeline = None
-
-
-#     logger.info(f"Attempting to lazy-load HF model {LLM_MODEL_CPU_ID} (CPU)...")
-#     try:
-
-#         app.state.cpu_pipeline = await asyncio.to_thread(
-#             initialize_llm_pipeline, 
-#             LLM_MODEL_CPU_ID, 
-#             DEVICE
-#         )
-#         logger.info("CPU pipeline (Hugging Face) loaded successfully.")
-        
-#         if getattr(app.state, 'tokenizer', None) is None and isinstance(app.state.cpu_pipeline, Pipeline):
-#             app.state.tokenizer = app.state.cpu_pipeline.tokenizer
-            
-#         return app.state.cpu_pipeline, "cpu_hf", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
-
-#     except Exception as e:
-#         logger.error(f"FATAL: Failed to load fallback CPU pipeline (HF): {e}", exc_info=True)
-#         raise HTTPException(status_code=503, detail=f"Failed to load fallback CPU model: {e}")
-
-#     raise HTTPException(status_code=503, detail="Failed to load any CPU model.")
 
 async def load_cpu_pipeline() -> Tuple[Optional[object], str, int, int, int]:
-    """
-    Loads LLM pipeline depending on available device.
-    Returns (pipeline, type_str, context_window, max_tokens, top_k)
-    """
 
     if getattr(app.state, 'cpu_pipeline', None) is not None:
-        logger.info("Pipeline already loaded. Returning existing instance.")
         if isinstance(app.state.cpu_pipeline, Llama):
             return app.state.cpu_pipeline, "cpu_gguf", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
-        return app.state.cpu_pipeline, "cpu_hf", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
+        return app.state.cpu_pipeline, "hf_gpu" if torch.cuda.is_available() else "cpu_hf", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
 
-    # Load tokenizer if missing
     if getattr(app.state, 'tokenizer', None) is None:
         try:
             logger.info(f"Loading tokenizer from {LLM_TOKENIZER_ID}")
@@ -273,45 +190,47 @@ async def load_cpu_pipeline() -> Tuple[Optional[object], str, int, int, int]:
             logger.error(f"Failed to load tokenizer: {e}", exc_info=True)
             raise HTTPException(status_code=503, detail=f"Failed to load tokenizer: {e}")
 
-    # Detect GPU availability
-    gpu_available = torch.cuda.is_available()
-    if gpu_available:
-        DEVICE = "cuda"
-        logger.info("GPU detected: will attempt to load 8B HF model")
-    else:
-        DEVICE = "cpu"
-        logger.info("No GPU detected: will use CPU models (1B or quantized)")
+    if torch.cuda.is_available():
+        try:
+            logger.info(f"GPU detected. Attempting to load HF GPU model {LLM_MODEL_GPU_ID}...")
+            app.state.cpu_pipeline = await asyncio.to_thread(
+                initialize_llm_pipeline,
+                LLM_MODEL_GPU_ID,
+                "cuda"
+            )
+            logger.info("HF GPU model loaded successfully.")
+            return app.state.cpu_pipeline, "hf_gpu", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
+        except Exception as e:
+            logger.warning(f"Failed to load HF GPU model: {e}. Falling back to CPU...")
 
-    # Try GGUF TinyLlama first if path exists
     if LLAMA_GGUF_PATH and os.path.exists(LLAMA_GGUF_PATH):
         try:
-            logger.info("Attempting to load TinyLlama (GGUF, CPU)")
+            logger.info("Loading TinyLlama GGUF (CPU)...")
+            logger.info(f"Model: {LLAMA_GGUF_PATH}")
             app.state.cpu_pipeline = await asyncio.to_thread(
-                initialize_cpp_llm, 
-                LLAMA_GGUF_PATH, 
-                TINYLAMA_CONTEXT_WINDOW, 
+                initialize_cpp_llm,
+                LLAMA_GGUF_PATH,
+                TINYLAMA_CONTEXT_WINDOW,
                 max(1, os.cpu_count() - 1)
             )
-            logger.info("Loaded TinyLlama (CPU) successfully.")
+            logger.info("TinyLlama GGUF loaded successfully.")
             return app.state.cpu_pipeline, "cpu_gguf", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
         except Exception as e:
-            logger.warning(f"GGUF load failed: {e}. Falling back to HF model.")
+            logger.warning(f"Failed to load GGUF CPU model: {e}")
 
-    # Load HF pipeline
     try:
-        logger.info(f"Loading Hugging Face pipeline ({DEVICE})...")
+        logger.info(f"Loading HF CPU model {LLM_MODEL_CPU_ID}...")
         app.state.cpu_pipeline = await asyncio.to_thread(
-            initialize_llm_pipeline, 
-            LLM_MODEL_CPU_ID, 
-            DEVICE
+            initialize_llm_pipeline,
+            LLM_MODEL_CPU_ID,
+            "cpu"
         )
-        logger.info(f"Hugging Face pipeline loaded successfully on {DEVICE}.")
-        if getattr(app.state, 'tokenizer', None) is None and isinstance(app.state.cpu_pipeline, Pipeline):
-            app.state.tokenizer = app.state.cpu_pipeline.tokenizer
-        return app.state.cpu_pipeline, f"hf_{DEVICE}", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
+        logger.info("HF CPU model loaded successfully.")
+        return app.state.cpu_pipeline, "cpu_hf", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
     except Exception as e:
-        logger.error(f"Failed to load HF model: {e}", exc_info=True)
-        raise HTTPException(status_code=503, detail=f"Failed to load HF model: {e}")
+        logger.error(f"FATAL: Failed to load any CPU model: {e}", exc_info=True)
+        raise HTTPException(status_code=503, detail=f"Failed to load any model: {e}")
+
 
 async def get_pipeline_for_runtime() -> Tuple[Optional[object], str, int, int, int]:
     """
