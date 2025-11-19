@@ -69,6 +69,9 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           cd hf-space
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git checkout main || git checkout -b main
           git add --all
-          git commit -m "Auto-deploy pipeline update $$(date)" || echo "No changes to commit"
-          git push --force origin main
+          git commit -m "Deploy $(date)" || echo "No changes"
+          git push --force --set-upstream origin main
