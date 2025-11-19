@@ -68,4 +68,4 @@ jobs:
           cd hf-space
           git add .
           git commit -m "Auto-deploy pipeline update" || echo "No changes to commit"
-          git push https://$HF_TOKEN@huggingface.co/spaces/EJ4U/WHO-rag-system main
+          git push https://EJ4U:${HF_TOKEN}@huggingface.co/spaces/EJ4U/WHO-rag-system.git main
