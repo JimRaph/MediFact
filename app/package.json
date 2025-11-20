@@ -2,9 +2,6 @@
   "name": "health-info",
   "version": "0.1.0",
   "private": true,
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
-  },
   "scripts": {
     "dev": "NEXT_PUBLIC_HOST_CONTAINER=1 next dev",
     "build": "prisma generate && next build",
