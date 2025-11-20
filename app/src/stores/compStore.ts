@@ -10,7 +10,7 @@ export const useComp = create<CompState>((set) => (
     {
     sidebarOpen: false,
 
-    setSidebarOpen: (value: boolean) => set((state) => ({
+    setSidebarOpen: (value: boolean) => set((_state) => ({
         sidebarOpen: value
     })),
 })

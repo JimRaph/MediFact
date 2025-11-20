@@ -46,6 +46,7 @@ class APIClient {
             errorDetail = jsonError.detail || JSON.stringify(jsonError);
         } catch (e) {
             errorDetail = response.statusText;
+            console.log('Error parsing error text lib api: ', e)
         }
         console.log('rradd ', this.baseURL)
         throw new Error(`API Error ${response.status}: ${errorDetail}`);

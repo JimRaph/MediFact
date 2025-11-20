@@ -178,7 +178,7 @@ export function useChat({ currentConversation, userId, onNewConversationCreated 
     }
     window.addEventListener('cancel-active-mutation', handler)
     return () => window.removeEventListener('cancel-active-mutation', handler)
-  }, [])
+  }, [sendMessageMutation])
 
   const allMessages = currentConversation?.id ? messages : tempMessages
 

@@ -58,7 +58,7 @@ export function useConversations(userId: string): UseConversationsReturn {
         }
     } 
     
- }, [conversations])
+ }, [conversations,currentConversation])
 
 
  //Original intention here was to sync conversation across tabs
@@ -129,13 +129,13 @@ export function useConversations(userId: string): UseConversationsReturn {
         try{
             localStorage.setItem(storedconversationkey, conversation.id)
         } catch(e) {
-
+            console.log('Error setting current conversation: ', e)
         }
     } else {
         try {
             localStorage.removeItem(storedconversationkey)
         } catch(e) {
-
+             console.log('Error removing current conversation: ', e)
         }
     }
  }, [])
@@ -146,7 +146,7 @@ export function useConversations(userId: string): UseConversationsReturn {
     try {
         localStorage.removeItem(storedconversationkey)
     } catch (e) {
-        
+         console.log('Error removing current conversation: ', e)
     }
 
     queryClient.removeQueries({queryKey: ['messages']})

@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 import { authOptions } from '@/lib/auth'
 import { DashboardHeader } from '@/components/layout/DashboardHeaders'
-import {checkUser} from '@/lib/db'
+// import {checkUser} from '@/lib/db'
 
 
 interface DashboardLayoutProps {
@@ -19,8 +19,8 @@ export default async function DashboardLayout({ children }: DashboardLayoutProps
     redirect('/login')
   }
 
-  const userId = session.user.id;
-  const userExists = await checkUser(userId);
+  // const userId = session.user.id;
+  // const userExists = await checkUser(userId);
 
   return (
     <div className="flex flex-col max-h-screen overflow-hidden">

@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useCallback, useState } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
 import { useChat } from '@/hooks/useChat'
 import { useConversations } from '@/hooks/useConversations'
 import { ChatInput } from './ChatInput'
@@ -32,14 +32,14 @@ export function ChatInterface({user}: ChatInterfaceProps) {
     // }
     selectConversation({id: newId} as Conversation)
     
-}, [conversations, selectConversation]);
+}, [ selectConversation]);
 
   const handleSelectConversation = useCallback((conv:Conversation ) => {
     selectConversation(conv)
     if(sidebarOpen){
       setSidebarOpen(false)
     }
-  }, [selectConversation, sidebarOpen])
+  }, [selectConversation, sidebarOpen, setSidebarOpen])
 
   const {
     messages,
@@ -78,7 +78,7 @@ export function ChatInterface({user}: ChatInterfaceProps) {
     if (isDeletingConversation || isCreatingConversation) {
       cancelSending()
     }
-  }, [isDeletingConversation, isCreatingConversation])
+  }, [isDeletingConversation, isCreatingConversation, cancelSending])
 
   return (
 

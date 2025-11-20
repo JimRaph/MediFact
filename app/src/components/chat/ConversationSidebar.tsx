@@ -2,7 +2,7 @@
 
 import { Conversation } from '@/types/chat'
 import { PlusIcon } from '@heroicons/react/24/outline'
-import { formatDate } from '@/lib/utils'
+// import { formatDate } from '@/lib/utils'
 import { ConversationItem } from '../ui/ConversationItem'
 
 interface ConversationSidebarProps {
@@ -25,7 +25,7 @@ export function ConversationSidebar({
   isCreatingConversation,
   onDeleteConversation,
   isDeletingConversation,
-  userId,
+  // userId,
   setInput
 }: ConversationSidebarProps) {
 
