@@ -1,9 +1,8 @@
 from typing import Dict, List, Optional
-import boto3
+# import boto3
 import os
 import json
 import logging
-# from botocore.exceptions import NoCredentialsError, ClientError
 
 S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
 AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY_ID")
@@ -13,6 +12,8 @@ AWS_REGION = os.getenv("AWS_REGION")
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def get_s3_client():
+    import boto3
+
     if not AWS_ACCESS_KEY or not AWS_SECRET_KEY:
         logging.warning("AWS credentials not found in environment. Using default config.")
         return boto3.client('s3', region_name=AWS_REGION)
@@ -25,10 +26,7 @@ def get_s3_client():
     )
 
 def download_chroma_folder_from_s3(s3_prefix: str, local_dir: str):
-    """
-    Downloads all files under s3_prefix from S3 to local_dir,
-    preserving the folder structure for ChromaDB.
-    """
+
     s3 = get_s3_client()
     paginator = s3.get_paginator("list_objects_v2")
     try:

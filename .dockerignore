@@ -7,5 +7,7 @@ rag_cloud_deployment/__pycache__/inference_chroma.cpython-311.pyc
 rag_cloud_deployment/infer.py
 rag_cloud_deployment/keep.py 
 rag_cloud_deployment/utils
+rag_cloud_deployment/f.py 
+rag_cloud_deployment/fil.py 
 dc.yml
 utils

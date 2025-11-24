@@ -211,7 +211,7 @@ async def load_cpu_pipeline() -> Tuple[Optional[object], str, int, int, int]:
                 initialize_cpp_llm,
                 LLAMA_GGUF_PATH,
                 TINYLAMA_CONTEXT_WINDOW,
-                max(1, os.cpu_count() - 1)
+                max(1, os.cpu_count())
             )
             logger.info("TinyLlama GGUF loaded successfully.")
             return app.state.cpu_pipeline, "cpu_gguf", TINYLAMA_CONTEXT_WINDOW, MAX_NEW_TOKENS_CPU, RETRIEVE_TOP_K_CPU
@@ -919,8 +919,6 @@ async def health_check():
 
 @app.post("/rag", response_model=RAGResponse)
 async def rag_handler(request: QueryRequest):
-
-
     start = time.time()
     try:
         pipe, runtime_env, max_context, max_gen, top_k = await load_cpu_pipeline()

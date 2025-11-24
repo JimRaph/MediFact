@@ -106,7 +106,7 @@ export async function getRagAnswer(
         stream: false
     };
     
-    const rawResponse = await apiClient.post<InferenceAPIResponse>('/rag', data);
+    const rawResponse = await apiClient.post<InferenceAPIResponse>('', data);
     
     return {
         answer: rawResponse.answer,

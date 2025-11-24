@@ -1,0 +1,12 @@
+torch 
+transformers 
+sentence-transformers 
+fastembed
+chromadb 
+pydantic 
+fastapi 
+requests
+python-json-logger
+boto3
+accelerate
+bitsandbytes
