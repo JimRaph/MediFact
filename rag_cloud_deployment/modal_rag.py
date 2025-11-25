@@ -180,7 +180,6 @@ class RagService:
         return pipe, tokenizer
 
     def _initialize_llm_pipeline(self, model_id: str):
-        """Initialize the main LLM pipeline"""
         from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
         from transformers import BitsAndBytesConfig
         
@@ -367,7 +366,6 @@ class RagService:
         return self._rule_based_intent_classification(query)
 
     def _rule_based_intent_classification(self, query: str) -> str:
-        """Fallback rule-based intent classification"""
         query_lower = query.lower().strip()
         
         greeting_words = ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good afternoon', 'how are you']
@@ -385,7 +383,6 @@ class RagService:
 
     @method()
     async def Greet(self, query: str) -> RAGResponse:
-        """Handle greeting queries"""
         messages = [
             {"role": "system", "content": "You are a greeter. Respond politely to the user greeting in a single line."},
             {"role": "user", "content": query}
@@ -411,7 +408,6 @@ class RagService:
 
     @method()
     async def HarmOff(self, query: str) -> RAGResponse:
-        """Handle harmful/off-topic queries"""
         messages = [
             {"role": "system", "content": "You are an intelligent assistant. Inform the user that you cannot answer harmful/off-topic questions. Keep it short and brief, in one sentence."},
             {"role": "user", "content": query}
@@ -437,7 +433,6 @@ class RagService:
 
     @method()
     async def summarize_history(self, history: List[HistoryMessage]) -> str:
-        """Summarize conversation history"""
         if not history:
             return ''
             
@@ -456,7 +451,6 @@ class RagService:
 
     @method()
     async def expand_query_with_llm(self, user_query: str, summary: str, history: List[HistoryMessage]) -> List[str]:
-        """Expand query for better retrieval"""
         if not history or len(history) == 0:
             expansion_prompt = f"You are a specialized query expansion engine. Generate 3 alternative, highly effective search queries to find documents relevant to the User Query. Only output the queries, one per line. Do not include the original query or any explanations.\nUser Query: {user_query}\nExpanded Queries:\n"
         else:
@@ -487,7 +481,6 @@ class RagService:
         return deduped
 
     def retrieve_context(self, queries: List[str]) -> Tuple[List[Dict], List[str]]:
-        """Retrieve context from ChromaDB"""
         if self.embedding_model is None:
             raise HTTPException(status_code=503, detail="Embedding model not loaded.")
             
@@ -510,7 +503,6 @@ class RagService:
         return context_data, list(source_urls)
 
     def rerank_documents(self, query: str, context: List[Dict], top_k: int) -> List[Dict]:
-        """Rerank documents using cross-encoder"""
         if not context or self.cross_encoder is None:
             return context[:top_k]
             
@@ -523,7 +515,6 @@ class RagService:
 
     @method()
     async def prune_messages_to_fit_context(self, messages: List[Dict], final_context: List[Dict], summary: str, max_input_tokens: int) -> Tuple[List[Dict], List[Dict], int]:
-        """Prune messages to fit within token limit"""
         if not self.intent_tokenizer:
             raise ValueError("Tokenizer not initialized for pruning.")
             
@@ -569,7 +560,6 @@ class RagService:
 
     @fastapi_endpoint(method="POST")
     async def rag_endpoint(self, request_data: Dict[str, Any]):
-        """Main RAG endpoint"""
         try:
             request = QueryRequest(**request_data)
         except Exception as e:

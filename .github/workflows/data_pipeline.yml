@@ -39,39 +39,39 @@ jobs:
         run: |
           python airflow/scripts/data_preprocessing.py
 
-  deploy-to-hf-space:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'   
+  # deploy-to-hf-space:
+  #   runs-on: ubuntu-latest
+  #   if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'   
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+  #   steps:
+  #     - name: Checkout repo
+  #       uses: actions/checkout@v3
 
-      - name: Set up Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+  #     - name: Set up Git
+  #       run: |
+  #         git config --global user.name "github-actions[bot]"
+  #         git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Clone Hugging Face Space
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: |
-          git clone https://EJ4U:${HF_TOKEN}@huggingface.co/spaces/EJ4U/WHO-rag-system hf-space
+  #     - name: Clone Hugging Face Space
+  #       env:
+  #         HF_TOKEN: ${{ secrets.HF_TOKEN }}
+  #       run: |
+  #         git clone https://EJ4U:${HF_TOKEN}@huggingface.co/spaces/EJ4U/WHO-rag-system hf-space
 
 
-      - name: Copy deployment folder
-        run: |
-          rm -rf hf-space/*
-          cp -r rag_cloud_deployment/* hf-space/
+  #     - name: Copy deployment folder
+  #       run: |
+  #         rm -rf hf-space/*
+  #         cp -r rag_cloud_deployment/* hf-space/
 
-      - name: Commit and push to HF Space
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: |
-          cd hf-space
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
-          git checkout main || git checkout -b main
-          git add --all
-          git commit -m "Deploy $(date)" || echo "No changes"
-          git push --force --set-upstream origin main
+  #     - name: Commit and push to HF Space
+  #       env:
+  #         HF_TOKEN: ${{ secrets.HF_TOKEN }}
+  #       run: |
+  #         cd hf-space
+  #         git config user.email "actions@github.com"
+  #         git config user.name "GitHub Actions"
+  #         git checkout main || git checkout -b main
+  #         git add --all
+  #         git commit -m "Deploy $(date)" || echo "No changes"
+  #         git push --force --set-upstream origin main
