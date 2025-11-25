@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Conversation, Message, ChatRequest, ChatResponse } from '@/types/chat'
+import { toast } from 'react-toastify'
 
 interface UseChatProps {
   currentConversation: Conversation | null
@@ -71,7 +72,23 @@ export function useChat({ currentConversation, userId, onNewConversationCreated 
 
       map.delete(mapKey)
 
-      if (!response.ok) throw new Error('Failed to send message')
+      if (!response.ok) {
+        let errorMessage = 'Failed to send message';
+        
+        try {
+          const errorBody = await response.json(); 
+          if (errorBody && errorBody.error) {
+            errorMessage = errorBody.error;
+          } else {
+            errorMessage = `API Error: ${response.status} ${response.statusText}`;
+          }
+        } catch (_e) {
+          errorMessage = `Network Error or Unhandled Status ${response.status}`;
+        }
+        
+        throw new Error(errorMessage);
+      }
+      
       return response.json()
     },
 
@@ -99,7 +116,7 @@ export function useChat({ currentConversation, userId, onNewConversationCreated 
       return { convKey }
     },
 
-    onSuccess: async (data, _variables, context) => {
+    onSuccess: async (data, _variables, _context) => {
       const convId = data.conversationId || currentConversation?.id 
       if (!convId) {
         setPendingConversationId(null)
@@ -134,6 +151,7 @@ export function useChat({ currentConversation, userId, onNewConversationCreated 
     
     onError: (err, _variables, context) => {
       console.error('Message Send Error:', err)
+      toast(err.message)
       const conv = currentConversation?.id ?? (context as any)?.convKey ?? null
       if (conv && conv !== 'temp') {
         queryClient.invalidateQueries({ queryKey: ['messages', conv] })
