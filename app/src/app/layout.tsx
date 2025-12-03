@@ -73,11 +73,10 @@ export const metadata: Metadata = {
     }
   },
   verification: {
-    google: 'google37bb20ef38bafb0a',
+    google: 'YUa7__6Sc2eo89jNPhxREJ1UkvWl4ZWXp1XvX2QW3r4',
   }
   }
 
-  
 
 export default function RootLayout({
   children,
