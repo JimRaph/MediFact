@@ -6,6 +6,17 @@ import { generateConversationTitle } from '@/lib/utils'
 import { ChatRequest } from '@/types/chat'
 import {  RagResponse } from '@/types/api'
 import { getRagAnswer, healthCheck } from '@/lib/api';
+import { rateLimitService } from '@/lib/rateLimiter' 
+import { headers } from 'next/headers'
+
+
+const getClientIp = async (): Promise<string> => {
+  const headersList = await headers();
+  const ipHeader =  headersList.get("x-forwarded-for")
+  const ip = ipHeader ? ipHeader.split(",")[0].trim() : '127.0.0.1';
+  return ip; 
+
+}
 
 
 
@@ -22,7 +33,24 @@ export async function POST(request: NextRequest) {
   console.log('DEBUGG..........ING ')
 
   try {
+
     const session = await getServerSession(authOptions)
+    const ip = await getClientIp();
+    const userId = session?.user?.id 
+  
+    const limitStatus = await rateLimitService.acquireLock(ip, userId);
+
+    if(!limitStatus.allowed){
+      const headers = {
+        "X-RateLimit-Limit": rateLimitService.MAX_REQUESTS.toString(),
+        "X-RateLimit-Remaining": "0",
+      }
+      console.warn(`Rate limit exceeded for IP: ${ip}, User: ${userId || 'N/A'}`)
+      return NextResponse.json(
+      {error: "Rate limit exceeded. Please try again later."},
+      {status: 429, headers}
+      )
+    }
 
     console.log(`[AUTH] session retrieved: ${session ? 'YES' : 'NO'}`);
     if (session && session.user){
@@ -116,11 +144,16 @@ export async function POST(request: NextRequest) {
       data: { updatedAt: new Date() },
     })
 
+    const successHeaders = {
+      "X-RateLmit-Limit": rateLimitService.MAX_REQUESTS.toString(),
+      "X-RateLimit-Remaining": limitStatus.ipRemaining.toString()
+    }
+
     return NextResponse.json({
       response: aiAnswer,
       conversationId: conversation.id,
       sources: sources,
-    })
+    }, {headers: successHeaders})
   } catch (error) {
     console.error('Chat API Error:', error)
     return NextResponse.json(
