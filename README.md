@@ -94,8 +94,8 @@ To conserve Modal free GPU credits, the backend runs on a **low-end GPU**:
 Clone the repo and run:
 
 ```bash
-git clone <repo-url>
-cd <project-folder>
+git clone https://github.com/JimRaph/MediFact.git
+cd MediFact
 docker compose up --build
 ```
 
