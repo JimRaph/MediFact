@@ -70,7 +70,7 @@ The project is composed of **three services** (see `docker-compose.yml`):
 ##  Deployment
 
 * **Frontend:** Vercel
-* **Backend:** Modal (serverless GPU deployment)
+* **Backend:** Modal
 
 ---
 
