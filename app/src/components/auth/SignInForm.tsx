@@ -91,7 +91,7 @@ export function SignInForm() {
           transition={{ delay: 0.2 }}
           className="text-4xl font-semibold mb-3 text-sky-900"
         >
-          Welcome to HealthAI
+          Welcome to MediFact
         </motion.h2>
 
         <div className=" text-red-800 max-w-md text-center leading-relaxed">

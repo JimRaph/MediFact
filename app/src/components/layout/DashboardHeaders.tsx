@@ -31,7 +31,7 @@ export function DashboardHeader({ user }: DashboardHeaderProps) {
                   <Bars3Icon className="w-6 h-6" />
                 </button>
               </div>
-            <h1 className="text-md font-semibold text-gray-900">HealthInfo</h1>
+            <h1 className="text-md font-semibold text-gray-900">MediFact</h1>
           </div>
          
           <div className="flex items-center space-x-4">

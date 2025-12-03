@@ -125,7 +125,7 @@ export function ChatInterface({user}: ChatInterfaceProps) {
           {messages.length === 0 && !isLoadingHistory && !isSending && (
             <div className="flex items-center justify-center h-full">
               <div className="text-center text-gray-500">
-                <h3 className="text-lg font-medium">Welcome to Health Info Hub</h3>
+                <h3 className="text-lg font-medium">Welcome to MediFact</h3>
                 <p className="mt-2">Ask a health-related question to get started.</p>
               </div>
             </div>
